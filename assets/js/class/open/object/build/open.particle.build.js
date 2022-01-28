@@ -2,7 +2,8 @@ class OpenParticleBuild{
     constructor({group}){
         this.param = {
             count: 50,
-            color: 0xffffff
+            color: 0xffffff,
+            size: 1.0
         }
 
         this.init(group)
