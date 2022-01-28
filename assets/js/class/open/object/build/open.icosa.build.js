@@ -1,10 +1,12 @@
 class OpenIcosaBuild{
     constructor({group}){
         this.param = {
-            radius: 36,
-            seg: 1,
+            icosaRadius: 36,
+            icosaSeg: 1,
             color: 0xffdd00,
-            linewidth: 0.003
+            linewidth: 0.003,
+            edgeRadius: 0.6,
+            edgeSeg: 1
         }
 
         this.init(group)
@@ -22,21 +24,28 @@ class OpenIcosaBuild{
         this.local = new THREE.Group()
 
         this.icosa = new Line2Icosa({
-            radius: this.param.radius,
-            seg: this.param.seg,
+            radius: this.param.icosaRadius,
+            seg: this.param.icosaSeg,
             linewidth: this.param.linewidth,
             color: this.param.color, 
         })
         this.local.add(this.icosa.get())
 
 
-        this.sphere = null
+        this.edge = new IcosaEdge({
+            position: this.icosa.getPosition().array,
+            radius: this.param.edgeRadius,
+            seg: this.param.edgeSeg,
+            materialOpt: {
+                color: this.param.color,
+                transparent: true,
+                opacity: 1,
+            }
+        })
+        this.local.add(this.edge.get())
 
 
         group.add(this.local)
-    }
-    createPoints(){
-        
     }
 
 
@@ -48,6 +57,7 @@ class OpenIcosaBuild{
         this.local.rotation.y -= 0.002
 
         const icosaMeshes = this.icosa.get()
+        const edgeMeshes = this.edge.get()
 
         icosaMeshes.children.forEach((mesh, idx, arr) => {
             const material = mesh.material
@@ -55,6 +65,18 @@ class OpenIcosaBuild{
             const n = SIMPLEX.noise2D(idx * 0.01 * (arr.length - idx), time * 0.0003)
 
             material.uniforms['alphaStd'].value = n
+        })
+
+        edgeMeshes.children.forEach((mesh, idx) => {
+            const material = mesh.material
+
+            // const n1 = SIMPLEX.noise2D(idx * 0.05, time * 0.0005)
+            const n2 = SIMPLEX.noise2D(idx * 0.1, time * 0.0025)
+
+            // const o1 = n1 > 0 ? 1 : 1
+            // const o2 = PublicMethod.normalize(n2, 0, 1, -1, 1)
+
+            material.opacity = n2/*  * o1 */
         })
     }
 }

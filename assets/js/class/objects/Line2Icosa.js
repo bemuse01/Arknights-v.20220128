@@ -75,4 +75,7 @@ class Line2Icosa{
     get(){
         return this.group
     }
+    getPosition(){
+        return this.icosa.position
+    }
 }
