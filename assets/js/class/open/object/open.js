@@ -118,7 +118,7 @@ class OpenObject{
     animateObject(){
         for(const comp in this.comp){
             if(!this.comp[comp] || !this.comp[comp].animate) continue
-            this.comp[comp].animate()
+            this.comp[comp].animate(this.size.obj)
         }
     }
 

@@ -37,6 +37,9 @@ class Particle{
 
 
     // get
+    get(){
+        return this.mesh
+    }
     getGeometry(){
         return this.geometry
     }

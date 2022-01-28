@@ -26,7 +26,6 @@ class OpenIcosaBuild{
             color: this.param.color, 
             group
         })
-        // group.add(new THREE.Mesh(new THREE.IcosahedronGeometry(50, 1), new THREE.MeshBasicMaterial({wireframe: true})))
     }
 
 
