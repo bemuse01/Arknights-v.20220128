@@ -1,11 +1,10 @@
 class Line2Icosa{
-    constructor({radius, seg, color, linewidth, group}){
+    constructor({radius, seg, color, linewidth}){
         this.color = color
         this.linewidth = linewidth
-        this.group = group
         this.icosa = new THREE.IcosahedronGeometry(radius, seg).attributes
 
-        this.local = new THREE.Group()
+        this.group = new THREE.Group()
 
         this.init()
     }
@@ -19,18 +18,11 @@ class Line2Icosa{
 
     // create
     create(){
-        this.createGeometry()
-        this.createMaterial()
-    }
-    createGeometry(){
         const position = this.icosa.position
         const positionArr = position.array
         const count = position.count
 
         for(let i = 0; i < count / 2; i++){
-
-            const geometry = new THREE.LineGeometry()
-
             const pos = []
 
             for(let j = 0; j < 2; j++){
@@ -44,16 +36,20 @@ class Line2Icosa{
                 pos.push(x, y, z)
             }
 
-            geometry.setPositions(pos)
-
+            const geometry = this.createGeometry(pos)
             const material = this.createMaterial()
 
             const mesh = new THREE.Line2(geometry, material)
 
-            this.local.add(mesh)
+            this.group.add(mesh)
         }
+    }
+    createGeometry(pos){
+        const geometry = new THREE.LineGeometry()
+        
+        geometry.setPositions(pos)
 
-        this.group.add(this.local)
+        return geometry
     }
     createMaterial(){
         return new THREE.LineMaterial({
@@ -69,19 +65,14 @@ class Line2Icosa{
     }
 
 
-    // animate
-    animate(){
-        const time = window.performance.now()
+    // dispose
+    dispose(){
 
-        this.local.rotation.x += 0.002
-        this.local.rotation.y -= 0.002
+    }
 
-        this.local.children.forEach((mesh, idx) => {
-            const material = mesh.material
 
-            const n = SIMPLEX.noise2D(idx * 0.01 * (this.local.children.length - idx), time * 0.0003)
-
-            material.uniforms['alphaStd'].value = n
-        })
+    // get
+    get(){
+        return this.group
     }
 }
