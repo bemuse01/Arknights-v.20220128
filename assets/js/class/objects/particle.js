@@ -1,5 +1,10 @@
 class Particle{
-    constructor({materialOpt}){
+    constructor({count, materialOpt, velX, velY}){
+        this.velocity = Array.from({length: count}, () => ({
+            vx: THREE.Math.randFloat(velX.min, velX.max),
+            vy: THREE.Math.randFloat(velY.min, velY.max)
+        }))
+
         this.materialOpt = materialOpt
 
         this.init()
@@ -45,5 +50,8 @@ class Particle{
     }
     getMaterial(){
         return this.material
+    }
+    getAttribute(name){
+        return this.geometry.attributes[name]
     }
 }

@@ -13,7 +13,8 @@ class OpenObject{
 
         // module
         this.modules = {
-            icosa: OpenIcosaBuild
+            icosa: OpenIcosaBuild,
+            particle: OpenParticleBuild
         }
         this.group = {}
         this.comp = {}

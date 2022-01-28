@@ -3,9 +3,11 @@ class OpenParticleBuild{
         this.size = size
 
         this.param = {
-            count: 50,
+            count: 40,
             color: 0xffffff,
-            size: 1.0
+            size: 2.5,
+            velX: {min: -0.3, max: 0.3},
+            velY: {min: 0.75, max: 1.25}
         }
 
         this.init(group)
@@ -21,14 +23,21 @@ class OpenParticleBuild{
     // create
     create(group){
         this.object = new Particle({
-            vertexShader: OpenParticleShader.vertex,
-            fragmentShader: OpenParticleShader.fragment,
-            transparent: true,
-            uniforms: {
-                uColor: {value: this.param.color},
-                uSize: {value: this.param.size}
+            count: this.param.count,
+            velX: this.param.velX,
+            velY: this.param.velY,
+            materialOpt: {
+                vertexShader: OpenParticleShader.vertex,
+                fragmentShader: OpenParticleShader.fragment,
+                transparent: true,
+                uniforms: {
+                    uColor: {value: new THREE.Color(this.param.color)},
+                    uSize: {value: this.param.size}
+                }
             }
         })
+
+        // this.object.get().rotation.x = 24 * RADIAN
 
         this.createAttribute()
 
@@ -43,7 +52,7 @@ class OpenParticleBuild{
         for(let i = 0; i < this.param.count; i++){
             const idx = i * 3
 
-            const x = (Math.random() * w - w / 2) * 0.2
+            const x = (Math.random() * w - w / 2) * 0.3
             const y = Math.random() * h - h / 2
             const z = 0
 
@@ -61,6 +70,41 @@ class OpenParticleBuild{
 
     // animate
     animate({w, h}){
+        const velocity = this.object.velocity
 
+        const position = this.object.getAttribute('position')
+        const positionArr = position.array
+
+        const opacity = this.object.getAttribute('aOpacity')
+        const opacityArr = opacity.array
+
+        const hhalf = h / 2
+
+        for(let i = 0; i < this.param.count; i++){
+            const idx = i * 3
+
+
+            // position
+            const {vx, vy} = velocity[i]
+
+            positionArr[idx] += vx
+            positionArr[idx + 1] += vy
+            
+            if(positionArr[idx + 1] > hhalf){
+                positionArr[idx] = (Math.random() * w - w / 2) * 0.3
+                positionArr[idx + 1] -= hhalf * 2
+            }
+
+
+            // opacity
+            const crt = new THREE.Vector2(positionArr[idx], positionArr[idx + 1])
+            const std = new THREE.Vector2(positionArr[idx], -hhalf)
+            const o = (std.distanceTo(crt) / hhalf)
+
+            opacityArr[i] = o
+        }
+
+        position.needsUpdate = true
+        opacity.needsUpdate = true
     }
 }
