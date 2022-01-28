@@ -11,7 +11,6 @@ class OpenObject{
         // node
         this.node = document.querySelector('.open-object')
 
-
         // module
         this.modules = {
             icosa: OpenIcosaBuild
@@ -66,14 +65,13 @@ class OpenObject{
 
         this.proxy = new Proxy(proxyObj, {
             isAllTrue(obj){
-                return Object.keys(obj).filter(key => key !== 'element').every(key => obj[key] === true)
+                return Object.keys(obj).every(key => obj[key] === true)
             },
             set(obj, prop, value){
                 obj[prop] = value
 
                 // when open's comps all true, close open and show map
                 if(this.isAllTrue(obj)){
-                    self.element.style.opacity = 0
                 }
                 
                 return true

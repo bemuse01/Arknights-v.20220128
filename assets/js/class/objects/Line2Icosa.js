@@ -73,8 +73,6 @@ class Line2Icosa{
     animate(){
         const time = window.performance.now()
 
-        // const rx = SIMPLEX.noise2D(0.001, time * 0.0001) * 0.0125
-
         this.local.rotation.x += 0.002
         this.local.rotation.y -= 0.002
 
