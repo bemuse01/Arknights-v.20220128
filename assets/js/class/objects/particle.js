@@ -1,6 +1,5 @@
 class Particle{
-    constructor({count, materialOpt}){
-        this.count = count
+    constructor({materialOpt}){
         this.materialOpt = materialOpt
 
         this.init()
@@ -28,5 +27,20 @@ class Particle{
         }else{
             this.material = new THREE.PointsMaterial(this.materialOpt)
         }
+    }
+
+
+    // set
+    setAttribute(name, array, itemSize){
+        this.geometry.setAttribute(name, new THREE.BufferAttribute(array, itemSize))
+    }
+
+
+    // get
+    getGeometry(){
+        return this.geometry
+    }
+    getMaterial(){
+        return this.material
     }
 }
