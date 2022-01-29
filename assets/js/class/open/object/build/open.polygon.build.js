@@ -44,13 +44,11 @@ class OpenPolygonBuild{
             const x = Math.cos(deg * RADIAN) * this.param.radius
             const y = Math.sin(deg * RADIAN) * this.param.radius
 
-            position.push(x, y, 0)
+            if(i !== 0) position.push(x, y, 0)
             position.push(x, y, 0)
         }
 
-        for(let i = 0; i < 3; i++){
-            position.push(position.shift())
-        }
+        position.push(position[0], position[1], position[2])
 
         return position
     }
