@@ -23,17 +23,18 @@ class OpenIcosaBuild{
     create(group){
         this.local = new THREE.Group()
 
-        this.icosa = new Line2Icosa({
-            radius: this.param.icosaRadius,
-            seg: this.param.icosaSeg,
+        const position = new THREE.IcosahedronGeometry(this.param.icosaRadius, this.param.icosaSeg).attributes.position.array
+
+        this.icosa = new Line2Object({
+            position, 
             linewidth: this.param.linewidth,
             color: this.param.color, 
         })
         this.local.add(this.icosa.get())
 
 
-        this.edge = new IcosaEdge({
-            position: this.icosa.getPosition().array,
+        this.edge = new ObjectEdge({
+            position,
             radius: this.param.edgeRadius,
             seg: this.param.edgeSeg,
             materialOpt: {
@@ -70,13 +71,9 @@ class OpenIcosaBuild{
         edgeMeshes.children.forEach((mesh, idx) => {
             const material = mesh.material
 
-            // const n1 = SIMPLEX.noise2D(idx * 0.05, time * 0.0005)
-            const n2 = SIMPLEX.noise2D(idx * 0.1, time * 0.0025)
+            const n = SIMPLEX.noise2D(idx * 0.1, time * 0.0025)
 
-            // const o1 = n1 > 0 ? 1 : 1
-            // const o2 = PublicMethod.normalize(n2, 0, 1, -1, 1)
-
-            material.opacity = n2/*  * o1 */
+            material.opacity = n
         })
     }
 }

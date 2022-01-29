@@ -14,7 +14,8 @@ class OpenObject{
         // module
         this.modules = {
             icosa: OpenIcosaBuild,
-            particle: OpenParticleBuild
+            particle: OpenParticleBuild,
+            polygon: OpenPolygonBuild
         }
         this.group = {}
         this.comp = {}

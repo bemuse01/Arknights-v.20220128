@@ -97,8 +97,8 @@ class OpenParticleBuild{
 
 
             // opacity
-            const crt = new THREE.Vector2(positionArr[idx], positionArr[idx + 1])
-            const std = new THREE.Vector2(positionArr[idx], -hhalf)
+            const crt = new THREE.Vector2(0, positionArr[idx + 1])
+            const std = new THREE.Vector2(0, -hhalf)
             const o = (std.distanceTo(crt) / hhalf)
 
             opacityArr[i] = o

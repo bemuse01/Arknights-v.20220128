@@ -1,8 +1,8 @@
-class Line2Icosa{
-    constructor({radius, seg, color, linewidth}){
+class Line2Object{
+    constructor({position, color, linewidth}){
         this.color = color
         this.linewidth = linewidth
-        this.icosa = new THREE.IcosahedronGeometry(radius, seg).attributes
+        this.position = position
 
         this.group = new THREE.Group()
 
@@ -18,9 +18,7 @@ class Line2Icosa{
 
     // create
     create(){
-        const position = this.icosa.position
-        const positionArr = position.array
-        const count = position.count
+        const count = this.position.length / 3
 
         for(let i = 0; i < count / 2; i++){
             const pos = []
@@ -29,9 +27,9 @@ class Line2Icosa{
                 const idx = i * 2 + j
                 const index = idx * 3
 
-                const x = positionArr[index]
-                const y = positionArr[index + 1]
-                const z = positionArr[index + 2]
+                const x = this.position[index]
+                const y = this.position[index + 1]
+                const z = this.position[index + 2]
 
                 pos.push(x, y, z)
             }

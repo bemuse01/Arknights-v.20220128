@@ -1,4 +1,4 @@
-class IcosaEdge{
+class ObjectEdge{
     constructor({radius, seg, position, materialOpt}){
         this.radius = radius
         this.seg = seg
