@@ -1,7 +1,9 @@
 class OpenIcosaBuild{
-    constructor({group}){
+    constructor({group, size}){
+        this.size = size
+
         this.param = {
-            icosaRadius: 36,
+            icosaRadius: 32,
             icosaSeg: 1,
             color: 0xffdd00,
             linewidth: 0.003,
@@ -23,6 +25,7 @@ class OpenIcosaBuild{
     create(group){
         this.local = new THREE.Group()
 
+        // const radius = this.param.icosaRadius * this.size.obj.h / 2
         const position = new THREE.IcosahedronGeometry(this.param.icosaRadius, this.param.icosaSeg).attributes.position.array
 
         this.icosa = new Line2Object({
@@ -50,6 +53,18 @@ class OpenIcosaBuild{
 
         group.add(this.local)
     }
+
+
+    // resize
+    // resize({obj}){
+    //     const {h} = obj
+
+    //     const radius = this.param.icosaRadius * h / 2
+    //     const position = new THREE.IcosahedronGeometry(radius, this.param.icosaSeg).attributes.position.array
+
+    //     this.icosa.resize(position)
+    //     this.edge.resize(position)
+    // }
 
 
     // animate

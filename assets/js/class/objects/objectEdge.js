@@ -43,6 +43,31 @@ class ObjectEdge{
     }
 
 
+    // resize
+    // resize(position){
+    //     this.position = position
+
+    //     this.group.children.forEach((mesh, i) => {
+    //         const idx = i * 3
+
+    //         const x = this.position[idx]
+    //         const y = this.position[idx + 1]
+    //         const z = this.position[idx + 2]
+
+    //         mesh.position.set(x, y, z)
+    //     })
+    // }
+
+
+    // dispose
+    dispose(){
+        this.group.children.forEach(mesh => {
+            mesh.geometry.dispose()
+            mesh.material.dispose()
+        })
+    }
+
+
     // get
     get(){
         return this.group

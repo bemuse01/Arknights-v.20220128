@@ -68,9 +68,37 @@ class Line2Object{
     }
 
 
+    // resize
+    // resize(position){
+    //     this.position = position
+
+    //     this.group.children.forEach((mesh, i) => {
+    //         mesh.geometry.dispose()
+
+    //         const pos = []
+
+    //         for(let j = 0; j < 2; j++){
+    //             const idx = i * 2 + j
+    //             const index = idx * 3
+
+    //             const x = this.position[index]
+    //             const y = this.position[index + 1]
+    //             const z = this.position[index + 2]
+
+    //             pos.push(x, y, z)
+    //         }
+
+    //         mesh.geometry = this.createGeometry(pos)
+    //     })
+    // }
+
+
     // dispose
     dispose(){
-
+        this.group.children.forEach(mesh => {
+            mesh.geometry.dispose()
+            mesh.material.dispose()
+        })
     }
 
 
