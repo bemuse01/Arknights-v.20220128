@@ -4,7 +4,7 @@ class OpenPolygonBuild{
             count: 5,
             radius: 36,
             color: 0xffdd00,
-            linewidth: 0.003,
+            linewidth: 0.002,
         }
 
         this.init(group)
@@ -14,6 +14,7 @@ class OpenPolygonBuild{
     // init
     init(group){
         this.create(group)
+        this.createTween()
     }
 
 
@@ -23,11 +24,12 @@ class OpenPolygonBuild{
 
         this.object = new Line2Object({
             position,
+            alphaStd: 0,
             color: this.param.color,
-            linewidth: this.param.linewidth
+            linewidth: this.param.linewidth,
+            reverse: 1,
+            strength: 1
         })
-
-        console.log(this.object.position)
 
         group.add(this.object.get())
     }
@@ -37,8 +39,8 @@ class OpenPolygonBuild{
         const degree = 360 / this.param.count
 
         for(let i = 0; i < this.param.count; i++){
-            const min = degree * i
-            const max = degree * (i + 1)
+            const min = degree * i - 15
+            const max = degree * i + 15
             const deg = THREE.Math.randFloat(min, max)
         
             const x = Math.cos(deg * RADIAN) * this.param.radius
@@ -51,5 +53,40 @@ class OpenPolygonBuild{
         position.push(position[0], position[1], position[2])
 
         return position
+    }
+
+
+    // tween
+    createTween(){
+        const start = {scale: 0, opacity: 0}
+        const end = {scale: 1.125, opacity: [0, 0.5, 1, 1, 1, 0]}
+        const group = this.object.get()
+        const meshes = group.children
+
+        const tw = new TWEEN.Tween(start)
+        .to(end, 2500)
+        .onUpdate(() => this.onUpdateTween(meshes, start))
+        .onRepeat(() => this.onRepeatTween(group))
+        .easing(TWEEN.Easing.Quadratic.Out)
+        .repeat(Infinity)
+        .start()
+    }
+    onRepeatTween(group){
+        group.rotation.x = Math.random() * 40 * RADIAN
+        group.rotation.y = Math.random() * 40 * RADIAN
+        group.rotation.z = Math.random() * 360 * RADIAN
+    }
+    onUpdateTween(meshes, {scale, opacity}){
+        meshes.forEach(mesh => {
+            mesh.scale.set(scale, scale, 1)
+            mesh.material.opacity = opacity
+        })
+    }
+
+    
+    // 
+    animate(){
+        this.object.get().rotation.x += 0.002
+        this.object.get().rotation.y += 0.002
     }
 }

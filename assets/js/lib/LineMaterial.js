@@ -20,7 +20,9 @@ THREE.UniformsLib.line = {
 	dashOffset: { value: 0 },
 	gapSize: { value: 1 }, // todo FIX - maybe change to totalSize
 	opacity: { value: 1 },
-	alphaStd: {value: 0.0}
+	alphaStd: {value: 0},
+	reverse: {value: 0},
+	strength: {value: 1}
 
 };
 
@@ -184,6 +186,8 @@ THREE.ShaderLib[ 'line' ] = {
 		uniform vec3 diffuse;
 		uniform float opacity;
 		uniform float alphaStd;
+		uniform int reverse;
+		uniform float strength;
 
 		#ifdef USE_DASH
 
@@ -232,9 +236,9 @@ THREE.ShaderLib[ 'line' ] = {
 
 			// gl_FragColor = vec4( diffuseColor.rgb, diffuseColor.a );
 
-			float opacity = distance(alphaStd, vUv.y * 0.4);
+			float opacity = reverse == 1 ? 1.0 - distance(alphaStd, vUv.y * strength) : distance(alphaStd, vUv.y * strength);
 
-			gl_FragColor = vec4( diffuseColor.rgb, opacity);
+			gl_FragColor = vec4( diffuseColor.rgb, opacity * diffuseColor.a);
 
 			#include <tonemapping_fragment>
 			#include <encodings_fragment>
@@ -263,6 +267,42 @@ THREE.LineMaterial = function ( parameters ) {
 	this.dashed = false;
 
 	Object.defineProperties( this, {
+
+		strength: {
+
+			enumerable: true,
+
+			get: function () {
+
+				return this.uniforms.strength.value;
+
+			},
+
+			set: function ( value ) {
+
+				this.uniforms.strength.value = value;
+
+			}
+
+		},
+
+		reverse: {
+
+			enumerable: true,
+
+			get: function () {
+
+				return this.uniforms.reverse.value;
+
+			},
+
+			set: function ( value ) {
+
+				this.uniforms.reverse.value = value;
+
+			}
+
+		},
 
 		alphaStd: {
 

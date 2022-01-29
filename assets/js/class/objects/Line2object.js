@@ -1,9 +1,12 @@
 class Line2Object{
-    constructor({position, color, linewidth}){
+    constructor({position, alphaStd, reverse, strength, color, linewidth}){
         this.color = color
         this.linewidth = linewidth
         this.position = position
-
+        this.alphaStd = alphaStd
+        this.reverse = reverse || 0
+        this.strength = strength || 1
+        
         this.group = new THREE.Group()
 
         this.init()
@@ -57,7 +60,9 @@ class Line2Object{
             dashed: false,
             transparent: true,
             opacity: 1.0,
-            alphaStd: -1.0
+            alphaStd: this.alphaStd,
+            reverse: this.reverse,
+            strength: this.strength
             // blending: THREE.AdditiveBlending
         })
     }

@@ -26,9 +26,11 @@ class OpenIcosaBuild{
         const position = new THREE.IcosahedronGeometry(this.param.icosaRadius, this.param.icosaSeg).attributes.position.array
 
         this.icosa = new Line2Object({
-            position, 
+            position,
+            alphaStd: -1.0,
             linewidth: this.param.linewidth,
-            color: this.param.color, 
+            color: this.param.color,
+            strength: 0.4
         })
         this.local.add(this.icosa.get())
 
