@@ -1,9 +1,10 @@
-class OpenElement{
+class OpenEl{
     constructor({left, right}){
         this.parentNode = document.querySelector('.open')
         this.node = document.querySelector('.open-element-container')
 
         this.modules = {
+            loading: OpenLoadingBuild
         }
 
         this.comp = {}
@@ -81,5 +82,8 @@ class OpenElement{
     // get
     get(name){
         return this.comp[name].get()
+    }
+    getComp(name){
+        return this.comp[name]
     }
 }

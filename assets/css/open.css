@@ -37,3 +37,40 @@ div.open-terra-container img{
     max-width: 200px;
     min-width: 128px;
 }
+/* loading */
+div.open-loading-container{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 10px;
+    color: #ffdd00;
+}
+div.open-loading{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+div.loading-bar{
+    position: absolute;
+    /* width: 50%; */
+    height: 100%;
+    background: #ffdd00;
+}
+div.loading-bar-left{
+    left: 0;
+}
+div.loading-bar-right{
+    right: 0;
+}
+div.loading-bar span{
+    position: absolute;
+    /* transform: translate(0, -100%); */
+}
+div.loading-bar-left span{
+    right: 0;
+}
+div.loading-bar-right span{
+    left: 0;
+}

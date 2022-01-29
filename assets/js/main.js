@@ -10,17 +10,17 @@ new Vue({
         return{
             objectModules: {
                 app: App,
-                openObject: OpenObject
+                openObj: OpenObj
             },
             elementModules: {
                 left: Left,
                 right: Right,
-                openElement: OpenElement,
+                openEl: OpenEl,
             },
             elements: {
                 left: null,
                 right: null,
-                openElement: null,
+                openEl: null,
             },
         }
     },
@@ -37,9 +37,15 @@ new Vue({
         getStyle(){
             return (name, child) => {
                 if(!this.elements[name]) return {}
-                else return this.getComp(name, child).style
+                else return this.getComp2(name, child).style
             }
         },
+        getComp1(){
+            return (name, child) => {
+                if(!this.elements[name]) return {}
+                else return this.getComp2(name, child)
+            }
+        }
         // currentTime(){
         //     if(!this.elements['left']) return '00:00:00'
         //     return this.getComp('left', 'clock').getCurrentTime()
@@ -106,7 +112,7 @@ new Vue({
                 this.elements[i].animate(OBJECT)
             }
         },
-        getComp(name, child){
+        getComp2(name, child){
             return this.elements[name].getComp(child)
         },
 

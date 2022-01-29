@@ -1,4 +1,4 @@
-class OpenObject{
+class OpenObj{
     constructor(){
         this.param = {
             fov: 60,
