@@ -2,9 +2,9 @@ class OpenPolygonBuild{
     constructor({group}){
         this.param = {
             count: 5,
-            radius: 36,
+            radius: 32,
             color: 0xffdd00,
-            linewidth: 0.002,
+            linewidth: 0.0015,
         }
 
         this.init(group)
@@ -59,7 +59,7 @@ class OpenPolygonBuild{
     // tween
     createTween(){
         const start = {scale: 0.6, opacity: 0}
-        const end = {scale: 1.15, opacity: [0, 0.5, 1, 1, 1, 0]}
+        const end = {scale: 1.2, opacity: [0, 0.5, 1, 1, 1, 0]}
         const group = this.object.get()
         const meshes = group.children
 

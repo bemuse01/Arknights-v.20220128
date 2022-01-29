@@ -37,8 +37,6 @@ class OpenParticleBuild{
             }
         })
 
-        // this.object.get().rotation.x = 24 * RADIAN
-
         this.createAttribute()
 
         group.add(this.object.get())
