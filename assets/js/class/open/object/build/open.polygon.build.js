@@ -58,13 +58,13 @@ class OpenPolygonBuild{
 
     // tween
     createTween(){
-        const start = {scale: 0, opacity: 0}
-        const end = {scale: 1.125, opacity: [0, 0.5, 1, 1, 1, 0]}
+        const start = {scale: 0.6, opacity: 0}
+        const end = {scale: 1.15, opacity: [0, 0.5, 1, 1, 1, 0]}
         const group = this.object.get()
         const meshes = group.children
 
         const tw = new TWEEN.Tween(start)
-        .to(end, 2500)
+        .to(end, 1500)
         .onUpdate(() => this.onUpdateTween(meshes, start))
         .onRepeat(() => this.onRepeatTween(group))
         .easing(TWEEN.Easing.Quadratic.Out)
