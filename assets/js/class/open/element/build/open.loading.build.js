@@ -7,10 +7,10 @@ class OpenLoadingBuild{
                 width: '0%'
             },
             ltext: {
-                transform: 'translate(0, -100%)'
+                transform: 'translate(0%, -100%)'
             },
             rtext: {
-                transform: 'translate(0, -100%)'
+                transform: 'translate(0%, -100%)'
             }
         }
 
@@ -40,16 +40,19 @@ class OpenLoadingBuild{
         const tw = new TWEEN.Tween(start)
         .to(end, 1500)
         .delay(this.delay)
+        .onStart(() => this.onStartTween())
         .onUpdate(() => this.onUpdateTween(start))
         .onComplete(() => this.onCompleteTween())
         .start()
+    }
+    onStartTween(){
+        this.style.ltext.transform = 'translate(50%, -100%)'
+        this.style.rtext.transform = 'translate(-50%, -100%)'
     }
     onUpdateTween({width, text}){
         this.style.bar.width = `${width}%`
         this.text = `${~~text}%`
     }
     onCompleteTween(){
-        this.style.ltext.transform = 'translate(50%, -100%)'
-        this.style.rtext.transform = 'translate(-50%, -100%)'
     }
 }
