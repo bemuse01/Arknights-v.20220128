@@ -10,6 +10,8 @@ class OpenParticleBuild{
             velY: {min: 0.75, max: 1.25}
         }
 
+        this.play = true
+
         this.init(group)
     }
 
@@ -66,8 +68,19 @@ class OpenParticleBuild{
     }
 
 
+    // close
+    close(group){
+        group.remove(this.object.get())
+        this.object.dispose()
+        this.object = null
+        this.play = false
+    }
+
+
     // animate
     animate({w, h}){
+        if(!this.play) return
+
         const velocity = this.object.velocity
 
         const position = this.object.getAttribute('position')

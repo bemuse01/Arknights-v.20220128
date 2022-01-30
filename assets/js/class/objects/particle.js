@@ -19,25 +19,32 @@ class Particle{
 
     // create
     create(){
-        this.createGeometry()
-        this.createMaterial()
-        this.mesh = new THREE.Points(this.geometry, this.material)
+        const geometry = this.createGeometry()
+        const material = this.createMaterial()
+        this.mesh = new THREE.Points(geometry, material)
     }
     createGeometry(){
-        this.geometry = new THREE.BufferGeometry()
+        return new THREE.BufferGeometry()
     }
     createMaterial(){
         if(this.materialOpt.vertexShader){
-            this.material = new THREE.ShaderMaterial(this.materialOpt)
+            return new THREE.ShaderMaterial(this.materialOpt)
         }else{
-            this.material = new THREE.PointsMaterial(this.materialOpt)
+            return new THREE.PointsMaterial(this.materialOpt)
         }
+    }
+
+
+    // dispose
+    dispose(){
+        this.mesh.geometry.dispose()
+        this.mesh.material.dispose()
     }
 
 
     // set
     setAttribute(name, array, itemSize){
-        this.geometry.setAttribute(name, new THREE.BufferAttribute(array, itemSize))
+        this.getGeometry().setAttribute(name, new THREE.BufferAttribute(array, itemSize))
     }
 
 
@@ -46,12 +53,12 @@ class Particle{
         return this.mesh
     }
     getGeometry(){
-        return this.geometry
+        return this.mesh.geometry
     }
     getMaterial(){
-        return this.material
+        return this.mesh.material
     }
     getAttribute(name){
-        return this.geometry.attributes[name]
+        return this.getGeometry().attributes[name]
     }
 }

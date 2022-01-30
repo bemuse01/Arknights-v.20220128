@@ -1,7 +1,8 @@
 class OpenEl{
-    constructor({left, right}){
+    constructor({left, right, openObj}){
         this.parentNode = document.querySelector('.open')
         this.node = document.querySelector('.open-element-container')
+        this.frameNode = document.querySelector('.open-frame-container')
 
         this.modules = {
             loading: OpenLoadingBuild
@@ -11,6 +12,7 @@ class OpenEl{
 
         // this.leftProxy = left.proxy
         // this.rightProxy = right.proxy
+        this.openObjProxy = openObj.proxy
 
         this.init()
     }
@@ -21,13 +23,13 @@ class OpenEl{
         this.initProxy()
         this.create()
 
-        this.node.addEventListener('transitionend', () => this.onTransitionend())
+        this.frameNode.addEventListener('transitionend', () => this.onTransitionend())
     }
     initProxy(){
         const self = this
         
         const proxyObj = {
-            text: false
+            loading: false
         }
 
         this.proxy = new Proxy(proxyObj, {
@@ -39,12 +41,18 @@ class OpenEl{
 
                 // when open's comps all true, close open and show map
                 if(this.isAllTrue(obj)){
-                    self.element.style.opacity = 0
+                    self.close()
                 }
                 
                 return true
             }
         })
+    }
+
+
+    // close
+    close(){
+        this.frameNode.style.opacity = 1
     }
 
 
@@ -75,7 +83,8 @@ class OpenEl{
         // this.leftProxy.play = true
         // this.rightProxy.play = true
         this.parentNode.style.display = 'none'
-        this.node.style.display = 'none'
+        this.openObjProxy.play = false
+        // this.node.style.display = 'none'
     }
 
 

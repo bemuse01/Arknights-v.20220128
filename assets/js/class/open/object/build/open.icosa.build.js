@@ -11,6 +11,8 @@ class OpenIcosaBuild{
             edgeSeg: 1
         }
 
+        this.play = true
+
         this.init(group)
     }
 
@@ -67,8 +69,24 @@ class OpenIcosaBuild{
     // }
 
 
+    // close
+    close(group){
+        group.remove(this.local)
+        this.local.remove(this.icosa.get())
+        this.local.remove(this.edge.get())
+        this.icosa.dispose()
+        this.edge.dispose()
+        this.local = null
+        this.icosa = null
+        this.edge = null
+        this.play = false
+    }
+
+
     // animate
     animate(){
+        if(!this.play) return
+
         const time = window.performance.now()
 
         this.local.rotation.x += 0.002

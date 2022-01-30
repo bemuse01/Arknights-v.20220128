@@ -91,4 +91,16 @@ class OpenBgBuild{
             this.mesh.material.map = texture
         }
     }
+
+
+    // close
+    close(group){
+        group.remove(this.mesh)
+
+        this.mesh.geometry.dispose()
+        this.mesh.material.dispose()
+        this.mesh.material.map.dispose()
+
+        this.mesh = null
+    }
 }

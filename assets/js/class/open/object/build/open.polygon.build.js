@@ -7,6 +7,8 @@ class OpenPolygonBuild{
             linewidth: 0.0015,
         }
 
+        this.play = true
+
         this.init(group)
     }
 
@@ -83,9 +85,20 @@ class OpenPolygonBuild{
         })
     }
 
+
+    // close
+    close(group){
+        group.remove(this.object.get())
+        this.object.dispose()
+        this.object = null
+        this.play = false
+    }
+
     
     // 
     animate(){
+        if(!this.play) return
+
         this.object.get().rotation.x += 0.002
         this.object.get().rotation.y += 0.002
     }

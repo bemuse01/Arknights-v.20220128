@@ -1,5 +1,7 @@
 class OpenLoadingBuild{
-    constructor(){
+    constructor({proxy}){
+        this.proxy = proxy
+
         this.delay = 500
 
         this.style = {
@@ -38,7 +40,7 @@ class OpenLoadingBuild{
         const end = {width: 50, text: 100}
 
         const tw = new TWEEN.Tween(start)
-        .to(end, 1500)
+        .to(end, 2000)
         .delay(this.delay)
         .onStart(() => this.onStartTween())
         .onUpdate(() => this.onUpdateTween(start))
@@ -54,5 +56,6 @@ class OpenLoadingBuild{
         this.text = `${~~text}%`
     }
     onCompleteTween(){
+        this.proxy.loading = true
     }
 }

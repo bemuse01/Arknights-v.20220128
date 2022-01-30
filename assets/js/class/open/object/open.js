@@ -64,22 +64,40 @@ class OpenObj{
         const self = this
         
         const proxyObj = {
+            play: true,
         }
 
         this.proxy = new Proxy(proxyObj, {
             isAllTrue(obj){
                 return Object.keys(obj).every(key => obj[key] === true)
             },
+            isAllFalse(obj){
+                return Object.keys(obj).every(key => obj[key] === false)
+            },
             set(obj, prop, value){
                 obj[prop] = value
 
                 // when open's comps all true, close open and show map
                 if(this.isAllTrue(obj)){
+                    // self.close()
+                }
+
+                if(this.isAllFalse(obj)){
+                    self.close()
                 }
                 
                 return true
             }
         })
+    }
+
+
+    // close
+    close(){
+        for(const comp in this.comp){
+            if(!this.comp[comp] || !this.comp[comp].close) continue
+            this.comp[comp].close(this.group[comp])
+        }
     }
 
 
