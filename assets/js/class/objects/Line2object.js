@@ -96,9 +96,13 @@ class Line2Object{
     // dispose
     dispose(){
         this.group.children.forEach(mesh => {
+            this.group.remove(mesh)
             mesh.geometry.dispose()
             mesh.material.dispose()
+            mesh.geometry = null
+            mesh.mateiral = null
         })
+        this.group = null
     }
 
 
