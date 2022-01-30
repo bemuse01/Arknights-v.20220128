@@ -13,6 +13,7 @@ class OpenObj{
 
         // module
         this.modules = {
+            bg: OpenBgBuild,
             icosa: OpenIcosaBuild,
             particle: OpenParticleBuild,
             polygon: OpenPolygonBuild
