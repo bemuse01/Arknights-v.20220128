@@ -74,14 +74,3 @@ div.loading-bar-left span{
 div.loading-bar-right span{
     left: 0;
 }
-/* frame */
-div.open-frame-container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: black;
-    opacity: 0;
-    width: 100vw;
-    height: 100vh;
-    transition: opacity 0.3s 0.3s;
-}

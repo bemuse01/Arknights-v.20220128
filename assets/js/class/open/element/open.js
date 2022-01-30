@@ -2,7 +2,7 @@ class OpenEl{
     constructor({left, right, openObj}){
         this.parentNode = document.querySelector('.open')
         this.node = document.querySelector('.open-element-container')
-        this.frameNode = document.querySelector('.open-frame-container')
+        this.frameNode = document.querySelector('#frame')
 
         this.modules = {
             loading: OpenLoadingBuild
