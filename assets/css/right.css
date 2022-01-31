@@ -1,0 +1,49 @@
+/* @import './right.status.css';
+@import './right.date.css'; */
+
+
+
+/* right */
+div.right{
+    position: absolute;
+    top: 50%;
+    width: 75rem;
+
+
+    /* normal */
+    /* transform: translate(0, -50%);
+    height: 80vmin;
+    right: 0px; */
+
+
+    /* transform */
+    height: 92vmin;
+    transform: translate(0, -50%) rotateY(-25deg);
+    right: 0px;
+
+
+    display: flex;
+    flex-direction: column;
+    font-family: RobotoRegular;
+    color: #32eaff;
+    align-items: center;
+    gap: 2.4vmin;
+}
+/* right container */
+div.right-container{
+    width: 100%;
+    flex: 1;
+    background: white;
+}
+div.right-date-container{
+    flex: 0.15;
+}
+div.right-money-container{
+    flex: 0.3;
+}
+div.right-combat-container{
+    flex: 1.3;
+}
+div.right-store-container{
+    flex: 1.1;
+}
