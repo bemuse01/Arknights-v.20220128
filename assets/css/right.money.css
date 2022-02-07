@@ -20,10 +20,14 @@ div.money-wrap{
     align-items: center;
     gap: 6%;
 }
+
+
 /* flex */
 div.money-line{
     width: 17%;
 }
+
+
 /* style */
 div.money-child{
     display: flex;

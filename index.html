@@ -139,15 +139,6 @@
                     <div class="right-container right-money-container">
                         <div class="money-box">
                             <div class="money-wrap">
-                                <!-- <div class="money-child money-amount money-lmd">
-                                
-                                </div>
-                                <div class="money-child money-amount money-orundum">
-    
-                                </div>
-                                <div class="money-child money-amount money-originite">
-    
-                                </div> -->
                                 <div
                                     v-for="i in getComp('rightEl', 'money').el"
                                     :key="i.key"
@@ -163,7 +154,30 @@
                         </div>
                     </div>
                     
-                    <div class="right-container right-combat-container"></div>
+                    <div class="right-container right-combat-container">
+                        <div class="combat-box">
+                            <div class="combat-wrap combat-bg-wrap">
+                                <div class="ui-common-bg combat-bg combat-bg-common">
+                                    <img src="assets/src/ui/ui_common.png">
+                                </div>
+                                <div class="ui-common-icon combat-bg combat-bg-icon">
+                                    <img src="assets/src/ui/ui_combat_icon_2.png">
+                                </div>
+                            </div>
+                            <div class="combat-wrap combat-content-wrap">
+                                <div class="combat-child combat-sanity">
+                                    <div class="combat-sanity-box">
+                                        <img class="combat-sanity-child combat-sanity-bg" src="assets/src/ui/ui_sanity_2.png">
+                                        <span class="combat-sanity-child combat-sanity-current">127</span>
+                                        <span class="combat-sanity-child combat-sanity-max">Sanity/127</span>
+                                    </div>
+                                </div>
+                                <div class="combat-child combat-current"></div>
+                                <div class="combat-child combat-event"></div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="right-container right-operator-container"></div>
                     <div class="right-container right-store-container"></div>
                     <div class="right-container right-base-container"></div>

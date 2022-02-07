@@ -1,0 +1,79 @@
+/* init */
+div.right-combat-container{
+    display: flex;
+    justify-content: right;
+    font-family: MonsterratBold;
+}
+div.combat-box{
+    position: relative;
+    width: 91%;
+    background: white;
+}
+div.combat-wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* style */
+/* combat bg wrap */
+div.combat-bg-icon{
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+div.combat-bg-icon img{
+    /* max-width: 150px; */
+    min-width: 130px;
+    max-width: 60%;
+}
+/* combat content wrap */
+div.combat-content-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+}
+div.combat-child{
+    display: flex;
+    flex: 1;
+}
+div.combat-event{
+    flex: 1.4;
+}
+/* combat sanity */
+div.combat-sanity{
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+}
+div.combat-sanity-box{
+    display: flex;
+    position: relative;
+}
+div.combat-sanity-box img{
+    max-width: 95%;
+}
+div.combat-sanity-box span{
+    position: absolute;
+}
+span.combat-sanity-current{
+    top: 30%;
+    right: 12%;
+    transform: translate(0, -50%);
+    color: black;
+    font-size: 7.5rem;
+    font-family: OpenSansSemiBold;
+    text-shadow: 3px 5px rgba(0, 0, 0, 0.25);
+}
+span.combat-sanity-max{
+    bottom: 1%;
+    left: 59%;
+    transform: translate(-50%, 0);
+    font-size: 2.5rem;
+    font-family: OpenSansRegular;
+}

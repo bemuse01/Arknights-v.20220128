@@ -23,6 +23,18 @@
     src: url('../font/OpenSans-Regular.ttf');
 }
 @font-face{
+    font-family: OpenSansBold;
+    src: url('../font/OpenSans-Bold.ttf');
+}
+@font-face{
+    font-family: OpenSansSemiBold;
+    src: url('../font/OpenSans-SemiBold.ttf');
+}
+@font-face{
+    font-family: OpenSansMedium;
+    src: url('../font/OpenSans-Medium.ttf');
+}
+@font-face{
     font-family: MonsterratBold;
     src: url('../font/Montserrat-Bold.ttf');
 }
@@ -38,6 +50,7 @@
     font-family: NotoSansKrBold;
     src: url('../font/NotoSansKR-Bold.otf');
 }
+
 
 
 /* hide vue syntax when load */
@@ -95,6 +108,21 @@ div#frame{
     transition: opacity 0.5s 0.5s;
 }
 
+
+
+/* common */
+div.ui-common-bg{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+}
+/* div.ui-common img{
+} */
+div.ui-common-icon{
+    opacity: 0.1;
+}
 
 
 /* media query */
