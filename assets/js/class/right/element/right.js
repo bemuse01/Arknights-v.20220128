@@ -3,7 +3,8 @@ class RightEl{
         this.element = document.querySelector('.right')
 
         this.modules = {
-            date: RightElDateBuild
+            date: RightElDateBuild,
+            money: RightElMoneyBuild,
         }
 
         this.comp = {}

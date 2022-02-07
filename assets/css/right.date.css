@@ -1,16 +1,22 @@
 /* init */
 div.right-date-container{
     display: flex;
+    justify-content: right;
+    font-family: OpenSansRegular;
+    font-size: 2rem;
+}
+div.date-box{
+    width: 90%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    font-family: OpenSansRegular;
 }
 /* flex */
 div.date-line-left{
     flex: 0.1;
 }
 div.date-text{
-    flex: 0.3;
+    flex: 0.325;
 }
 div.date-line-right{
     flex: 0.6;
@@ -24,7 +30,6 @@ div.date-line{
     min-height: 2px;
 }
 div.date-text{
-    font-size: 2rem;
     text-align: center;
     text-shadow: 3px 5px rgba(0, 0, 0, 0.4);
 }
