@@ -40,7 +40,7 @@ new Vue({
                 else return this.getComp2(name, child).style
             }
         },
-        getComp1(){
+        getComp(){
             return (name, child) => {
                 if(!this.elements[name]) return {}
                 else return this.getComp2(name, child)
