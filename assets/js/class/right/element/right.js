@@ -1,8 +1,9 @@
-class Right{
+class RightEl{
     constructor({}){
         this.element = document.querySelector('.right')
 
         this.modules = {
+            date: RightElDateBuild
         }
 
         this.comp = {}
@@ -55,10 +56,11 @@ class Right{
     }
     createComponents(){
         for(const module in this.modules){
-            const {name, param} = this.modules[module]
-            const parameter = param ? param : {}
+            // const {name, param} = this.modules[module]
+            // const parameter = param ? param : {}
+            const name = this.modules[module]
 
-            this.comp[module] = new name({element: this.element, proxy: this.proxy, musics: this.musics, ...parameter})
+            this.comp[module] = new name({element: this.element, proxy: this.proxy})
         }
     }
 

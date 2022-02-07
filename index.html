@@ -60,9 +60,10 @@
         <!-- left -->
         <script src="assets/js/class/left/left.js"></script>
 
-        <!-- right build -->
-        <!-- right -->
-        <script src="assets/js/class/right/right.js"></script>
+        <!-- right element build -->
+        <script src="assets/js/class/right/element/build/right.date.build.js"></script>
+        <!-- right element -->
+        <script src="assets/js/class/right/element/right.js"></script>
     </head>
     <body>
         <div id="wrap" v-cloak>
@@ -123,12 +124,18 @@
                     <!-- <div class="right-section right-section-1">
 
                     </div> -->
-                    <!-- <div class="right-container right-date-container"></div>
+                    <div class="right-container right-date-container">
+                        <div class="date-line date-line-left"></div>
+                        <div class="date-text">
+                            <span>{{getComp('rightEl', 'date').text}}</span>
+                        </div>
+                        <div class="date-line date-line-right"></div>
+                    </div>
                     <div class="right-container right-money-container"></div>
                     <div class="right-container right-combat-container"></div>
                     <div class="right-container right-operator-container"></div>
                     <div class="right-container right-store-container"></div>
-                    <div class="right-container right-base-container"></div> -->
+                    <div class="right-container right-base-container"></div>
                     
                 </div>
                 

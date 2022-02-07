@@ -47,7 +47,6 @@ body{
     background: black;
     overflow: hidden;
     position: absolute;
-    font-family: RobotoMonoRegular;
     font-size: 1.4rem;
 }
 ul{
@@ -82,7 +81,7 @@ div#frame{
     opacity: 0;
     width: 100vw;
     height: 100vh;
-    transition: opacity 0.3s 0.3s;
+    transition: opacity 0.5s 0.5s;
 }
 
 

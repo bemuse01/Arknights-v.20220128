@@ -1,0 +1,30 @@
+/* init */
+div.right-date-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: OpenSansRegular;
+}
+/* flex */
+div.date-line-left{
+    flex: 0.1;
+}
+div.date-text{
+    flex: 0.3;
+}
+div.date-line-right{
+    flex: 0.6;
+}
+/* style */
+div.date-line{
+    background: white;
+    opacity: 0.75;
+    height: 50%;
+    max-height: 4px;
+    min-height: 2px;
+}
+div.date-text{
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 3px 5px rgba(0, 0, 0, 0.4);
+}

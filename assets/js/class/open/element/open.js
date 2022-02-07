@@ -1,5 +1,6 @@
 class OpenEl{
     constructor({left, right, openObj}){
+        this.wrapNode = document.querySelector('#wrap')
         this.parentNode = document.querySelector('.open')
         this.node = document.querySelector('.open-element-container')
         this.frameNode = document.querySelector('#frame')
@@ -23,7 +24,11 @@ class OpenEl{
         this.initProxy()
         this.create()
 
-        this.frameNode.addEventListener('transitionend', () => this.onTransitionend())
+        this.transitionendEvent = () => {
+            this.onTransitionend()
+        }
+
+        this.frameNode.addEventListener('transitionend', this.transitionendEvent)
     }
     initProxy(){
         const self = this
@@ -82,9 +87,13 @@ class OpenEl{
     onTransitionend(){
         // this.leftProxy.play = true
         // this.rightProxy.play = true
+
         this.parentNode.style.display = 'none'
         this.openObjProxy.play = false
-        // this.node.style.display = 'none'
+        this.wrapNode.style.background = `url('./assets/src/lobby_bg.png') no-repeat center center / cover`
+
+        this.frameNode.removeEventListener('transitionend', this.transitionendEvent)
+        this.frameNode.style.opacity = 0
     }
 
 

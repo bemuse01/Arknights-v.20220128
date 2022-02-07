@@ -1,5 +1,5 @@
-/* @import './right.status.css';
-@import './right.date.css'; */
+/* @import './right.status.css'; */
+@import './right.date.css';
 
 
 
@@ -25,7 +25,7 @@ div.right{
     display: flex;
     flex-direction: column;
     font-family: RobotoRegular;
-    color: #32eaff;
+    color: white;
     align-items: center;
     gap: 2.4vmin;
 }
@@ -33,7 +33,7 @@ div.right{
 div.right-container{
     width: 100%;
     flex: 1;
-    background: white;
+    /* background: white; */
 }
 div.right-date-container{
     flex: 0.15;

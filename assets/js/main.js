@@ -14,12 +14,12 @@ new Vue({
             },
             elementModules: {
                 left: Left,
-                right: Right,
+                rightEl: RightEl,
                 openEl: OpenEl,
             },
             elements: {
                 left: null,
-                right: null,
+                rightEl: null,
                 openEl: null,
             },
         }
