@@ -5,7 +5,7 @@ div.right-money-container{
     font-family: NotoSansKrBold;
     font-size: 38px;
     text-shadow: 3px 4px rgba(0, 0, 0, 0.3);
-    max-height: 43px;
+    max-height: 50px;
 }
 div.money-box{
     width: 100%;
@@ -38,8 +38,8 @@ div.money-amount{
     gap: 6%;
 }
 div.money-amount img{
-    max-width: 45px;
-    transform: scale(1.2);
+    width: 60px;
+    transform: scale(1.1);
     filter: drop-shadow(3px 4px 1px rgba(0, 0, 0, 0.3));
 }
 div.money-amount span{
