@@ -121,11 +121,15 @@ div.ui-common-bg{
     bottom: 0;
     overflow: hidden;
     display: flex;
+    justify-content: right;
 }
 /* div.ui-common img{
 } */
 div.ui-common-icon{
     opacity: 0.2;
+    display: flex;
+    justify-content: right;
+    align-items: center;
 }
 
 

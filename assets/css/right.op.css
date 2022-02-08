@@ -2,6 +2,10 @@
 div.right-op-container{
     display: flex;
     justify-content: right;
+    color: #333;
+    font-family: BusanBada;
+    font-size: 68px;
+    word-break: keep-all;
 }
 div.op-box{
     display: flex;
@@ -11,12 +15,61 @@ div.op-box{
 
 
 /* style */
-div.op-child{
+div.op-section{
     background: white;
     flex: 1;
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 div.op-empty{
     background: rgba(0, 0, 0, 0.6);
-    flex: 0.4;
+    flex: 0.35;
+}
+div.op-wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.op-icon{
+    width: 90%;
+    height: 100%;
+}
+div.op-title{
+    height: 80%;
+}
+/* op squad */
+div.squad-icon img{
+    width: 132px;
+}
+div.squad-title{
+    width: 88%;
+}
+/* op operator */
+div.operator-icon{
+    width: 95%;
+}
+div.operator-icon img{
+    width: 134px;
+}
+div.operator-content-wrap{
+    flex-direction: column;
+    justify-content: left;
+    width: 88%;
+    height: 80%;
+}
+div.operator-content-wrap > div{
+    min-height: 0;
+}
+div.operator-detail{
+    width: 96%; 
+    font-size: 30px;
+    color: #999;
 }

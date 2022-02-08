@@ -2,6 +2,7 @@
 div.right-combat-container{
     display: flex;
     justify-content: right;
+    word-break: keep-all;
 }
 div.combat-box{
     position: relative;
@@ -20,17 +21,12 @@ div.combat-wrap{
 
 
 /* style */
-/* combat bg wrap */
-div.combat-bg-icon{
-    position: absolute;
-    top: 50%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* combat img wrap */
+div.combat-icon{
+    width: 74%;
+    height: 100%;
 }
-div.combat-bg-icon img{
+div.combat-icon img{
     width: 200px;
 }
 /* combat content wrap */
@@ -86,7 +82,6 @@ span.combat-sanity-max{
     left: 59%;
     transform: translate(-50%, 0) scaleY(1.2);
     font-size: 30px;
-    word-break: keep-all;
 }
 /* combat title */
 div.combat-title{
