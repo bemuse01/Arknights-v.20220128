@@ -61,6 +61,7 @@
         <script src="assets/js/class/left/left.js"></script>
 
         <!-- right element build -->
+        <script src="assets/js/class/right/element/build/right.op.build.js"></script>
         <script src="assets/js/class/right/element/build/right.combat.build.js"></script>
         <script src="assets/js/class/right/element/build/right.money.build.js"></script>
         <script src="assets/js/class/right/element/build/right.date.build.js"></script>
@@ -206,8 +207,8 @@
                                 </div>
 
                                 <div class="op-wrap squad-wrap squad-content-wrap">
-                                    <div class="op-title squad-title">
-                                        <span>편성</span>
+                                    <div class="op-title squad-title" :style="getStyle('rightEl', 'op').squad">
+                                        <span>{{getText('rightEl', 'op').squad}}</span>
                                     </div>
                                 </div>
 
@@ -220,11 +221,11 @@
                                 </div>
 
                                 <div class="op-wrap operator-wrap squad-wrap operator-content-wrap">
-                                    <div class="op-title operator-text operator-title">
-                                        <span>오퍼레이터</span>
+                                    <div class="op-title operator-text operator-title" :style="getStyle('rightEl', 'op').operator">
+                                        <span>{{getText('rightEl', 'op').operator}}</span>
                                     </div>
-                                    <div class="operator-text operator-detail">
-                                        <span>캐릭터 관리</span>
+                                    <div class="operator-text operator-detail" :style="getStyle('rightEl', 'op').operatorDetail">
+                                        <span>{{getText('rightEl', 'op').operatorDetail}}</span>
                                     </div>
                                 </div>
 

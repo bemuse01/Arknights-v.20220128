@@ -64,12 +64,15 @@ div.operator-content-wrap{
     justify-content: left;
     width: 88%;
     height: 80%;
+    gap: 5%;
 }
 div.operator-content-wrap > div{
+    flex: 1;
     min-height: 0;
 }
 div.operator-detail{
-    width: 96%; 
+    width: 96%;
     font-size: 30px;
+    font-family: NotoSansKrBold;
     color: #999;
 }
