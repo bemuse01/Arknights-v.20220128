@@ -1,3 +1,4 @@
+@import './right.op.css';
 @import './right.combat.css';
 @import './right.money.css';
 @import './right.date.css';
@@ -9,7 +10,7 @@ div.right{
     top: 50%;
     width: 920px;
 
-    height: 1080px;
+    height: 1024px;
     transform: translate(0, -50%) rotateY(-28deg) scale(1);
     transform-origin: right;
     right: 0;
@@ -20,7 +21,7 @@ div.right{
     font-family: RobotoRegular;
     color: white;
     align-items: center;
-    gap: 2%;
+    gap: 2.4%;
 }
 /* right container */
 div.right-container{
@@ -36,6 +37,9 @@ div.right-money-container{
 }
 div.right-combat-container{
     flex: 1.15;
+}
+div.right-op-container{
+    flex: 0.75;
 }
 div.right-store-container{
     flex: 1.05;

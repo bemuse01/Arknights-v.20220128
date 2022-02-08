@@ -40,6 +40,12 @@ new Vue({
                 else return this.getComp2(name, child).style
             }
         },
+        getText(){
+            return (name, child) => {
+                if(!this.elements[name]) return {}
+                else return this.getComp2(name, child).text
+            }
+        },
         getComp(){
             return (name, child) => {
                 if(!this.elements[name]) return {}

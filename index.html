@@ -61,6 +61,7 @@
         <script src="assets/js/class/left/left.js"></script>
 
         <!-- right element build -->
+        <script src="assets/js/class/right/element/build/right.combat.build.js"></script>
         <script src="assets/js/class/right/element/build/right.money.build.js"></script>
         <script src="assets/js/class/right/element/build/right.date.build.js"></script>
         <script src="assets/js/class/right/element/build/right.child.build.js"></script>
@@ -167,21 +168,49 @@
                                 <div class="combat-child combat-sanity">
                                     <div class="combat-sanity-box">
                                         <img class="combat-sanity-child combat-sanity-bg" src="assets/src/ui/ui_sanity_2.png">
-                                        <span class="combat-sanity-child combat-sanity-current">127</span>
-                                        <span class="combat-sanity-child combat-sanity-max">이성<font style="font-family: OpenSansMedium">/127</font></span>
+                                        <span class="combat-sanity-child combat-sanity-current">{{getText('rightEl', 'combat').crtSanity}}</span>
+                                        <span 
+                                            class="combat-sanity-child combat-sanity-max"
+                                            :style="getStyle('rightEl', 'combat').sanity"
+                                        >{{getText('rightEl', 'combat').sanity}}<font style="font-family: OpenSansMedium">/{{getText('rightEl', 'combat').maxSanity}}</font>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="combat-child combat-title">
-                                    <div class="combat-title-child combat-title-big"><span>작전</span></div>
-                                    <div class="combat-title-child combat-title-tag"><div><span>현재</span></div></div>
-                                    <div class="combat-title-child combat-title-small"><span>2-3 무죄추정</span></div>
+                                    <div 
+                                        class="combat-title-child combat-title-big"
+                                        :style="getStyle('rightEl', 'combat').combatBig"
+                                    ><span>{{getText('rightEl', 'combat').combatBig}}</span></div>
+                                    <div 
+                                        class="combat-title-child combat-title-tag"
+                                        :style="getStyle('rightEl', 'combat').combatTag"
+                                    ><div><span>{{getText('rightEl', 'combat').combatTag}}</span></div></div>
+                                    <div 
+                                        class="combat-title-child combat-title-small"
+                                        :style="getStyle('rightEl', 'combat').combatSmall"
+                                    ><span>{{getText('rightEl', 'combat').combatSmall}}</span></div>
                                 </div>
-                                <div class="combat-child combat-event"></div>
+                                <div class="combat-child combat-event">
+
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="right-container right-operator-container"></div>
+                    <div class="right-container right-op-container">
+                        <div class="op-box">
+                            <div class="op-child op-content op-squad">
+
+                            </div>
+                            <div class="op-child op-content op-operator">
+
+                            </div>
+                            <div class="op-child op-empty">
+
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="right-container right-store-container"></div>
                     <div class="right-container right-base-container"></div>
                     

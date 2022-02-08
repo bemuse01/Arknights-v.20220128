@@ -2,7 +2,6 @@
 div.right-combat-container{
     display: flex;
     justify-content: right;
-    font-family: MonsterratBold;
 }
 div.combat-box{
     position: relative;
@@ -87,7 +86,6 @@ span.combat-sanity-max{
     left: 59%;
     transform: translate(-50%, 0) scaleY(1.2);
     font-size: 30px;
-    font-family: NotoSansKrMedium;
     word-break: keep-all;
 }
 /* combat title */
@@ -95,17 +93,17 @@ div.combat-title{
     display: flex;
     flex-direction: column;
     color: #333;
-    font-family: NotoSansKrMedium;
     width: 25%;
     height: 100%;
+    overflow: hidden;
 }
 div.combat-title-child{
     flex: 1;
+    min-height: 0;
 }
 div.combat-title-big{
-    height: 54%;
+    flex: 3;
     font-size: 90px;
-    font-family: BusanBada;
 }
 div.combat-title-tag{
     font-size: 28px;
@@ -119,6 +117,5 @@ div.combat-title-tag > div{
 }
 div.combat-title-small{
     font-size: 28px;
-    font-family: NotoSansKrBold;
     color: #555;
 }

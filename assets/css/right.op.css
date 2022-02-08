@@ -1,0 +1,22 @@
+/* init */
+div.right-op-container{
+    display: flex;
+    justify-content: right;
+}
+div.op-box{
+    display: flex;
+    width: 95.5%;
+    gap: 3%;
+}
+
+
+/* style */
+div.op-child{
+    background: white;
+    flex: 1;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.3);
+}
+div.op-empty{
+    background: rgba(0, 0, 0, 0.6);
+    flex: 0.4;
+}

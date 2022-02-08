@@ -5,7 +5,8 @@ class RightElChildBuild{
         const scale = this.size.h / STD_HEIGHT
 
         this.style = {
-            transform: `translate(0, -50%) rotateY(-28deg) scale(${scale})`
+            transform: `translate(0, -50%) rotateY(-28deg) skewY(1deg) rotateX(2deg) scale(${scale})`
+            // transform: `translate(0, -50%) rotateY(-28deg) scale(${scale})`
         }
     }
 
