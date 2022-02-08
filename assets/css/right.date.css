@@ -2,7 +2,7 @@
 div.right-date-container{
     display: flex;
     justify-content: right;
-    font-family: OpenSansRegular;
+    font-family: OpenSansMedium;
     font-size: 22px;
     max-height: 20px;
 }
