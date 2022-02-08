@@ -7,20 +7,12 @@
 div.right{
     position: absolute;
     top: 50%;
-    width: 75rem;
+    width: 800px;
 
-
-    /* normal */
-    /* transform: translate(0, -50%);
-    height: 80vmin;
-    right: 0px; */
-
-
-    /* transform */
-    height: 90vmin;
-    min-height: 768px;
-    transform: translate(0, -50%) rotateY(-28deg);
-    right: 0px;
+    height: 1080px;
+    transform: translate(0, -50%) rotateY(-28deg) scale(1);
+    transform-origin: right;
+    right: 0;
 
 
     display: flex;

@@ -1,8 +1,17 @@
 class RightEl{
     constructor({}){
-        this.element = document.querySelector('.right')
+        this.wrap = document.querySelector('#wrap')
+        this.node = document.querySelector('.right')
+
+        const {width, height} = this.wrap.getBoundingClientRect()
+
+        this.size = {
+            w: width,
+            h: height
+        }
 
         this.modules = {
+            child: RightElChildBuild,
             date: RightElDateBuild,
             money: RightElMoneyBuild,
         }
@@ -61,7 +70,26 @@ class RightEl{
             // const parameter = param ? param : {}
             const name = this.modules[module]
 
-            this.comp[module] = new name({element: this.element, proxy: this.proxy})
+            this.comp[module] = new name({node: this.node, proxy: this.proxy, size: this.size})
+        }
+    }
+
+
+    // resize
+    resize(){
+        const {width, height} = this.wrap.getBoundingClientRect()
+
+        this.size = {
+            w: width,
+            h: height
+        }
+
+        this.resizeComponent()
+    }
+    resizeComponent(){
+        for(const module in this.modules){
+            if(!this.comp[module].resize) continue
+            this.comp[module].resize(this.size)
         }
     }
 

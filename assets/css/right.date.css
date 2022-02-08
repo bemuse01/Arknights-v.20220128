@@ -3,8 +3,8 @@ div.right-date-container{
     display: flex;
     justify-content: right;
     font-family: OpenSansRegular;
-    font-size: 2rem;
-    max-height: 2rem;
+    font-size: 22px;
+    max-height: 20px;
 }
 div.date-box{
     width: 91%;

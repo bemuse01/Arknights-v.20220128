@@ -63,6 +63,7 @@
         <!-- right element build -->
         <script src="assets/js/class/right/element/build/right.money.build.js"></script>
         <script src="assets/js/class/right/element/build/right.date.build.js"></script>
+        <script src="assets/js/class/right/element/build/right.child.build.js"></script>
         <!-- right element -->
         <script src="assets/js/class/right/element/right.js"></script>
     </head>
@@ -120,7 +121,7 @@
 
                 </div>
 
-                <div class="ui right">
+                <div class="ui right" :style="getStyle('rightEl', 'child')">
 
                     <!-- <div class="right-section right-section-1">
 
@@ -147,9 +148,7 @@
                                     <img :src="i.src">
                                     <span>{{i.text}}</span>
                                 </div>
-                                <div class="money-child money-line">
-    
-                                </div>
+                                <div class="money-child money-line"></div>
                             </div>
                         </div>
                     </div>
@@ -172,7 +171,11 @@
                                         <span class="combat-sanity-child combat-sanity-max">Sanity/127</span>
                                     </div>
                                 </div>
-                                <div class="combat-child combat-current"></div>
+                                <div class="combat-child combat-title">
+                                    <!-- <div class="combat-title-big"><span>Combat</span></div>
+                                    <div class="combat-title-tag"><span>Current</span></div>
+                                    <div class="combat-title-small"><span>0-2 Protection</span></div> -->
+                                </div>
                                 <div class="combat-child combat-event"></div>
                             </div>
                         </div>

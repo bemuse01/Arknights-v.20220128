@@ -120,6 +120,7 @@ new Vue({
         // event
         onWindowResize(){
             this.resizeThree()
+            this.resizeElement()
         },
 
 

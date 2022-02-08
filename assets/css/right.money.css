@@ -3,9 +3,9 @@ div.right-money-container{
     display: flex;
     justify-content: right;
     font-family: NotoSansKrBold;
-    font-size: 3rem;
+    font-size: 30px;
     text-shadow: 3px 4px rgba(0, 0, 0, 0.3);
-    max-height: 3.5rem;
+    max-height: 35px;
 }
 div.money-box{
     width: 100%;
