@@ -8,20 +8,19 @@
 div.right{
     position: absolute;
     top: 50%;
-    width: 920px;
-
-    height: 1024px;
-    transform: translate(0, -50%) rotateY(-28deg) scale(1);
-    transform-origin: right;
     right: 0;
 
+    width: 920px;
+    height: 960px;
+    transform: translate(0, -50%) rotateY(-28deg) scale(1);
+    transform-origin: right;
 
     display: flex;
     flex-direction: column;
     font-family: RobotoRegular;
     color: white;
     align-items: center;
-    gap: 2.4%;
+    gap: 2%;
 }
 /* right container */
 div.right-container{
@@ -39,7 +38,7 @@ div.right-combat-container{
     flex: 1.15;
 }
 div.right-op-container{
-    flex: 0.75;
+    flex: 0.8;
 }
 div.right-store-container{
     flex: 1.05;

@@ -2,10 +2,12 @@ class RightElChildBuild{
     constructor({size}){
         this.size = size
 
-        const scale = this.size.h / STD_HEIGHT
+        this.stdHeight = 960
+
+        const scale = this.size.h / this.stdHeight 
 
         this.style = {
-            transform: `translate(0, -50%) rotateY(-32deg) skewY(1deg) rotateX(3deg) scale(${scale})`
+            transform: `translate(0, -50%) rotateY(-28deg) rotateX(0deg) rotateZ(1.5deg) scale(${scale})`
             // transform: `translate(0, -50%) rotateY(-28deg) scale(${scale})`
         }
     }
@@ -27,7 +29,7 @@ class RightElChildBuild{
     resize(size){
         this.size = size
 
-        const scale = this.size.h / STD_HEIGHT
+        const scale = this.size.h / this.stdHeight 
 
         this.style.transform = `translate(0, -50%) rotateY(-28deg) scale(${scale})`
     }
