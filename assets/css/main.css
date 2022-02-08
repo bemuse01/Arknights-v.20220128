@@ -35,7 +35,7 @@
     src: url('../font/OpenSans-Medium.ttf');
 }
 @font-face{
-    font-family: MonsterratBold;
+    font-family: MontserratBold;
     src: url('../font/Montserrat-Bold.ttf');
 }
 @font-face{
@@ -49,6 +49,10 @@
 @font-face{
     font-family: NotoSansKrBold;
     src: url('../font/NotoSansKR-Bold.otf');
+}
+@font-face{
+    font-family: BusanBada;
+    src: url('../font/BusanBada.ttf');
 }
 
 
