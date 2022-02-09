@@ -10,7 +10,7 @@ div.right{
     top: 50%;
     right: 0;
 
-    width: 920px;
+    width: 820px;
     height: 960px;
     transform: translate(0, -50%) rotateY(-28deg) scale(1);
     transform-origin: right;
@@ -32,10 +32,10 @@ div.right-date-container{
     flex: 0.15;
 }
 div.right-money-container{
-    flex: 0.3;
+    flex: 0.35;
 }
 div.right-combat-container{
-    flex: 1.15;
+    flex: 1.25;
 }
 div.right-op-container{
     flex: 0.8;

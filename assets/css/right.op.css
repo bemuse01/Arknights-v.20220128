@@ -9,8 +9,8 @@ div.right-op-container{
 }
 div.op-box{
     display: flex;
-    width: 95.5%;
-    gap: 2.2%;
+    width: 96%;
+    gap: 2.6%;
 }
 
 
@@ -28,7 +28,7 @@ div.op-section{
 }
 div.op-empty{
     background: rgba(0, 0, 0, 0.7);
-    flex: 0.35;
+    flex: 0.2;
 }
 div.op-wrap{
     position: absolute;
@@ -39,7 +39,7 @@ div.op-wrap{
     align-items: center;
 }
 div.op-icon{
-    width: 90%;
+    width: 88%;
     height: 100%;
 }
 div.op-title{
@@ -47,17 +47,17 @@ div.op-title{
 }
 /* op squad */
 div.squad-icon img{
-    width: 132px;
+    width: 126px;
 }
 div.squad-title{
     width: 88%;
 }
 /* op operator */
 div.operator-icon{
-    width: 95%;
+    width: 92%;
 }
 div.operator-icon img{
-    width: 134px;
+    width: 128px;
 }
 div.operator-content-wrap{
     flex-direction: column;
@@ -65,6 +65,7 @@ div.operator-content-wrap{
     width: 88%;
     height: 80%;
     gap: 5%;
+    font-size: 66px;
 }
 div.operator-content-wrap > div{
     flex: 1;

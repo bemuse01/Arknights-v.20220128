@@ -3,7 +3,7 @@ div.right-date-container{
     display: flex;
     justify-content: right;
     font-family: OpenSansMedium;
-    font-size: 22px;
+    font-size: 24px;
     max-height: 20px;
 }
 div.date-box{
@@ -19,7 +19,7 @@ div.date-line-left{
     flex: 0.1;
 }
 div.date-text{
-    flex: 0.325;
+    flex: 0.36;
 }
 div.date-line-right{
     flex: 0.6;

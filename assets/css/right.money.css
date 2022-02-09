@@ -3,9 +3,10 @@ div.right-money-container{
     display: flex;
     justify-content: right;
     font-family: NotoSansKrBold;
-    font-size: 38px;
+    font-size: 40px;
     text-shadow: 3px 4px rgba(0, 0, 0, 0.3);
-    max-height: 50px;
+    max-height: 55px;
+    margin-bottom: 8px;
 }
 div.money-box{
     width: 100%;
@@ -38,9 +39,9 @@ div.money-amount{
     gap: 6%;
 }
 div.money-amount img{
-    width: 60px;
+    width: 64px;
     transform: scale(1.1);
-    filter: drop-shadow(3px 4px 1px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(3px 5px 0px rgba(0, 0, 0, 0.35));
 }
 div.money-amount span{
     transform: translateY(-3px);

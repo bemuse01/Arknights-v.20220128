@@ -39,6 +39,6 @@ class RightElCombatBuild{
         this.text.crtSanity += 1
         this.text.crtSanity %= this.sanity
 
-        setTimeout(() => this.updateSanity, 1000 * 60 * 6);
+        setTimeout(() => this.updateSanity(), 1000 * 60 * 6);
     }
 }

@@ -3,6 +3,7 @@ div.right-combat-container{
     display: flex;
     justify-content: right;
     word-break: keep-all;
+    margin-bottom: 4px;
 }
 div.combat-box{
     position: relative;
@@ -23,7 +24,7 @@ div.combat-wrap{
 /* style */
 /* combat img wrap */
 div.combat-icon{
-    width: 74%;
+    width: 81%;
     height: 100%;
 }
 div.combat-icon img{
@@ -52,7 +53,7 @@ div.combat-sanity{
     width: 100%;
     height: 100%;
     margin-left: 1rem;
-    flex: 1.15;
+    flex: 1.35;
 }
 div.combat-sanity-box{
     display: flex;
@@ -79,7 +80,7 @@ span.combat-sanity-current{
 }
 span.combat-sanity-max{
     bottom: 3%;
-    left: 59%;
+    left: 62%;
     transform: translate(-50%, 0) scaleY(1.2);
     font-size: 30px;
 }
