@@ -6,6 +6,7 @@ div.right-op-container{
     font-family: BusanBada;
     font-size: 68px;
     word-break: keep-all;
+    margin-bottom: 4px;
 }
 div.op-box{
     display: flex;

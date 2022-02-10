@@ -30,6 +30,15 @@ div.combat-icon{
 div.combat-icon img{
     width: 200px;
 }
+div.combat-line{
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+    width: 53%;
+    height: 8px;
+    transform: translate(0, 50%);
+    background: #fe5d17;
+}
 /* combat content wrap */
 div.combat-content-wrap{
     display: flex;

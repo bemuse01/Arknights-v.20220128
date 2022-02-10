@@ -1,3 +1,4 @@
+@import './right.store.css';
 @import './right.op.css';
 @import './right.combat.css';
 @import './right.money.css';
@@ -38,8 +39,8 @@ div.right-combat-container{
     flex: 1.25;
 }
 div.right-op-container{
-    flex: 0.8;
+    flex: 0.9;
 }
 div.right-store-container{
-    flex: 1.05;
+    flex: 0.9;
 }
