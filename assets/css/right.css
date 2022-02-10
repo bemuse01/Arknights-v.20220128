@@ -12,7 +12,7 @@ div.right{
     top: 50%;
     right: 0;
 
-    width: 820px;
+    width: 850px;
     height: 960px;
     transform: translate(0, -50%) rotateY(-28deg) scale(1);
     transform-origin: right;

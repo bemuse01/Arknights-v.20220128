@@ -39,6 +39,7 @@ div.facility-icon img{
 }
 /* facility mission */
 div.mission-icon{
+    opacity: 0.25 !important;
     width: 91%;
 }
 div.mission-icon img{
@@ -46,7 +47,7 @@ div.mission-icon img{
 }
 div.mission-title{
     width: 92%;
-    height: 78%;
+    height: 80%;
 }
 div.mission-line{
     position: absolute;
@@ -56,4 +57,30 @@ div.mission-line{
     width: 75%;
     height: 8px;
     background: #fe5d17;
+}
+/* facility unit */
+div.unit-child{
+    flex: 1;
+    background: white;
+    display: flex;
+    position: relative;
+    justify-content: right;
+}
+div.unit-base{
+    width: 100%;
+}
+div.unit-depot{
+    flex: 0.38;
+    background: #424242;
+}
+/* facility unit base */
+div.base-icon{
+    width: 88%;
+}
+div.base-icon img{
+    width: 110px;
+    transform: scaleX(0.925);
+}
+div.base-title{
+    height: 80%;
 }
