@@ -61,6 +61,7 @@
         <script src="assets/js/class/left/left.js"></script>
 
         <!-- right element build -->
+        <script src="assets/js/class/right/element/build/right.store.build.js"></script>
         <script src="assets/js/class/right/element/build/right.op.build.js"></script>
         <script src="assets/js/class/right/element/build/right.combat.build.js"></script>
         <script src="assets/js/class/right/element/build/right.money.build.js"></script>
@@ -237,6 +238,7 @@
 
                     <div class="right-container right-store-container">
                         <div class="store-box">
+
                             <div class="store-section store-shop">
 
                                 <div class="store-wrap shop-wrap shop-img-wrap">
@@ -245,27 +247,70 @@
                                 </div>
 
                                 <div class="store-wrap shop-wrap shop-content-wrap">
-                                    <div class="store-title shop-title">
-                                        <span>구매센터</span>
+                                    <div class="store-title shop-title" :style="getStyle('rightEl', 'store').shop">
+                                        <span>{{getText('rightEl', 'store').shop}}</span>
                                     </div>
                                 </div>
 
                                 <div class="store-wrap shop-wrap shop-over-wrap"></div>
 
                             </div>
+
                             <div class="store-section store-recruit">
                                 <div class="recruit-box">
+
                                     <div class="recruit-child recruit-title">
                                         <div class="recruit-title-wrap">
                                             <div class="recruit-title-icon"><img src="assets/src/ui/ui_recruitment_title_icon.png"></div>
-                                            <div class="recruit-title-text"><span>모집</span></div>
+                                            <div 
+                                                class="recruit-title-text" 
+                                                :style="getStyle('righEl', 'store').recruitTitle"
+                                            ><span>{{getText('rightEl', 'store').recruitTitle}}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="recruit-child recruit-article">
 
+                                    <div class="recruit-child recruit-article">
+                                        <div class="recruit-article-wrap recruit-public-wrap">
+                                            <div class="article-box public-box">
+
+                                                <div class="store-wrap recruit-wrap public-img-wrap">
+                                                    <div class="ui-common-bg recruit-common"><img src="assets/src/ui/ui_common_blue.png"></div>
+                                                    <div class="ui-common-icon store-icon recruit-icon"><img src="assets/src/ui/ui_recruitment_icon.png"></div>
+                                                </div>
+
+                                                <div class="store-wrap recruit-wrap public-content-wrap">
+                                                    <div class="article-title public-title" :style="getStyle('rightEl', 'store').recruitPublic">
+                                                        <span>{{getText('rightEl', 'store').recruitPublic}}</span>
+                                                    </div>
+                                                    <div class="article-shadow public-shadow"></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="recruit-article-wrap recruit-headhunt-wrap">
+                                            <div class="article-box headhunt-box">
+
+                                                <div class="store-wrap recruit-wrap headhunt-img-wrap">
+                                                    <div class="ui-common-bg recruit-common"><img src="assets/src/ui/ui_common_blue.png"></div>
+                                                    <div class="ui-common-icon store-icon recruit-icon headhunt-icon"><img src="assets/src/ui/ui_headhunt_icon.png"></div>
+                                                </div>
+
+                                                <div class="store-wrap recruit-wrap headhunt-content-wrap">
+                                                    <div class="article-title headhunt-title" :style="getStyle('rightEl', 'store').recruitHeadhunt">
+                                                        <span>{{getText('rightEl', 'store').recruitHeadhunt}}</span>
+                                                    </div>
+                                                    <div class="article-shadow headhunt-shadow"></div>
+                                                    <div class="headhunt-shadow2"></div>
+                                                </div>
+
+                                            </div>
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
+
                         </div>
                     </div>
 

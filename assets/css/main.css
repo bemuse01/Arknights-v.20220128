@@ -65,7 +65,7 @@
 /* init */
 html{
     font-size: 10px;
-    --perspective: 1600px;
+    --perspective: 1500px;
 }
 *{
     margin: 0;
@@ -75,7 +75,6 @@ body{
     background: black;
     overflow: hidden;
     position: absolute;
-    font-size: 1.4rem;
 }
 ul{
     text-decoration: none;

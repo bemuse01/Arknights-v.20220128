@@ -15,7 +15,8 @@ class RightEl{
             date: RightElDateBuild,
             money: RightElMoneyBuild,
             combat: RightElCombatBuild,
-            op: RightElOpBuild
+            op: RightElOpBuild,
+            store: RightElStoreBuild
         }
 
         this.comp = {}
