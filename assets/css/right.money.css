@@ -3,9 +3,9 @@ div.right-money-container{
     display: flex;
     justify-content: right;
     font-family: NotoSansKrBold;
-    font-size: 42px;
+    font-size: 40px;
     text-shadow: 3px 4px rgba(0, 0, 0, 0.3);
-    max-height: 57px;
+    max-height: 55px;
     /* margin-bottom: 8px; */
 }
 div.money-box{
@@ -19,13 +19,13 @@ div.money-wrap{
     display: flex;
     justify-content: right;
     align-items: center;
-    gap: 5%;
+    gap: 4%;
 }
 
 
 /* flex */
 div.money-line{
-    width: 17%;
+    width: 20%;
 }
 
 

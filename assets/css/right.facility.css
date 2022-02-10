@@ -3,6 +3,9 @@ div.right-facility-container{
     display: flex;
     justify-content: right;
     word-break: keep-all;
+    color: #333;
+    font-size: 70px;
+    font-family: BusanBada;
 }
 div.facility-box{
     width: 87%;
@@ -17,7 +20,40 @@ div.facility-box{
 div.facility-section{
     flex: 1;
     background: white;
+    display: flex;
+    position: relative;
 }
-div.facility-base{
+div.facility-unit{
     flex: 1.3;
+}
+div.facility-wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.facility-icon img{
+    width: 100px;
+}
+/* facility mission */
+div.mission-icon{
+    width: 91%;
+}
+div.mission-icon img{
+    transform: scaleX(0.875);
+}
+div.mission-title{
+    width: 92%;
+    height: 78%;
+}
+div.mission-line{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    height: 8px;
+    background: #fe5d17;
 }
