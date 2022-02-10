@@ -3,10 +3,10 @@ div.right-money-container{
     display: flex;
     justify-content: right;
     font-family: NotoSansKrBold;
-    font-size: 40px;
+    font-size: 42px;
     text-shadow: 3px 4px rgba(0, 0, 0, 0.3);
-    max-height: 55px;
-    margin-bottom: 8px;
+    max-height: 57px;
+    /* margin-bottom: 8px; */
 }
 div.money-box{
     width: 100%;

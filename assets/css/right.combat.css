@@ -3,7 +3,7 @@ div.right-combat-container{
     display: flex;
     justify-content: right;
     word-break: keep-all;
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
 }
 div.combat-box{
     position: relative;

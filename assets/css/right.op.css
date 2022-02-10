@@ -6,7 +6,7 @@ div.right-op-container{
     font-family: BusanBada;
     font-size: 68px;
     word-break: keep-all;
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
 }
 div.op-box{
     display: flex;
@@ -76,5 +76,5 @@ div.operator-detail{
     width: 96%;
     font-size: 30px;
     font-family: NotoSansKrBold;
-    color: #999;
+    color: #aaa;
 }

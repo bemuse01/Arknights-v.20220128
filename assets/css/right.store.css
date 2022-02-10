@@ -6,6 +6,7 @@ div.right-store-container{
     color: white;
     font-family: BusanBada;
     word-break: keep-all;
+    /* margin-bottom: 6px; */
 }
 div.store-box{
     display: flex;
@@ -87,7 +88,7 @@ div.store-recruit{
 }
 div.recruit-box{
     width: 96%;
-    height: 98%;
+    height: 97.5%;
     display: flex;
     flex-direction: column;
 }

@@ -1,0 +1,23 @@
+/* init */
+div.right-facility-container{
+    display: flex;
+    justify-content: right;
+    word-break: keep-all;
+}
+div.facility-box{
+    width: 87%;
+    height: 95%;
+    margin-right: 34px;
+    display: flex;
+    gap: 3%;
+}
+
+
+/* style */
+div.facility-section{
+    flex: 1;
+    background: white;
+}
+div.facility-base{
+    flex: 1.3;
+}

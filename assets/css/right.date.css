@@ -5,6 +5,7 @@ div.right-date-container{
     font-family: OpenSansMedium;
     font-size: 24px;
     max-height: 20px;
+    margin-bottom: -12px;
 }
 div.date-box{
     width: 91%;
