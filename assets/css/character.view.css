@@ -3,8 +3,8 @@ div.character-view-container{
     top: 0;
     left: -10%;
     transform-origin: top left;
-    width: 1024px;
-    height: 1024px;
+    width: 1280px;
+    height: 1280px;
 }
 div.view-object{
     width: 100%;
