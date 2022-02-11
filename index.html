@@ -19,12 +19,17 @@
         <script src="assets/js/lib/Line2.js"></script>
 
 
+        <!-- data -->
+        <script src="assets/js/data/character.js"></script>
+
+
         <!-- const -->
         <script src="assets/js/const/const.js"></script>
 
 
         <!-- method -->
         <script src="assets/js/method/method.js"></script>
+        <script src="assets/js/method/method.shader.js"></script>
 
 
         <!-- object -->
@@ -39,6 +44,7 @@
         <script src="assets/js/class/objects/Line2Object.js"></script>
         <script src="assets/js/class/objects/objectEdge.js"></script>
         <script src="assets/js/class/objects/particle.js"></script>
+        <script src="assets/js/class/objects/planeObject.js"></script>
 
         <!-- open object shader -->
         <script src="assets/js/class/open/object/shader/open.particle.shader.js"></script>
@@ -54,6 +60,20 @@
         <script src="assets/js/class/open/element/build/open.loading.build.js"></script>
         <!-- open element -->
         <script src="assets/js/class/open/element/open.js"></script>
+
+        <!-- character object method -->
+        <script src="assets/js/class/character/object/method/character.image.method.js"></script>
+        <!-- character object shader -->
+        <script src="assets/js/class/character/object/shader/character.image.shader.js"></script>
+        <!-- character object build -->
+        <script src="assets/js/class/character/object/build/character.image.build.js"></script>
+        <!-- character object -->
+        <script src="assets/js/class/character/object/character.js"></script>
+
+        <!-- character element build -->
+        <script src="assets/js/class/character/element/build/character.child.build.js"></script>
+        <!-- character element -->
+        <script src="assets/js/class/character/element/character.js"></script>
 
         <!-- left method -->
         <!-- left build -->
@@ -125,12 +145,14 @@
 
                 <div class="ui character">
 
-                    <div class="character-container character-view-container">
+                    <div class="character-container character-view-container" :style="getStyle('characterEl', 'child')">
+                        <div class="view-child view-object">
 
+                        </div>
                     </div>
 
                     <div class="character-container character-list-container">
-                        
+
                     </div>
 
                 </div>

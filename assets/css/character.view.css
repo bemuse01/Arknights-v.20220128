@@ -1,4 +1,12 @@
 div.character-view-container{
-    width: 800px;
-    height: 800px;
+    position: absolute;
+    top: 0;
+    left: -10%;
+    transform-origin: top left;
+    width: 1024px;
+    height: 1024px;
+}
+div.view-object{
+    width: 100%;
+    height: 100%;
 }

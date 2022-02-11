@@ -10,11 +10,13 @@ new Vue({
         return{
             objectModules: {
                 app: App,
-                openObj: OpenObj
+                chracterObj: CharacterObj,
+                openObj: OpenObj,
             },
             elementModules: {
                 left: Left,
                 rightEl: RightEl,
+                characterEl: CharacterEl,
                 openEl: OpenEl,
             },
             elements: {
