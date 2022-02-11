@@ -133,6 +133,18 @@ div.ui-common-icon{
 }
 
 
+
+/* transition */
+.opacity-transition{
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+.opacity-transition:hover{
+    opacity: 0.6;
+}
+
+
+
 /* media query */
 /* @media screen and (max-width: 600px) { html{font-size: 9px; --perspective: 1000px;} }
 @media screen and (min-width: 601px) and (max-width: 1279px) { html{font-size: 10px; --perspective: 1500px;} }

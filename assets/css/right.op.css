@@ -26,6 +26,7 @@ div.op-section{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 div.op-empty{
     background: rgba(0, 0, 0, 0.7);

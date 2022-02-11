@@ -3,7 +3,7 @@ class RightElCombatBuild{
         this.sanity = 127
 
         this.style = {
-            box: {opacity: 0},
+            container: {opacity: 0},
             sanityFont: {fontFamily: 'NotoSansKrBold'},
             combatBigFont: {fontFamily: 'BusanBada'},
             combatTagFont: {fontFamily: 'NotoSansKrMedium'},
@@ -56,7 +56,7 @@ class RightElCombatBuild{
         .start()
     }
     onUpdateTween({opacity}){
-        this.style.box.opacity = opacity
+        this.style.container.opacity = opacity
     }
 
 

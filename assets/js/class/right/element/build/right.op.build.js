@@ -1,10 +1,7 @@
 class RightElOpBuild{
     constructor(){
         this.style = {
-            squadSection: {opacity: 0},
-            operatorSection: {opacity: 0},
-            emptySection: {opacity: 0},
-            container: {fontFamily: 'BusanBada'},
+            container: {fontFamily: 'BusanBada', opacity: 0},
             operatorDetail: {fontFamily: 'NotoSansKrBold'}
         }
 
@@ -25,23 +22,18 @@ class RightElOpBuild{
     // tween
     createTween(){
         const {opacity, time, delayBase, delayRand} = RightElParam
-        const names = ['squadSection', 'operatorSection', 'emptySection']
+        
+        const start = {opacity: 0}
+        const end = {opacity}
+        const delay = Math.random() * delayRand + delayBase
 
-        names.forEach(name => {
-
-            const start = {opacity: 0}
-            const end = {opacity}
-            const delay = Math.random() * delayRand + delayBase
-    
-            const tw = new TWEEN.Tween(start)
-            .to(end, time)
-            .delay(delay)
-            .onUpdate(() => this.onUpdateTween(start, name))
-            .start()
-
-        })
+        const tw = new TWEEN.Tween(start)
+        .to(end, time)
+        .delay(delay)
+        .onUpdate(() => this.onUpdateTween(start))
+        .start()
     }
-    onUpdateTween({opacity}, name){
-        this.style[name].opacity = opacity
+    onUpdateTween({opacity}){
+        this.style.container.opacity = opacity
     }
 }

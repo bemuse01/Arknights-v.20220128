@@ -93,7 +93,11 @@ class OpenEl{
         this.wrapNode.style.background = `url('./assets/src/lobby_bg.png') no-repeat center center / cover`
 
         this.frameNode.removeEventListener('transitionend', this.transitionendEvent)
+        this.frameNode.addEventListener('transitionend', () => this.onTransitionend2())
         this.frameNode.style.opacity = 0
+    }
+    onTransitionend2(){
+        this.frameNode.style.display = 'none'
     }
 
 

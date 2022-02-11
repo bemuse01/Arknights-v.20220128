@@ -1,9 +1,7 @@
 class RightElStoreBuild{
     constructor(){
         this.style = {
-            shopSection: {opacity: 0},
-            recruitSection: {opacity: 0},
-            container: {fontFamily: 'BusanBada'}
+            container: {fontFamily: 'BusanBada', opacity: 0}
         }
         
         this.text = {
@@ -24,23 +22,18 @@ class RightElStoreBuild{
     // tween
     createTween(){
         const {opacity, time, delayBase, delayRand} = RightElParam
-        const names = ['shopSection', 'recruitSection']
 
-        names.forEach(name => {
+        const start = {opacity: 0}
+        const end = {opacity}
+        const delay = Math.random() * delayRand + delayBase
 
-            const start = {opacity: 0}
-            const end = {opacity}
-            const delay = Math.random() * delayRand + delayBase
-    
-            const tw = new TWEEN.Tween(start)
-            .to(end, time)
-            .delay(delay)
-            .onUpdate(() => this.onUpdateTween(start, name))
-            .start()
-
-        })
+        const tw = new TWEEN.Tween(start)
+        .to(end, time)
+        .delay(delay)
+        .onUpdate(() => this.onUpdateTween(start))
+        .start()
     }
-    onUpdateTween({opacity}, name){
-        this.style[name].opacity = opacity
+    onUpdateTween({opacity}){
+        this.style.container.opacity = opacity
     }
 }

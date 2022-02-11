@@ -1,9 +1,7 @@
 class RightElFacilityBuild{
     constructor(){
         this.style = {
-            container: {fontFamily: 'BusanBada'},
-            missionSection: {opacity: 0},
-            unitSection: {opacity: 0}
+            container: {fontFamily: 'BusanBada', opacity: 0},
         }
 
         this.text = {
@@ -23,23 +21,18 @@ class RightElFacilityBuild{
     // tween
     createTween(){
         const {opacity, time, delayBase, delayRand} = RightElParam
-        const names = ['missionSection', 'unitSection']
 
-        names.forEach(name => {
+        const start = {opacity: 0}
+        const end = {opacity}
+        const delay = Math.random() * delayRand + delayBase
 
-            const start = {opacity: 0}
-            const end = {opacity}
-            const delay = Math.random() * delayRand + delayBase
-    
-            const tw = new TWEEN.Tween(start)
-            .to(end, time)
-            .delay(delay)
-            .onUpdate(() => this.onUpdateTween(start, name))
-            .start()
-
-        })
+        const tw = new TWEEN.Tween(start)
+        .to(end, time)
+        .delay(delay)
+        .onUpdate(() => this.onUpdateTween(start))
+        .start()
     }
-    onUpdateTween({opacity}, name){
-        this.style[name].opacity = opacity
+    onUpdateTween({opacity}){
+        this.style.container.opacity = opacity
     }
 }

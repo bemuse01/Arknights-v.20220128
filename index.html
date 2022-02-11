@@ -133,8 +133,8 @@
 
                     </div> -->
 
-                    <div class="right-container right-date-container">
-                        <div class="date-box" :style="getStyle('rightEl', 'date')">
+                    <div class="right-container right-date-container" :style="getStyle('rightEl', 'date')">
+                        <div class="date-box">
                             <div class="date-child date-line date-line-left"></div>
                             <div class="date-child date-text">
                                 <span>{{getComp('rightEl', 'date').text}}</span>
@@ -143,8 +143,8 @@
                         </div>
                     </div>
 
-                    <div class="right-container right-money-container">
-                        <div class="money-box" :style="getStyle('rightEl', 'money')">
+                    <div class="right-container right-money-container" :style="getStyle('rightEl', 'money')">
+                        <div class="money-box">
                             <div class="money-wrap">
                                 <div
                                     v-for="i in getComp('rightEl', 'money').el"
@@ -159,8 +159,8 @@
                         </div>
                     </div>
                     
-                    <div class="right-container right-combat-container">
-                        <div class="combat-box" :style="getStyle('rightEl', 'combat').box">
+                    <div class="right-container right-combat-container" :style="getStyle('rightEl', 'combat').container">
+                        <div class="combat-box opacity-transition">
 
                             <div class="combat-wrap combat-img-wrap">
                                 <div class="ui-common-bg combat-img combat-common"><img src="assets/src/ui/ui_common.png"></div>
@@ -205,7 +205,7 @@
                     <div class="right-container right-op-container" :style="getStyle('rightEl', 'op').container">
                         <div class="op-box">
 
-                            <div class="op-section op-squad" :style="getStyle('rightEl', 'op').squadSection">
+                            <div class="op-section op-squad opacity-transition">
 
                                 <div class="op-wrap squad-wrap squad-img-wrap">
                                     <div class="ui-common-bg op-img squad-common"><img src="assets/src/ui/ui_common.png"></div>
@@ -220,7 +220,7 @@
 
                             </div>
 
-                            <div class="op-section op-operator" :style="getStyle('rightEl', 'op').squadSection">
+                            <div class="op-section op-operator opacity-transition" :style="getStyle('rightEl', 'op').squadSection">
 
                                 <div class="op-wrap operator-wrap operator-img-wrap">
                                     <div class="ui-common-bg op-img operator-common"><img src="assets/src/ui/ui_common.png"></div>
@@ -246,7 +246,7 @@
                     <div class="right-container right-store-container" :style="getStyle('rightEl', 'store').container">
                         <div class="store-box">
 
-                            <div class="store-section store-shop" :style="getStyle('rightEl', 'store').shopSection">
+                            <div class="store-section store-shop opacity-transition" :style="getStyle('rightEl', 'store').shopSection">
 
                                 <div class="store-wrap shop-wrap shop-img-wrap">
                                     <div class="ui-common-bg store-img shop-common"><img src="assets/src/ui/ui_common_blue.png"></div>
@@ -275,7 +275,7 @@
                                     </div>
 
                                     <div class="recruit-child recruit-article">
-                                        <div class="recruit-article-wrap recruit-public-wrap">
+                                        <div class="recruit-article-wrap recruit-public-wrap opacity-transition">
                                             <div class="article-box public-box">
 
                                                 <div class="store-wrap recruit-wrap public-img-wrap">
@@ -292,7 +292,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="recruit-article-wrap recruit-headhunt-wrap">
+                                        <div class="recruit-article-wrap recruit-headhunt-wrap opacity-transition">
                                             <div class="article-box headhunt-box">
 
                                                 <div class="store-wrap recruit-wrap headhunt-img-wrap">
@@ -321,7 +321,7 @@
                     <div class="right-container right-facility-container" :style="getStyle('rightEl', 'facility').container">
                         <div class="facility-box">
                             
-                            <div class="facility-section facility-mission" :style="getStyle('rightEl', 'facility').missionSection">
+                            <div class="facility-section facility-mission opacity-transition" :style="getStyle('rightEl', 'facility').missionSection">
 
                                 <div class="facility-wrap mission-wrap mission-img-wrap">
                                     <div class="ui-common-bg facility-img mission-common"><img src="assets/src/ui/ui_common.png"></div>
@@ -339,7 +339,7 @@
 
                             <div class="facility-section facility-unit" :style="getStyle('rightEl', 'facility').unitSection">
                                 
-                                <div class="unit-child unit-base">
+                                <div class="unit-child unit-base opacity-transition">
 
                                     <div class="facility-wrap base-wrap base-img-wrap">
                                         <div class="ui-common-bg facility-img base-common"><img src="assets/src/ui/ui_common.png"></div>
@@ -355,7 +355,7 @@
 
                                 </div>
 
-                                <div class="unit-child unit-depot">
+                                <div class="unit-child unit-depot opacity-transition">
 
                                     <div class="facility-wrap depot-wrap depot-img-wrap">
                                         <div class="ui-common-bg facility-img depot-common"><img src="assets/src/ui/ui_common_gray.png"></div>
