@@ -4,9 +4,6 @@
 // import LEFT from './class/left/left.js'
 // import RIGHT from './class/right/right.js'
 
-const wrap = document.querySelector('#wrap')
-const STATIC_WIDTH = wrap.getBoundingClientRect().width
-
 new Vue({
     el: '#wrap',
     data(){
@@ -25,12 +22,21 @@ new Vue({
                 rightEl: null,
                 openEl: null,
             },
+            perspective: 0,
         }
     },
+    created(){
+        this.$nextTick(() => {
+            this.initElementNodeStyle()
+        })
+    },  
     mounted(){
         this.init()
     },
     computed: {
+        setElementNodeStyle(){
+            return {perspective: this.perspective + 'px'}
+        },
         getElement(){
             return (name, child) => {
                 if(!this.elements[name]) return []
@@ -124,10 +130,17 @@ new Vue({
         getComp2(name, child){
             return this.elements[name].getComp(child)
         },
+        initElementNodeStyle(){
+            const wrap = document.querySelector('#wrap')
+            const {width} = wrap.getBoundingClientRect()
+
+            this.perspective = width * 0.625
+        },
 
 
         // event
         onWindowResize(){
+            this.initElementNodeStyle()
             this.resizeThree()
             this.resizeElement()
         },
