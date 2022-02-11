@@ -1,5 +1,9 @@
 class RightElMoneyBuild{
     constructor(){
+        this.style = {
+            opacity: 0
+        }
+
         this.root = './assets/src/ui/'
         this.params = [
             {
@@ -24,6 +28,12 @@ class RightElMoneyBuild{
     }
 
 
+    // open
+    open(){
+        this.createTween()
+    }
+
+
     // init
     init(){
         this.create()
@@ -45,5 +55,24 @@ class RightElMoneyBuild{
                 }
             }
         })
+    }
+
+
+    // tween
+    createTween(){
+        const {opacity, time, delayBase, delayRand} = RightElParam
+
+        const start = {opacity: 0}
+        const end = {opacity}
+        const delay = Math.random() * delayRand + delayBase
+
+        const tw = new TWEEN.Tween(start)
+        .to(end, time)
+        .delay(delay)
+        .onUpdate(() => this.onUpdateTween(start))
+        .start()
+    }
+    onUpdateTween({opacity}){
+        this.style.opacity = opacity
     }
 }

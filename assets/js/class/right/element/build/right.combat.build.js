@@ -3,10 +3,11 @@ class RightElCombatBuild{
         this.sanity = 127
 
         this.style = {
-            sanity: {fontFamily: 'NotoSansKrBold'},
-            combatBig: {fontFamily: 'BusanBada'},
-            combatTag: {fontFamily: 'NotoSansKrMedium'},
-            combatSmall: {fontFamily: 'NotoSansKrBold'}
+            box: {opacity: 0},
+            sanityFont: {fontFamily: 'NotoSansKrBold'},
+            combatBigFont: {fontFamily: 'BusanBada'},
+            combatTagFont: {fontFamily: 'NotoSansKrMedium'},
+            combatSmallFont: {fontFamily: 'NotoSansKrBold'}
         }
 
         this.text = {
@@ -22,6 +23,12 @@ class RightElCombatBuild{
     }
 
 
+    // open
+    open(){
+        this.createTween()
+    }
+
+
     // init
     init(){
         this.updateSanity()
@@ -31,6 +38,25 @@ class RightElCombatBuild{
     // create
     create(){
 
+    }
+
+
+    // tween
+    createTween(){
+        const {opacity, time, delayBase, delayRand} = RightElParam
+
+        const start = {opacity: 0}
+        const end = {opacity}
+        const delay = Math.random() * delayRand + delayBase
+
+        const tw = new TWEEN.Tween(start)
+        .to(end, time)
+        .delay(delay)
+        .onUpdate(() => this.onUpdateTween(start))
+        .start()
+    }
+    onUpdateTween({opacity}){
+        this.style.box.opacity = opacity
     }
 
 

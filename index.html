@@ -60,7 +60,10 @@
         <!-- left -->
         <script src="assets/js/class/left/left.js"></script>
 
+        <!-- right element param -->
+        <script src="assets/js/class/right/element/param/rightParam.js"></script>
         <!-- right element build -->
+        <script src="assets/js/class/right/element/build/right.facility.build.js"></script>
         <script src="assets/js/class/right/element/build/right.store.build.js"></script>
         <script src="assets/js/class/right/element/build/right.op.build.js"></script>
         <script src="assets/js/class/right/element/build/right.combat.build.js"></script>
@@ -131,7 +134,7 @@
                     </div> -->
 
                     <div class="right-container right-date-container">
-                        <div class="date-box">
+                        <div class="date-box" :style="getStyle('rightEl', 'date')">
                             <div class="date-child date-line date-line-left"></div>
                             <div class="date-child date-text">
                                 <span>{{getComp('rightEl', 'date').text}}</span>
@@ -141,7 +144,7 @@
                     </div>
 
                     <div class="right-container right-money-container">
-                        <div class="money-box">
+                        <div class="money-box" :style="getStyle('rightEl', 'money')">
                             <div class="money-wrap">
                                 <div
                                     v-for="i in getComp('rightEl', 'money').el"
@@ -157,7 +160,7 @@
                     </div>
                     
                     <div class="right-container right-combat-container">
-                        <div class="combat-box">
+                        <div class="combat-box" :style="getStyle('rightEl', 'combat').box">
 
                             <div class="combat-wrap combat-img-wrap">
                                 <div class="ui-common-bg combat-img combat-common"><img src="assets/src/ui/ui_common.png"></div>
@@ -172,7 +175,7 @@
                                         <span class="combat-sanity-child combat-sanity-current">{{getText('rightEl', 'combat').crtSanity}}</span>
                                         <span 
                                             class="combat-sanity-child combat-sanity-max"
-                                            :style="getStyle('rightEl', 'combat').sanity"
+                                            :style="getStyle('rightEl', 'combat').sanityFont"
                                         >{{getText('rightEl', 'combat').sanity}}<font style="font-family: OpenSansMedium">/{{getText('rightEl', 'combat').maxSanity}}</font>
                                         </span>
                                     </div>
@@ -180,15 +183,15 @@
                                 <div class="combat-child combat-title">
                                     <div 
                                         class="combat-title-child combat-title-big"
-                                        :style="getStyle('rightEl', 'combat').combatBig"
+                                        :style="getStyle('rightEl', 'combat').combatBigFont"
                                     ><span>{{getText('rightEl', 'combat').combatBig}}</span></div>
                                     <div 
                                         class="combat-title-child combat-title-tag"
-                                        :style="getStyle('rightEl', 'combat').combatTag"
+                                        :style="getStyle('rightEl', 'combat').combatTagFont"
                                     ><div><span>{{getText('rightEl', 'combat').combatTag}}</span></div></div>
                                     <div 
                                         class="combat-title-child combat-title-small"
-                                        :style="getStyle('rightEl', 'combat').combatSmall"
+                                        :style="getStyle('rightEl', 'combat').combatSmallFont"
                                     ><span>{{getText('rightEl', 'combat').combatSmall}}</span></div>
                                 </div>
                                 <div class="combat-child combat-event">
@@ -199,9 +202,10 @@
                         </div>
                     </div>
 
-                    <div class="right-container right-op-container">
+                    <div class="right-container right-op-container" :style="getStyle('rightEl', 'op').container">
                         <div class="op-box">
-                            <div class="op-section op-squad">
+
+                            <div class="op-section op-squad" :style="getStyle('rightEl', 'op').squadSection">
 
                                 <div class="op-wrap squad-wrap squad-img-wrap">
                                     <div class="ui-common-bg op-img squad-common"><img src="assets/src/ui/ui_common.png"></div>
@@ -209,13 +213,14 @@
                                 </div>
 
                                 <div class="op-wrap squad-wrap squad-content-wrap">
-                                    <div class="op-title squad-title" :style="getStyle('rightEl', 'op').squad">
+                                    <div class="op-title squad-title">
                                         <span>{{getText('rightEl', 'op').squad}}</span>
                                     </div>
                                 </div>
 
                             </div>
-                            <div class="op-section op-operator">
+
+                            <div class="op-section op-operator" :style="getStyle('rightEl', 'op').squadSection">
 
                                 <div class="op-wrap operator-wrap operator-img-wrap">
                                     <div class="ui-common-bg op-img operator-common"><img src="assets/src/ui/ui_common.png"></div>
@@ -223,7 +228,7 @@
                                 </div>
 
                                 <div class="op-wrap operator-wrap squad-wrap operator-content-wrap">
-                                    <div class="op-title operator-text operator-title" :style="getStyle('rightEl', 'op').operator">
+                                    <div class="op-title operator-text operator-title">
                                         <span>{{getText('rightEl', 'op').operator}}</span>
                                     </div>
                                     <div class="operator-text operator-detail" :style="getStyle('rightEl', 'op').operatorDetail">
@@ -232,14 +237,16 @@
                                 </div>
 
                             </div>
-                            <div class="op-section op-empty"></div>
+
+                            <div class="op-section op-empty" :style="getStyle('rightEl', 'op').emptySection"></div>
+
                         </div>
                     </div>
 
-                    <div class="right-container right-store-container">
+                    <div class="right-container right-store-container" :style="getStyle('rightEl', 'store').container">
                         <div class="store-box">
 
-                            <div class="store-section store-shop">
+                            <div class="store-section store-shop" :style="getStyle('rightEl', 'store').shopSection">
 
                                 <div class="store-wrap shop-wrap shop-img-wrap">
                                     <div class="ui-common-bg store-img shop-common"><img src="assets/src/ui/ui_common_blue.png"></div>
@@ -247,7 +254,7 @@
                                 </div>
 
                                 <div class="store-wrap shop-wrap shop-content-wrap">
-                                    <div class="store-title shop-title" :style="getStyle('rightEl', 'store').shop">
+                                    <div class="store-title shop-title">
                                         <span>{{getText('rightEl', 'store').shop}}</span>
                                     </div>
                                 </div>
@@ -256,16 +263,13 @@
 
                             </div>
 
-                            <div class="store-section store-recruit">
+                            <div class="store-section store-recruit" :Style="getStyle('rightEl', 'store').shopSection">
                                 <div class="recruit-box">
 
                                     <div class="recruit-child recruit-title">
                                         <div class="recruit-title-wrap">
                                             <div class="recruit-title-icon"><img src="assets/src/ui/ui_recruitment_title_icon.png"></div>
-                                            <div 
-                                                class="recruit-title-text" 
-                                                :style="getStyle('righEl', 'store').recruitTitle"
-                                            ><span>{{getText('rightEl', 'store').recruitTitle}}</span>
+                                            <div class="recruit-title-text" ><span>{{getText('rightEl', 'store').recruitTitle}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -280,7 +284,7 @@
                                                 </div>
 
                                                 <div class="store-wrap recruit-wrap public-content-wrap">
-                                                    <div class="article-title public-title" :style="getStyle('rightEl', 'store').recruitPublic">
+                                                    <div class="article-title public-title">
                                                         <span>{{getText('rightEl', 'store').recruitPublic}}</span>
                                                     </div>
                                                     <div class="article-shadow public-shadow"></div>
@@ -297,7 +301,7 @@
                                                 </div>
 
                                                 <div class="store-wrap recruit-wrap headhunt-content-wrap">
-                                                    <div class="article-title headhunt-title" :style="getStyle('rightEl', 'store').recruitHeadhunt">
+                                                    <div class="article-title headhunt-title">
                                                         <span>{{getText('rightEl', 'store').recruitHeadhunt}}</span>
                                                     </div>
                                                     <div class="article-shadow headhunt-shadow"></div>
@@ -314,10 +318,10 @@
                         </div>
                     </div>
 
-                    <div class="right-container right-facility-container">
+                    <div class="right-container right-facility-container" :style="getStyle('rightEl', 'facility').container">
                         <div class="facility-box">
                             
-                            <div class="facility-section facility-mission">
+                            <div class="facility-section facility-mission" :style="getStyle('rightEl', 'facility').missionSection">
 
                                 <div class="facility-wrap mission-wrap mission-img-wrap">
                                     <div class="ui-common-bg facility-img mission-common"><img src="assets/src/ui/ui_common.png"></div>
@@ -326,31 +330,43 @@
 
                                 <div class="facility-wrap mission-wrap mission-content-wrap">
                                     <div class="facility-title mission-title">
-                                        <span>임무</span>
+                                        <span>{{getText('rightEl', 'facility').mission}}</span>
                                     </div>
                                     <div class="mission-line"></div>
                                 </div>
                                 
                             </div>
 
-                            <div class="facility-section facility-unit">
+                            <div class="facility-section facility-unit" :style="getStyle('rightEl', 'facility').unitSection">
                                 
                                 <div class="unit-child unit-base">
 
                                     <div class="facility-wrap base-wrap base-img-wrap">
                                         <div class="ui-common-bg facility-img base-common"><img src="assets/src/ui/ui_common.png"></div>
                                         <div class="ui-common-icon facility-img facility-icon base-icon"><img src="assets/src/ui/ui_base_icon_2.png"></div>
+                                        <div class="facility-img base-text"><img src="assets/src/ui/ui_base_text_2.png"></div>
                                     </div>
 
                                     <div class="facility-wrap base-wrap base-content-wrap">
                                         <div class="facility-title base-title">
-                                            <span>기반시설</span>
+                                            <span>{{getText('rightEl', 'facility').base}}</span>
                                         </div>
                                     </div>
 
                                 </div>
 
                                 <div class="unit-child unit-depot">
+
+                                    <div class="facility-wrap depot-wrap depot-img-wrap">
+                                        <div class="ui-common-bg facility-img depot-common"><img src="assets/src/ui/ui_common_gray.png"></div>
+                                        <div class="ui-common-icon facility-img facility-icon depot-icon"><img src="assets/src/ui/ui_depot_icon_2.png"></div>
+                                    </div>
+
+                                    <div class="facility-wrap depot-wrap depot-content-wrap">
+                                        <div class="facility-title depot-title">
+                                            <span>{{getText('rightEl', 'facility').depot}}</span>
+                                        </div>
+                                    </div>
 
                                 </div>
 

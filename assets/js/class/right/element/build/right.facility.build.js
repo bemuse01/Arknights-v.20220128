@@ -1,21 +1,19 @@
-class RightElOpBuild{
+class RightElFacilityBuild{
     constructor(){
         this.style = {
-            squadSection: {opacity: 0},
-            operatorSection: {opacity: 0},
-            emptySection: {opacity: 0},
             container: {fontFamily: 'BusanBada'},
-            operatorDetail: {fontFamily: 'NotoSansKrBold'}
+            missionSection: {opacity: 0},
+            unitSection: {opacity: 0}
         }
 
         this.text = {
-            squad: '편성',
-            operator: '오퍼레이터',
-            operatorDetail: '캐릭터 관리'
+            mission: '임무',
+            base: '기반시설',
+            depot: '창고'
         }
     }
 
-    
+
     // open
     open(){
         this.createTween()
@@ -25,7 +23,7 @@ class RightElOpBuild{
     // tween
     createTween(){
         const {opacity, time, delayBase, delayRand} = RightElParam
-        const names = ['squadSection', 'operatorSection', 'emptySection']
+        const names = ['missionSection', 'unitSection']
 
         names.forEach(name => {
 

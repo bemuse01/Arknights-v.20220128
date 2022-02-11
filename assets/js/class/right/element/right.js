@@ -16,7 +16,8 @@ class RightEl{
             money: RightElMoneyBuild,
             combat: RightElCombatBuild,
             op: RightElOpBuild,
-            store: RightElStoreBuild
+            store: RightElStoreBuild,
+            facility: RightElFacilityBuild
         }
 
         this.comp = {}

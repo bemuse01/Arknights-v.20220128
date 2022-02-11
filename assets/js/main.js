@@ -4,6 +4,9 @@
 // import LEFT from './class/left/left.js'
 // import RIGHT from './class/right/right.js'
 
+const wrap = document.querySelector('#wrap')
+const STATIC_WIDTH = wrap.getBoundingClientRect().width
+
 new Vue({
     el: '#wrap',
     data(){
