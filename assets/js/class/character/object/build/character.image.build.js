@@ -110,16 +110,21 @@ class CharacterObjImageBuild{
         const start = {time: 0, opacity: 1 - phase}
         const end = {time: this.slideTime, opacity: phase}
         const uniforms = object.getMaterial().uniforms
-        
-        if(phase === IN) this.objects[idx].phase = OUT
-        else uniforms.uPhase = OUT
 
         const tw = new TWEEN.Tween(start)
         .to(end, this.param.tweenDuration)
+        .onStart(() => this.onStartTween(idx, phase, uniforms))
         .onUpdate(() => this.onUpdateTween(start, uniforms))
         .onComplete(() => this.onCompleteTween(idx, phase))
         // .easing(TWEEN.Easing.Quadratic.InOut)
         .start()
+    }
+    onStartTween(idx, phase, {uPhase, uTime}){
+        if(phase === IN){
+            this.objects[idx].phase = OUT
+        }else{
+            uPhase.value = phase
+        }
     }
     onUpdateTween({time, opacity}, {uTime, uOpacity}){
         uTime.value = time
@@ -132,6 +137,11 @@ class CharacterObjImageBuild{
             this.objects[idx].phase = null
             this.objects.shift()
         }
+        // OUT tween 끝날 때 shift 하기 때문에
+        // objects 크기가 1 이 되서 인덱스가 1 인 아이템을 찾지 못함
+        // else{
+        //     this.objects[idx].phase = OUT
+        // }
     }
 
 
