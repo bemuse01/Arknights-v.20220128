@@ -10,19 +10,23 @@ class CharacterObjImageBuild{
             randomDelay: 0.8,
             maxDelayX: 0.9,
             maxDelayY: 0.125,
-            xRange: 50,
-            yRange: 100,
-            zRange: 20,
+            xRange: 30,
+            yRange: 20,
+            zRange: 10,
             z: 0.1,
+            stretch: 0.11,
             width: 1024,
             height: 1024,
-            widthSeg: 100,
-            heightSeg: 100
+            widthSeg: 200,
+            heightSeg: 200
         }
+
+        this.slideTime = this.param.defaultDuration + this.param.defaultDelay + this.param.randomDelay
 
         this.defaultSrc = 'assets/src/character/chen/chen (3).png'
 
         this.objects = []
+        this.tweens = []
 
         this.init()
     }
@@ -87,8 +91,6 @@ class CharacterObjImageBuild{
 
             object.setAttribute('aStartPosition', new Float32Array(startPosition), 3)
             object.setAttribute('aEndPosition', new Float32Array(endPosition), 3)
-            object.setAttribute('aControl0', new Float32Array(control0), 3)
-            object.setAttribute('aControl1', new Float32Array(control1), 3)
             object.setAttribute('aDuration', new Float32Array(duration), 1)
             object.setAttribute('aDelay', new Float32Array(delay), 1)
 
@@ -96,9 +98,30 @@ class CharacterObjImageBuild{
 
             this.objects.push(object)
 
-            // this.createTween(object, phase)
+            this.createTween(object, phase)
         }
     }
+
+
+    // tween
+    createTween(object, phase){
+        const start = {time: 0, opacity: 1 - phase}
+        const end = {time: this.slideTime, opacity: phase}
+        const uniforms = object.getMaterial().uniforms
+
+        const tw = new TWEEN.Tween(start)
+        .to(end, 4000)
+        .onUpdate(() => this.updateTween(start, uniforms))
+        .easing(TWEEN.Easing.Quadratic.InOut)
+        .start()
+
+        // this.tweens.push(tw)
+    }
+    updateTween({time, opacity}, {uTime, uOpacity}){
+        uTime.value = time
+        uOpacity.value = opacity
+    }
+
 
 
     // show

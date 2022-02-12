@@ -22,7 +22,8 @@ const CharacterImageShader = {
             float r = uPhase == 0 ? 1.0 - p : p;
 
             newPosition *= r;
-            newPosition += cubicBezier(aStartPosition, aControl0, aControl1, aEndPosition, p);
+            newPosition += mix(aStartPosition, aEndPosition, p);
+            // newPosition += cubicBezier(aStartPosition, aControl0, aControl1, aEndPosition, p);
 
             gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
 
@@ -37,6 +38,8 @@ const CharacterImageShader = {
 
         void main(){
             vec4 tex = texture(uTexture, vUv);
+
+            tex.a *= uOpacity;
 
             gl_FragColor = tex;
         }
