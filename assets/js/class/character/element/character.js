@@ -11,7 +11,6 @@ class CharacterEl{
         }
 
         this.modules = {
-            child: CharacterElChildBuild
         }
 
         this.comp = {}
