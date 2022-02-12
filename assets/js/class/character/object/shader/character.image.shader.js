@@ -2,10 +2,8 @@ const CharacterImageShader = {
     vertex: `
         attribute vec3 aStartPosition;
         attribute vec3 aEndPosition;
-        attribute vec3 aControl0;
-        attribute vec3 aControl1;
+        attribute vec3 aTranslate;
         attribute float aDuration;
-        attribute float aDelay;
 
         uniform float uTime;
         uniform int uPhase;
@@ -17,13 +15,21 @@ const CharacterImageShader = {
         void main(){
             vec3 newPosition = position;
 
-            float p = clamp(uTime - aDelay, 0.0, aDuration) / aDuration;
+            float p = clamp(uTime, 0.0, aDuration) / aDuration;
 
             float r = uPhase == 0 ? 1.0 - p : p;
+            
+            vec3 start = aStartPosition;
+            vec3 end = aEndPosition;
+
+            if(uPhase == 0){
+                end += aTranslate * -1.0;
+            }else{
+                start += aTranslate;
+            }
 
             newPosition *= r;
-            newPosition += mix(aStartPosition, aEndPosition, p);
-            // newPosition += cubicBezier(aStartPosition, aControl0, aControl1, aEndPosition, p);
+            newPosition += mix(start, end, p);
 
             gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0);
 

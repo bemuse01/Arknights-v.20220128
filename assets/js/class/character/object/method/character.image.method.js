@@ -14,16 +14,12 @@ const CharacterImageMethod = {
         const array = centroid
         const startPosition = []
         const endPosition = []
-        // const control0 = []
-        // const control1 = []
+        const translate = []
         const duration = []
-        const delay = []
 
         const w = widthSeg * 2
         const h = heightSeg
         
-        const d = defaultDuration / w
-
         for(let i = 0; i < h; i++){
             for(let j = 0; j < w; j++){
                 const idx = (i * w + j) * 3 * 3
@@ -46,62 +42,29 @@ const CharacterImageMethod = {
                 startPosition.push(x2, y2, z2)
                 startPosition.push(x3, y3, z3)
 
+                endPosition.push(x1, y1, z1)
+                endPosition.push(x2, y2, z2)
+                endPosition.push(x3, y3, z3)
 
-                // const tx = Math.random() * -xRange
-                const tx = THREE.Math.randFloat(-xRange * 0.75, -xRange)
+
+                // translate
+                const tx = THREE.Math.randFloat(xRange * 0.75, xRange)
                 const ty = THREE.Math.randFloat(-yRange, yRange)
                 const tz = Math.random() * -zRange
 
-                endPosition.push(x1 + tx, y1 + ty, z1 + tz)
-                endPosition.push(x2 + tx, y2 + ty, z2 + tz)
-                endPosition.push(x3 + tx, y3 + ty, z3 + tz)
-
-
-                // cubic bezier control points
-                const cx = x1
-                const cy = y1
-                // const sign = Math.sign(cy)
-
-                // const rx0 = (Math.random() * 0.2 + 0.1) * xRange
-                // const ry0 = (Math.random() * 0.2 + 0.1) * yRange * sign
-                // const rz0 = Math.random() * zRange
-
-                // const rx1 = (Math.random() * 0.3 + 0.3) * xRange
-                // const ry1 = (Math.random() * 0.3 + 0.3) * yRange * -sign
-                // const rz1 = Math.random() * zRange
-
-                // const ph = phase === OUT ? 1 : -1
-
-                // control0.push(x1 + rx0 * ph, y1 + ry0 * ph, z1 + rz0 * ph)
-                // control0.push(x2 + rx0 * ph, y2 + ry0 * ph, z2 + rz0 * ph)
-                // control0.push(x3 + rx0 * ph, y3 + ry0 * ph, z3 + rz0 * ph)
-
-                // control1.push(x1 + rx1 * ph, y1 + ry1 * ph, z1 + rz1 * ph)
-                // control1.push(x2 + rx1 * ph, y2 + ry1 * ph, z2 + rz1 * ph)
-                // control1.push(x3 + rx1 * ph, y3 + ry1 * ph, z3 + rz1 * ph)
+                translate.push(tx, ty, tz)
+                translate.push(tx, ty, tz)
+                translate.push(tx, ty, tz)
 
 
                 // duration
                 const dur = Math.random() * randomDelay + defaultDelay
 
                 duration.push(dur, dur, dur)
-                // duration.push(dur, dur, dur)
-                // duration.push(dur, dur, dur)
-
-
-                // delay
-                const delayX = THREE.Math.mapLinear(cx, -width * 0.5, width * 0.5, 0.0, maxDelayX);
-                const delayY = phase === OUT ? 
-                THREE.Math.mapLinear(Math.abs(cy), 0, height * 0.5, maxDelayY, 0.0) :
-                THREE.Math.mapLinear(Math.abs(cy), 0, height * 0.5, 0.0, maxDelayY)
-
-                const del = delayX + delayY + (Math.random() * stretch * dur);
-
-                delay.push(del, del, del)
             }
         }
 
-        return {startPosition, endPosition, duration, delay}
+        return {startPosition, endPosition, translate, duration}
     },
     createTextureFromCanvas({img, size}){
         const {w, h} = size

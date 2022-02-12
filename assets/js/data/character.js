@@ -5,7 +5,7 @@ const CHARACTER = [
     },
     {
         name: 'chen',
-        count: 4
+        count: 3
     },
     {
         name: 'provence',

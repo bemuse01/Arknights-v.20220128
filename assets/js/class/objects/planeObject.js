@@ -136,7 +136,13 @@ class PlaneObject{
 
     // dispose
     dispose(){
-    
+        this.mesh.geometry.dispose()
+        this.getUniform('uTexture').dispose()
+        this.mesh.material.dispose()
+        this.position = null
+        this.uv = null
+        this.index = null
+        this.mesh = null
     }
 
 
