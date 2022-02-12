@@ -20,7 +20,7 @@ class CharacterObjImageBuild{
             heightSeg: 100
         }
 
-        this.defaultSrc = 'assets/src/character/chen/chen (4).png'
+        this.defaultSrc = 'assets/src/character/chen/chen (3).png'
 
         this.objects = []
 

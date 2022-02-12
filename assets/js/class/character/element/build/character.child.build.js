@@ -7,7 +7,8 @@ class CharacterElChildBuild{
         const scale = this.size.h / this.stdHeight 
 
         this.style = {
-            transform: `scale(${scale})`
+            // transform: `translateY(-50%) scale(${scale})`
+            // transform: `translateY(-55%)`
         }
     }
 
@@ -30,6 +31,7 @@ class CharacterElChildBuild{
 
         const scale = this.size.h / this.stdHeight
 
-        this.style = {transform: `scale(${scale})`}
+        // this.style = {transform: `translateY(-50%) scale(${scale})`}
+        // this.style = {transform: `translateY(-50%)`}
     }
 }

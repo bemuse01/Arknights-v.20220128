@@ -2,7 +2,7 @@ class RightElChildBuild{
     constructor({size}){
         this.size = size
 
-        this.stdHeight = 960
+        this.stdHeight = 935
 
         const scale = this.size.h / this.stdHeight 
 

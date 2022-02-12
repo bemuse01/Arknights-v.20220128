@@ -1,10 +1,11 @@
 div.character-view-container{
     position: absolute;
-    top: 0;
-    left: -10%;
-    transform-origin: top left;
-    width: 1280px;
-    height: 1280px;
+    top: 50%;
+    left: -5%;
+    transform: translate(0, -45%);
+    /* transform-origin: top left; */
+    width: 130vh;
+    height: 130vh;
 }
 div.view-object{
     width: 100%;
