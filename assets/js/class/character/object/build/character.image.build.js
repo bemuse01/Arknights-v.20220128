@@ -17,8 +17,8 @@ class CharacterObjImageBuild{
             stretch: 0.11,
             width: 1024,
             height: 1024,
-            widthSeg: 100,
-            heightSeg: 100,
+            widthSeg: 200,
+            heightSeg: 200,
             tweenDuration: 2000
         }
 
@@ -87,7 +87,6 @@ class CharacterObjImageBuild{
             }
         })
 
-        // const position = object.getAttribute('position')
         const {centroid} = object.getGeometry()
 
         const {startPosition, endPosition, translate, duration} = CharacterImageMethod.createAnimAttribute({
@@ -108,9 +107,6 @@ class CharacterObjImageBuild{
         this.group.add(object.get())
 
         this.objects.push({obj: object, phase})
-
-        // this.createTween(0)
-        // if(this.objects.length > 1) this.createTween(1)
     }
 
 
