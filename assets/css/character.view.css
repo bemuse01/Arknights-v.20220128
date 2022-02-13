@@ -4,8 +4,8 @@ div.character-view-container{
     left: -5%;
     transform: translate(0, -45%);
     /* transform-origin: top left; */
-    width: 130vh;
-    height: 130vh;
+    width: 125vh;
+    height: 125vh;
 }
 div.view-object{
     width: 100%;
