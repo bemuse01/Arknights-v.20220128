@@ -167,6 +167,8 @@ class CharacterObjImageBuild{
 
         item.obj.setUniform('uPhase', IN)
         item.obj.setUniform('uTexture', this.createTexture(img))
+        item.obj.setUniform('uOpacity', 0)
+        item.obj.setUniform('uTime', 0)
 
         this.createTween(item)
     }
@@ -179,6 +181,8 @@ class CharacterObjImageBuild{
         // item.phase = OUT
 
         item.obj.setUniform('uPhase', OUT)
+        item.obj.setUniform('uOpacity', 1)
+        item.obj.setUniform('uTime', 0)
 
         this.createTween(item)
     }
