@@ -51,11 +51,21 @@ class CharacterObjImageBuild{
         const img = new Image()
         img.src = this.defaultSrc
 
-        img.onload = () => this.createObject(img, IN)
+        img.onload = () => {
+            this.createObject(img, OUT)
+            this.createObject(null, IN)
+        }
+    }
+    createTexture(img){
+        if(img){
+            const canvas = CharacterImageMethod.createTextureFromCanvas({img, size: {w: this.param.width, h: this.param.height}, ...this.param})
+            return new THREE.CanvasTexture(canvas)
+        }else{
+            return null
+        }
     }
     createObject(img, phase){
-        const canvas = CharacterImageMethod.createTextureFromCanvas({img, size: {w: this.param.width, h: this.param.height}, ...this.param})
-        const texture = new THREE.CanvasTexture(canvas)
+        const texture = this.createTexture(img)
 
         const object = new PlaneObject({
             width: this.size.obj.w, 
@@ -97,51 +107,44 @@ class CharacterObjImageBuild{
 
         this.group.add(object.get())
 
-        this.objects.push({object, phase})
+        this.objects.push({obj: object, phase})
 
-        this.createTween(0)
-        if(this.objects.length > 1) this.createTween(1)
+        // this.createTween(0)
+        // if(this.objects.length > 1) this.createTween(1)
     }
 
 
     // tween
-    createTween(idx){
-        const {object, phase} = this.objects[idx]
+    createTween(item){
+        const {obj, phase} = item
         const start = {time: 0, opacity: 1 - phase}
         const end = {time: this.slideTime, opacity: phase}
-        const uniforms = object.getMaterial().uniforms
+        const uniforms = obj.getMaterial().uniforms
 
         const tw = new TWEEN.Tween(start)
         .to(end, this.param.tweenDuration)
-        .onStart(() => this.onStartTween(idx, phase, uniforms))
+        .onStart(() => this.onStartTween(item, phase))
         .onUpdate(() => this.onUpdateTween(start, uniforms))
-        .onComplete(() => this.onCompleteTween(idx, phase))
+        .onComplete(() => this.onCompleteTween(obj, phase))
         // .easing(TWEEN.Easing.Quadratic.InOut)
         .start()
     }
-    onStartTween(idx, phase, {uPhase, uTime}){
+    onStartTween(item, phase){
         if(phase === IN){
-            this.objects[idx].phase = OUT
+            item.phase = OUT
         }else{
-            uPhase.value = phase
+            item.phase = IN
         }
     }
     onUpdateTween({time, opacity}, {uTime, uOpacity}){
         uTime.value = time
         uOpacity.value = opacity
     }
-    onCompleteTween(idx, phase){
+    onCompleteTween(obj, phase){
         if(phase === OUT){
-            this.objects[idx].object.dispose()
-            this.objects[idx].object = null
-            this.objects[idx].phase = null
-            this.objects.shift()
+            obj.getUniform('uTexture').dispose()
+            obj.setUniform('uTexture', null)
         }
-        // OUT tween 끝날 때 shift 하기 때문에
-        // objects 크기가 1 이 되서 인덱스가 1 인 아이템을 찾지 못함
-        // else{
-        //     this.objects[idx].phase = OUT
-        // }
     }
 
 
@@ -153,6 +156,7 @@ class CharacterObjImageBuild{
         img.src = `assets/src/character/${name}/${name} (${num}).png`
 
         img.onload = () => {
+            this.hide()
             this.show(img)
         }
     }
@@ -160,12 +164,22 @@ class CharacterObjImageBuild{
 
     // show
     show(img){
-        this.createObject(img, IN)
+        const item = this.objects.find(e => e.phase === IN)
+           
+        item.obj.setUniform('uPhase', IN)
+        item.obj.setUniform('uTexture', this.createTexture(img))
+
+        this.createTween(item)
     }
 
 
     // hide
     hide(){
+        const item = this.objects.find(e => e.phase === OUT)
+     
+        item.obj.setUniform('uPhase', OUT)
+
+        this.createTween(item)
     }
 
 
