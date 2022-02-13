@@ -28,6 +28,8 @@ class CharacterObjImageBuild{
 
         this.objects = []
 
+        this.canClick = true
+
         this.init()
     }
 
@@ -119,33 +121,32 @@ class CharacterObjImageBuild{
 
         const tw = new TWEEN.Tween(start)
         .to(end, this.param.tweenDuration)
-        .onStart(() => this.onStartTween(item, phase))
         .onUpdate(() => this.onUpdateTween(start, uniforms))
-        .onComplete(() => this.onCompleteTween(obj, phase))
-        // .easing(TWEEN.Easing.Quadratic.InOut)
+        .onComplete(() => this.onCompleteTween(item, phase))
+        .easing(TWEEN.Easing.Quadratic.InOut)
         .start()
-    }
-    onStartTween(item, phase){
-        if(phase === IN){
-            item.phase = OUT
-        }else{
-            item.phase = IN
-        }
     }
     onUpdateTween({time, opacity}, {uTime, uOpacity}){
         uTime.value = time
         uOpacity.value = opacity
     }
-    onCompleteTween(obj, phase){
+    onCompleteTween(item, phase){
         if(phase === OUT){
-            obj.getUniform('uTexture').dispose()
-            obj.setUniform('uTexture', null)
+            item.phase = IN
+            item.obj.getUniform('uTexture').dispose()
+            item.obj.setUniform('uTexture', null)
+        }else{
+            item.phase = OUT
+            this.canClick = true
         }
     }
 
 
     // slide
     slide(){
+        if(!this.canClick) return
+        this.canClick = false
+
         const img = new Image()
         const {name, count} = CHARACTER[~~(Math.random() * CHARACTER.length)]
         const num = ~~(Math.random() * count) + 1
@@ -161,7 +162,9 @@ class CharacterObjImageBuild{
     // show
     show(img){
         const item = this.objects.find(e => e.phase === IN)
-           
+        
+        // item.phase = IN
+
         item.obj.setUniform('uPhase', IN)
         item.obj.setUniform('uTexture', this.createTexture(img))
 
@@ -173,15 +176,11 @@ class CharacterObjImageBuild{
     hide(){
         const item = this.objects.find(e => e.phase === OUT)
      
+        // item.phase = OUT
+
         item.obj.setUniform('uPhase', OUT)
 
         this.createTween(item)
-    }
-
-
-    // dispose
-    dispose(){
-
     }
 
 
