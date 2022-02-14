@@ -1,0 +1,10 @@
+div.profile{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -60%);
+    width: 25vh;
+}
+div.profile-img img{
+    max-width: 100%;
+}
