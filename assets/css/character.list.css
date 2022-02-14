@@ -9,7 +9,7 @@ div.character-list-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    display: none;
+    /* display: none; */
 }
 div.list-box{
     width: 50%;
@@ -19,7 +19,43 @@ div.list-box{
 div.list-child{
     box-sizing: border-box;
     width: 100%;
-    height: 25%;
+    height: 20vh;
     margin-bottom: 2%;
-    background: #ffffff55;
+    /* overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2%; */
+}
+div.list-child:last-child{
+    margin-bottom: initial;
+}
+div.list-vertical-box{
+    width: calc(100% - 6px);
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+div.list-vertical-box::-webkit-scrollbar{
+    height: 8px;
+}
+div.list-vertical-box::-webkit-scrollbar-thumb{
+    background: #00000055;
+}
+div.list-vertical-box::-webkit-scrollbar-thumb:hover{
+    background: #00000055;
+}
+div.list-vertical-box:hover{
+    overflow-x: overlay;
+}
+div.list-horizon-box{
+    width: auto;
+    height: 100%;
+}
+div.list-item{
+    display: inline-flex;
+    width: 20vh;
+    height: 100%;
+    background: white;
+    margin-left: 1%;
 }
