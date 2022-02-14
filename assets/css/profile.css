@@ -2,9 +2,41 @@ div.profile{
     display: flex;
     position: absolute;
     top: 50%;
-    transform: translate(0, -60%);
-    width: 25vh;
+    transform-origin: left;
+    width: 200px;
+    font-size: 70px;
+    font-family: OpenSansMedium;
+    color: white;
+    word-break: keep-all;
+}
+div.profile-img{
+    display: flex;
 }
 div.profile-img img{
     max-width: 100%;
+}
+div.profile-level{
+    position: absolute;
+    top: 12%;
+    right: 9%;
+    display: flex;
+}
+div.profile-id{
+    font-family: NotoSansKrMedium;
+    position: absolute;
+    bottom: 3.5%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    letter-spacing: 1.2px;
+}
+div.profile-id span.name{
+    font-family: NotoSansKrBold;
+    font-size: 40px;
+    max-height: 48px;
+}
+div.profile-id span.uid{
+    font-size: 16px;
 }

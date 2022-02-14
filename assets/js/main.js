@@ -14,14 +14,17 @@ new Vue({
                 openObj: OpenObj,
             },
             elementModules: {
+                profile: Profile,
                 leftEl: LeftEl,
                 rightEl: RightEl,
                 characterEl: CharacterEl,
                 openEl: OpenEl,
             },
             elements: {
+                profile: null,
                 leftEl: null,
                 rightEl: null,
+                characterEl: null,
                 openEl: null,
             },
             perspective: 0,

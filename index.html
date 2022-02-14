@@ -91,6 +91,11 @@
         <script src="assets/js/class/right/element/build/right.child.build.js"></script>
         <!-- right element -->
         <script src="assets/js/class/right/element/right.js"></script>
+
+        <!-- profile build -->
+        <script src="assets/js/class/profile/build/profile.child.build.js"></script>
+        <!-- profile -->
+        <script src="assets/js/class/profile/profile.js"></script>
     </head>
     <body>
         <div id="wrap" v-cloak>
@@ -156,9 +161,16 @@
 
                 </div>
 
-                <div class="ui profile">
+                <div class="ui profile" :style="getStyle('profile', 'child')">
                     <div class="profile-child profile-img">
                         <img src="assets/src/ui/ui_profile.png">
+                    </div>
+                    <div class="profile-child profile-level">
+                        <span>120</span>
+                    </div>
+                    <div class="profile-child profile-id">
+                        <span class="name">Doctor</span>
+                        <span class="uid">ID: 95654142</span>
                     </div>
                 </div>
 
