@@ -45,3 +45,18 @@ div.news-num{
     display: flex;
     gap: 2%;
 }
+/* info data */
+div.info-data{
+    display: flex;
+    flex-direction: column;
+    gap: 3%;
+}
+div.data-section{
+    flex: 1;
+}
+div.data-friends{
+    background: #424242;
+}
+div.data-files{
+    background: white;
+}
