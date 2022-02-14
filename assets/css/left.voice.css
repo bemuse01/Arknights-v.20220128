@@ -1,10 +1,37 @@
 div.left-voice-container{
     display: flex;
     flex-flow: row-reverse;
+    font-size: 10px;
+    font-family: OpenSansRegular;
 }
 div.voice-box{
+    position: relative;
     width: 99%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
     display: flex;
+}
+div.voice-title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-2%, -10%);
+    width: 26%;
+    height: 16px;
+    background: #999;
+    color: #555;
+    display: flex;
+    align-items: center;
+}
+div.voice-title span{
+    margin-left: 5px;
+}
+div.voice-img{
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    width: 20px;
+}
+div.voice-img img{
+    max-width: 100%;
 }

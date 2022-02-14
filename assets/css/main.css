@@ -20,6 +20,10 @@
     src: url('../font/Roboto-Thin.ttf');
 }
 @font-face{
+    font-family: OpenSansLight;
+    src: url('../font/OpenSans-Light.ttf');
+}
+@font-face{
     font-family: OpenSansRegular;
     src: url('../font/OpenSans-Regular.ttf');
 }
