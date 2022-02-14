@@ -1,6 +1,9 @@
 div.left-info-container{
     display: flex;
     flex-flow: row-reverse;
+    font-size: 40px;
+    font-family: BusanBada;
+    color: white;
 }
 div.info-box{
     width: 98%;
@@ -55,8 +58,41 @@ div.data-section{
     flex: 1;
 }
 div.data-friends{
+    position: relative;
+    width: 100%;
+    height: 100%;
     background: #424242;
+}
+div.data-wrap{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+div.data-title{
+    position: absolute;
+    bottom: 18%;
+    right: 7%;
+    max-height: 40px;
 }
 div.data-files{
     background: white;
+}
+div.data-common{
+    width: 100%;
+}
+div.data-common img{
+    max-width: 100%;
+}
+div.data-icon{
+    position: absolute;
+    opacity: 1 !important;
+    justify-content: left !important;
+    align-items: center;
+    width: 86%;
+    height: 100%;
+}
+div.data-icon img{
+    width: 29%;
 }
