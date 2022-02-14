@@ -1,7 +1,7 @@
 div.left-info-container{
     display: flex;
     flex-flow: row-reverse;
-    font-size: 40px;
+    font-size: 34px;
     font-family: BusanBada;
     color: white;
 }
@@ -82,7 +82,7 @@ div.data-wrap{
 }
 div.data-title{
     position: absolute;
-    bottom: 18%;
+    bottom: 10%;
     right: 7%;
     max-height: 40px;
 }
