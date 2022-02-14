@@ -1,0 +1,10 @@
+div.left-voice-container{
+    display: flex;
+    flex-flow: row-reverse;
+}
+div.voice-box{
+    width: 99%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+}
