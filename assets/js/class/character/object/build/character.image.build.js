@@ -15,8 +15,8 @@ class CharacterObjImageBuild{
             zRange: 10,
             z: 0.1,
             stretch: 0.11,
-            width: 1024,
-            height: 1024,
+            width: 2048,
+            height: 2048,
             widthSeg: 200,
             heightSeg: 200,
             tweenDuration: 2000

@@ -1,18 +1,17 @@
-class Left{
-    constructor({musics}){
-        this.musics = musics
+class LeftEl{
+    constructor({}){
+        this.wrap = document.querySelector('#wrap')
+        this.node = document.querySelector('.left')
 
-        this.element = document.querySelector('.left')
+        const {width, height} = this.wrap.getBoundingClientRect()
+
+        this.size = {
+            w: width,
+            h: height
+        }
 
         this.modules = {
-            // player: {name: LeftPlayerBuild},
-            // text: {
-            //     name: LeftTextBuild,
-            //     param: {
-            //         type: 'ip',
-            //         count: 14
-            //     }
-            // },
+            child: LeftElChildBuild,
         }
 
         this.comp = {}
@@ -65,28 +64,30 @@ class Left{
     }
     createComponents(){
         for(const module in this.modules){
-            const {name, param} = this.modules[module]
-            const parameter = param ? param : {}
+            // const {name, param} = this.modules[module]
+            // const parameter = param ? param : {}
+            const name = this.modules[module]
 
-            this.comp[module] = new name({element: this.element, proxy: this.proxy, musics: this.musics, ...parameter})
-        }
-    }
-
-
-    // animate
-    animate(){
-        for(const comp in this.comp){
-            if(!this.comp[comp].animate) continue
-            this.comp[comp].animate(this.comp)
+            this.comp[module] = new name({node: this.node, proxy: this.proxy, size: this.size})
         }
     }
 
 
     // resize
     resize(){
-        for(const comp in this.comp){
-            if(!this.comp[comp].resize) continue
-            this.comp[comp].resize(this.comp)
+        const {width, height} = this.wrap.getBoundingClientRect()
+
+        this.size = {
+            w: width,
+            h: height
+        }
+
+        this.resizeComponent()
+    }
+    resizeComponent(){
+        for(const module in this.modules){
+            if(!this.comp[module].resize) continue
+            this.comp[module].resize(this.size)
         }
     }
 

@@ -14,13 +14,13 @@ new Vue({
                 openObj: OpenObj,
             },
             elementModules: {
-                left: Left,
+                leftEl: LeftEl,
                 rightEl: RightEl,
                 characterEl: CharacterEl,
                 openEl: OpenEl,
             },
             elements: {
-                left: null,
+                leftEl: null,
                 rightEl: null,
                 openEl: null,
             },

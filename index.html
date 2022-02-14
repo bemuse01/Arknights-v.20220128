@@ -74,10 +74,10 @@
         <!-- character element -->
         <script src="assets/js/class/character/element/character.js"></script>
 
-        <!-- left method -->
-        <!-- left build -->
-        <!-- left -->
-        <script src="assets/js/class/left/left.js"></script>
+        <!-- left element build -->
+        <script src="assets/js/class/left/element/build/left.child.build.js"></script>
+        <!-- left element -->
+        <script src="assets/js/class/left/element/left.js"></script>
 
         <!-- right element param -->
         <script src="assets/js/class/right/element/param/rightParam.js"></script>
@@ -156,7 +156,9 @@
 
                 </div>
 
-                <div class="ui left">
+                <div class="ui left" :style="getStyle('leftEl', 'child')">
+                    
+
 
                 </div>
 
