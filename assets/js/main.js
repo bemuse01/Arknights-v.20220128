@@ -39,7 +39,8 @@ new Vue({
                 list: false,
                 click: true
             },
-            volume: 60
+            volume: 60,
+            isVolumeVisible: false
         }
     },
     created(){
@@ -52,7 +53,7 @@ new Vue({
     },
     watch: {
         getVolume(){
-            console.log(this.volume)
+            // console.log(this.volume)
         }
     },
     computed: {
@@ -175,6 +176,9 @@ new Vue({
             this.character.list = !this.character.list 
 
             OBJECT['characterObj'].getComp('image').slide(path, this.character)
+        },
+        toggleVolumeBar(){
+            this.isVolumeVisible = !this.isVolumeVisible
         },
 
 
