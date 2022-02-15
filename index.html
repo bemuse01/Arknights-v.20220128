@@ -103,6 +103,11 @@
         <script src="assets/js/class/profile/build/profile.child.build.js"></script>
         <!-- profile -->
         <script src="assets/js/class/profile/profile.js"></script>
+
+        <!-- effect build -->
+        <script src="assets/js/class/effect/build/effect.particle.build.js"></script>
+        <!-- effect -->
+        <script src="assets/js/class/effect/effect.js"></script>
     </head>
     <body>
         <div id="wrap" v-cloak>
@@ -181,6 +186,12 @@
                         </div>
                     </transition>
 
+                </div>
+
+                <div class="ui effect">
+                    <div class="effect-container">
+                        <div class="effect-object"></div>
+                    </div>
                 </div>
 
                 <div class="ui profile" :style="getStyle('profile', 'child')">

@@ -1,0 +1,5 @@
+class EffectParticleBuild{
+    constructor(){
+        
+    }
+}

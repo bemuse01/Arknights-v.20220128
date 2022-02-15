@@ -22,6 +22,7 @@ class OpenObj{
         this.comp = {}
         this.build = new THREE.Group()
 
+        this.play = true
 
         // method
         this.init()
@@ -98,6 +99,24 @@ class OpenObj{
             if(!this.comp[comp] || !this.comp[comp].close) continue
             this.comp[comp].close(this.group[comp])
         }
+
+        this.build.clear()
+        this.build = null
+
+        this.scene.clear()
+        this.scene = null
+        this.camera = null
+
+        for(const comp in this.comp){
+            this.comp[comp] = null
+            this.modules[comp] = null
+            this.group[comp] = null
+        }
+
+        this.comp = null
+        this.group = null
+
+        this.play = false
     }
 
 
@@ -120,6 +139,8 @@ class OpenObj{
 
     // animate
     animate({app}){
+        if(!this.play) return
+        
         this.render(app)
         this.animateObject()
     }
@@ -146,6 +167,8 @@ class OpenObj{
 
     // resize
     resize(){
+        if(!this.play) return
+
         const rect = this.node.getBoundingClientRect()
         const width = rect.right - rect.left
         const height = rect.bottom - rect.top

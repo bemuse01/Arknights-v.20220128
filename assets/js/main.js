@@ -10,6 +10,7 @@ new Vue({
         return{
             objectModules: {
                 app: App,
+                effect: Effect,
                 characterObj: CharacterObj,
                 openObj: OpenObj,
             },
@@ -122,7 +123,8 @@ new Vue({
                 const instance = this.elementModules[module]
 
                 this.elements[module] = new instance({...OBJECT, ...this.elements})
-            }  
+            }
+            console.log(OBJECT)
         },
         resizeElement(){
             for(const i in this.elements){
