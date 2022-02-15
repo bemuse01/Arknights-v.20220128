@@ -154,22 +154,25 @@
                         <div class="view-child view-object"></div>
                     </div>
 
-                    <div class="character-container character-list-container">
-                        <div class="list-box">
-                            <div class="list-child">
+                    <transition name="fade">
+                        <div class="character-container character-list-container" v-if="characterList">
+                            <div class="list-back-container" @click="toggleCharacterList()"></div>
+                            <div class="list-box">
+                                <div class="list-child">
 
-                                    <div
-                                        v-for="i in getElement('characterEl', 'list')"
-                                        :key="i.key"
-                                        class="list-item"
-                                    >
-                                        <div></div>
-                                        <img :src="i.path">
-                                    </div>
+                                        <div
+                                            v-for="i in getElement('characterEl', 'list')"
+                                            :key="i.key"
+                                            class="list-item"
+                                        >
+                                            <div></div>
+                                            <img :src="i.path">
+                                        </div>
 
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </transition>
 
                 </div>
 
@@ -190,7 +193,7 @@
                     <div class="left-box">
 
                         <div class="left-container left-button-container">
-                            <div class="left-button-box">
+                            <div class="left-button-box" @click="toggleCharacterList()">
                                 <div class="character-button">
                                     <img src="assets/src/ui/ui-change-character.png">
                                 </div>
@@ -225,7 +228,7 @@
 
                                 <div class="info-section info-data">
 
-                                    <div class="data-section data-friends">
+                                    <div class="data-section data-friends opacity-transition">
 
                                         <div class="data-wrap data-wrap data-img-wrap">
                                             <div class="ui-common-bg data-img data-common"><img src="assets/src/ui/ui_common2_gray.png"></div>
@@ -240,7 +243,7 @@
 
                                     </div>
 
-                                    <div class="data-section data-files">
+                                    <div class="data-section data-files opacity-transition">
 
                                         <div class="data-wrap data-wrap data-img-wrap">
                                             <div class="ui-common-bg data-img data-common"><img src="assets/src/ui/ui_common2.png"></div>

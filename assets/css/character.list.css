@@ -4,14 +4,19 @@ div.character-list-container{
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
     z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* display: none; */
+}
+div.list-back-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
 }
 div.list-box{
+    position: absolute;
     width: 60%;
     height: 90%;
     overflow: auto;
@@ -31,6 +36,7 @@ div.list-item{
     overflow: hidden;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
 div.list-item:hover img{
     transform: scale(1.5);

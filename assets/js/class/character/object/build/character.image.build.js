@@ -44,7 +44,7 @@ class CharacterObjImageBuild{
     init(){
         this.create()
 
-        window.addEventListener('click', () => this.slide())
+        // window.addEventListener('click', () => this.slide())
     }
 
 

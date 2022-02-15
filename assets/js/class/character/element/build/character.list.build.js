@@ -4,6 +4,12 @@ class CharacterElListBuild{
 
         this.el = []
 
+        this.style = {
+            container: {opacity: 0, display: 'none'}
+        }
+
+        this.isClosed = true
+
         this.init()
     }
 
@@ -11,6 +17,10 @@ class CharacterElListBuild{
     // init
     init(){
         this.create()
+
+        this.transitionendEvent = () => {
+            this.onNodeTranstionend()
+        }
     }
 
 

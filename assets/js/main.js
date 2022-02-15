@@ -28,6 +28,7 @@ new Vue({
                 openEl: null,
             },
             perspective: 0,
+            characterList: false
         }
     },
     created(){
@@ -140,6 +141,12 @@ new Vue({
             const {width} = wrap.getBoundingClientRect()
 
             this.perspective = width * 0.625
+        },
+
+
+        // element event
+        toggleCharacterList(){
+            this.characterList = !this.characterList 
         },
 
 
