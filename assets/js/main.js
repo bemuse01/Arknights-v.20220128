@@ -131,7 +131,6 @@ new Vue({
 
                 this.elements[module] = new instance({...OBJECT, ...this.elements})
             }
-            console.log(OBJECT)
         },
         resizeElement(){
             for(const i in this.elements){

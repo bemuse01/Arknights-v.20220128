@@ -40,7 +40,7 @@ class CharacterObjImageBuild{
         img.src = this.defaultSrc
 
         img.onload = () => {
-            this.show(img)
+            setTimeout(() => this.show(img), 1000)
         }
     }
 
@@ -121,7 +121,7 @@ class CharacterObjImageBuild{
 
         const tw = new TWEEN.Tween(start)
         .to(end, this.param.tweenDuration)
-        .delay(600)
+        // .delay(600)
         .onUpdate(() => this.onUpdateTween(start, uniforms))
         .onComplete(() => this.onCompleteTween(item, phase))
         .easing(TWEEN.Easing.Quadratic.InOut)
