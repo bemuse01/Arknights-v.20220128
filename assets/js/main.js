@@ -30,12 +30,11 @@ new Vue({
             },
             perspective: 0,
             rotate: 0,
-            mouse: {
-                ix: 0,
-                iy: 0,
-                vx: 0,
-                vy: 0
-            },
+            friction: 0.15,
+            ix: 0,
+            iy: 0,
+            vx: 0,
+            vy: 0,
             character: {
                 list: false,
                 click: true
@@ -94,6 +93,7 @@ new Vue({
             this.animate()
 
             window.addEventListener('resize', this.onWindowResize, false)
+            window.addEventListener('mousemove', (e) => this.onMousemove(e), false)
         },
 
 
@@ -176,6 +176,27 @@ new Vue({
             this.resizeThree()
             this.resizeElement()
         },
+        onMousemove(e){
+            const {clientX, clientY} = e
+            this.ix = clientX
+            this.iy = clientY
+            // console.log(this.ix, this.iy)
+        },
+        setRotate(){
+            const wrap = document.querySelector('#wrap')
+            if(!wrap) return
+
+            const {width, height} = wrap.getBoundingClientRect()
+            
+            this.vx += (this.ix - this.vx) * this.friction
+            this.vy += (this.iy - this.vy) * this.friction
+            
+            const x = (this.vx / width) * 6 - 3
+            const y = -(this.vy / height) * 6 + 3
+            const dist = new THREE.Vector2(0, 0).distanceTo(new THREE.Vector2(x, 0))
+
+            this.rotate = dist
+        },
 
 
         // render
@@ -186,6 +207,7 @@ new Vue({
         animate(){
             this.render()
             this.animateElement()
+            // this.setRotate()
             requestAnimationFrame(this.animate)
             // requestIdleCallback(this.animate)
         }
