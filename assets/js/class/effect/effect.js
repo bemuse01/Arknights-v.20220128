@@ -61,26 +61,18 @@ class Effect{
         const self = this
         
         const proxyObj = {
-            play: true,
+            play: false
         }
 
         this.proxy = new Proxy(proxyObj, {
             isAllTrue(obj){
                 return Object.keys(obj).every(key => obj[key] === true)
             },
-            isAllFalse(obj){
-                return Object.keys(obj).every(key => obj[key] === false)
-            },
             set(obj, prop, value){
                 obj[prop] = value
 
-                // when open's comps all true, close open and show map
                 if(this.isAllTrue(obj)){
-                    // self.close()
-                }
-
-                if(this.isAllFalse(obj)){
-                    self.close()
+                    self.open()
                 }
                 
                 return true
@@ -89,11 +81,11 @@ class Effect{
     }
 
 
-    // close
-    close(){
+    // open
+    open(){
         for(const comp in this.comp){
-            if(!this.comp[comp] || !this.comp[comp].close) continue
-            this.comp[comp].close(this.group[comp])
+            if(!this.comp[comp].open) continue
+            this.comp[comp].open()
         }
     }
 

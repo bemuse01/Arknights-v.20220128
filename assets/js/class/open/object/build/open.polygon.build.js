@@ -65,7 +65,7 @@ class OpenPolygonBuild{
         const group = this.object.get()
         const meshes = group.children
 
-        const tw = new TWEEN.Tween(start)
+        this.tw = new TWEEN.Tween(start)
         .to(end, 1500)
         .onUpdate(() => this.onUpdateTween(meshes, start))
         .onRepeat(() => this.onRepeatTween(group))
@@ -91,6 +91,10 @@ class OpenPolygonBuild{
         group.remove(this.object.get())
         this.object.dispose()
         this.object = null
+
+        TWEEN.remove(this.tw)
+        this.tw = null
+
         this.play = false
     }
 

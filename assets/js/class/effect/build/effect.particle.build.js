@@ -3,7 +3,7 @@ class EffectParticleBuild{
         this.size = size
 
         this.param = {
-            count: 70,
+            count: 50,
             color: 0x888888,
             size: 3.0,
             velX: {min: -0.2, max: -0.1},
@@ -13,6 +13,12 @@ class EffectParticleBuild{
         this.play = true
 
         this.init(group)
+    }
+
+
+    // open
+    open(){
+        this.createTween()
     }
 
 
@@ -32,6 +38,7 @@ class EffectParticleBuild{
                 vertexShader: EffectParticleShader.vertex,
                 fragmentShader: EffectParticleShader.fragment,
                 transparent: true,
+                blending: THREE.AdditiveBlending,
                 uniforms: {
                     uColor: {value: new THREE.Color(this.param.color)},
                     uSize: {value: this.param.size}
@@ -54,20 +61,38 @@ class EffectParticleBuild{
 
             const x = Math.random() * w - h / 2
             const y = Math.random() * h - h / 2
-
-            // const x = THREE.Math.randFloat(-w / 2 - this.param.size, w / 2 + this.param.size)
-            // const y = THREE.Math.randFloat(-h / 2, -h / 2 - this.param.size)
             const z = 0
 
             position[idx] = x
             position[idx + 1] = y
             position[idx + 2] = z
 
-            opacity[idx] = 1
+            opacity[idx] = 0
         }
 
         this.object.setAttribute('position', new Float32Array(position), 3)
         this.object.setAttribute('aOpacity', new Float32Array(opacity), 1)
+    }
+
+
+    // tween
+    createTween(){
+        const start = {opacity: 0}
+        const end = {opacity: 1}
+        const o = this.object.getAttribute('aOpacity')
+        const oArr = o.array
+
+        const tw = new TWEEN.Tween(start)
+        .to(end, 600)
+        .delay(1000)
+        .onUpdate(() => this.onUpdateTween(o, oArr, start))
+        .start()
+    }
+    onUpdateTween(o, oArr, {opacity}){
+        for(let i = 0; i < this.param.count; i++){
+            oArr[i] = opacity 
+        }
+        o.needsUpdate = true
     }
 
 
