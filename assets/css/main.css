@@ -95,7 +95,7 @@ div#wrap{
     width: 100vw;
     height: 100vh;
     background: url('../src/open_bg.png') no-repeat center center / cover;
-    perspective: var(--perspective);
+    /* perspective: var(--perspective); */
 }
 canvas#canvas{
     position: absolute;
