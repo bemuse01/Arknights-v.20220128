@@ -28,7 +28,7 @@ class CharacterObjImageBuild{
 
         this.objects = []
 
-        this.canClick = true
+        this.character = null
 
         this.init()
     }
@@ -36,7 +36,12 @@ class CharacterObjImageBuild{
 
     // open
     open(){
+        const img = new Image()
+        img.src = this.defaultSrc
 
+        img.onload = () => {
+            this.show(img)
+        }
     }
 
 
@@ -50,13 +55,8 @@ class CharacterObjImageBuild{
 
     // create
     create(){
-        const img = new Image()
-        img.src = this.defaultSrc
-
-        img.onload = () => {
-            this.createObject(img, OUT)
-            this.createObject(null, IN)
-        }
+        this.createObject(null, IN)
+        this.createObject(null, IN)
     }
     createTexture(img){
         if(img){
@@ -121,6 +121,7 @@ class CharacterObjImageBuild{
 
         const tw = new TWEEN.Tween(start)
         .to(end, this.param.tweenDuration)
+        .delay(600)
         .onUpdate(() => this.onUpdateTween(start, uniforms))
         .onComplete(() => this.onCompleteTween(item, phase))
         .easing(TWEEN.Easing.Quadratic.InOut)
@@ -137,7 +138,7 @@ class CharacterObjImageBuild{
             item.obj.setUniform('uTexture', null)
         }else{
             item.phase = OUT
-            this.character.click = true
+            if(this.character) this.character.click = true
         }
     }
 

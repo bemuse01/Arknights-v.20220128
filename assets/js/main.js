@@ -29,7 +29,7 @@ new Vue({
             },
             perspective: 0,
             character: {
-                List: false,
+                list: false,
                 click: true
             }
         }

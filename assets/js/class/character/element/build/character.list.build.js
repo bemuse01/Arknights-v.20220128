@@ -17,10 +17,6 @@ class CharacterElListBuild{
     // init
     init(){
         this.create()
-
-        this.transitionendEvent = () => {
-            this.onNodeTranstionend()
-        }
     }
 
 

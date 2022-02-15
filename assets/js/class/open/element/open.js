@@ -14,6 +14,7 @@ class OpenEl{
         this.profileProxy = profile.proxy
         this.leftElProxy = leftEl.proxy
         this.rightElProxy = rightEl.proxy
+        this.characterObjProxy = characterObj.proxy
         this.openObjProxy = openObj.proxy
 
         this.init()
@@ -85,6 +86,7 @@ class OpenEl{
         if(this.openObjProxy.play){
             this.profileProxy.play = true
             this.leftElProxy.play = true
+            this.characterObjProxy.play = true
             this.rightElProxy.play = true
 
             this.parentNode.style.display = 'none'
