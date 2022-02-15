@@ -6,7 +6,7 @@ class EffectParticleBuild{
             count: 50,
             color: 0x888888,
             size: 3.0,
-            velX: {min: -0.2, max: -0.1},
+            velX: {min: -0.3, max: -0.2},
             velY: {min: 0.1, max: 0.2}
         }
 
@@ -105,8 +105,8 @@ class EffectParticleBuild{
         const position = this.object.getAttribute('position')
         const positionArr = position.array
 
-        const opacity = this.object.getAttribute('aOpacity')
-        const opacityArr = opacity.array
+        // const opacity = this.object.getAttribute('aOpacity')
+        // const opacityArr = opacity.array
 
         const whalf = w / 2
         const hhalf = h / 2

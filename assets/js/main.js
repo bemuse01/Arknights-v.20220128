@@ -38,7 +38,8 @@ new Vue({
             character: {
                 list: false,
                 click: true
-            }
+            },
+            volume: 60
         }
     },
     created(){
@@ -48,6 +49,11 @@ new Vue({
     },  
     mounted(){
         this.init()
+    },
+    watch: {
+        getVolume(){
+            console.log(this.volume)
+        }
     },
     computed: {
         setElementNodeStyle(){
@@ -76,6 +82,9 @@ new Vue({
                 if(!this.elements[name]) return {}
                 else return this.getComp2(name, child)
             }
+        },
+        getVolume(){
+            return this.volume
         }
         // currentTime(){
         //     if(!this.elements['left']) return '00:00:00'

@@ -209,19 +209,6 @@
                     </div>
                 </div>
 
-                <div class="ui menu">
-                    <div class="menu-container menu-shadow-container"></div>
-                    <div class="menu-container menu-icon-container">
-                        <div class="menu-child menu-play">
-                            <img src="assets/src/ui/ui_play_icon.png">
-                        </div>
-                        <div class="menu-child menu-volume">
-                            <img src="assets/src/ui/ui_volume_icon.png">
-                        </div>
-                        <div class="menu-child"></div>
-                    </div>
-                </div>
-
                 <div class="ui left" :style="getStyle('leftEl', 'child')">
                     <div class="left-box">
 
@@ -549,6 +536,22 @@
 
                     <!-- <div class="right-container right-empty-container"></div> -->
 
+                </div>
+
+                <div class="ui menu">
+                    <div class="menu-container menu-shadow-container"></div>
+                    <div class="menu-container menu-icon-container">
+                        <div class="menu-child menu-play">
+                            <img src="assets/src/ui/ui_play_icon.png">
+                        </div>
+                        <div class="menu-child menu-volume">
+                            <img src="assets/src/ui/ui_volume_icon.png">
+                            <div class="volume-bar">
+                                <input type="range" min="0" max="100" step="1" v-model="volume">
+                            </div>
+                        </div>
+                        <div class="menu-child"></div>
+                    </div>
                 </div>
                 
             </div>
