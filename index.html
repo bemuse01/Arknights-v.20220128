@@ -71,6 +71,7 @@
         <script src="assets/js/class/character/object/character.js"></script>
 
         <!-- character element build -->
+        <script src="assets/js/class/character/element/build/character.list.build.js"></script>
         <!-- character element -->
         <script src="assets/js/class/character/element/character.js"></script>
 
@@ -155,22 +156,18 @@
 
                     <div class="character-container character-list-container">
                         <div class="list-box">
-
                             <div class="list-child">
-                                <div class="list-vertical-box">
 
-                                    <div class="list-item"></div>
-                                    <div class="list-item"></div>
-                                    <div class="list-item"></div>
-                                    <div class="list-item"></div>
-                                    <div class="list-item"></div>
-                                    <div class="list-item"></div>
-                                    <div class="list-item"></div>
-                                    <div class="list-item"></div>
+                                    <div
+                                        v-for="i in getElement('characterEl', 'list')"
+                                        :key="i.key"
+                                        class="list-item"
+                                    >
+                                        <div></div>
+                                        <img :src="i.path">
+                                    </div>
 
-                                </div>
                             </div>
-
                         </div>
                     </div>
 

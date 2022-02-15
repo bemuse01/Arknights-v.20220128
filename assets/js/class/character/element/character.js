@@ -11,6 +11,7 @@ class CharacterEl{
         }
 
         this.modules = {
+            list: CharacterElListBuild
         }
 
         this.comp = {}

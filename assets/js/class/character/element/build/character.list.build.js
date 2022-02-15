@@ -16,12 +16,17 @@ class CharacterElListBuild{
 
     // create
     create(){
-        this.el = CHARACTER.map(({name, count}, idx) => ({
-            key: idx,
-            children: Array.from({length: count}, (_, i) => ({
-                key: i,
-                path: `${this.path}/${name}/${name} (${i + 1}).png`
-            }))
-        }))
+        for(let i = 0; i < CHARACTER.length; i++){
+            const {name, count} = CHARACTER[i]
+
+            for(let j = 0; j < count; j++){
+                const idx = i * count + j
+
+                this.el.push({
+                    key: idx,
+                    path: `${this.path}/${name}/${name} (${j + 1}).png`
+                })
+            }
+        }
     }
 }

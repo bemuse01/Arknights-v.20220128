@@ -45,7 +45,7 @@ new Vue({
         getElement(){
             return (name, child) => {
                 if(!this.elements[name]) return []
-                else return this.elements[name].get(child)
+                else return this.getComp2(name, child).el
             }
         },
         getStyle(){
