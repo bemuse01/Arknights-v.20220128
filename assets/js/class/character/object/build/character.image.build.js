@@ -153,7 +153,6 @@ class CharacterObjImageBuild{
         // const num = ~~(Math.random() * count) + 1
         // img.src = `assets/src/character/${name}/${name} (${num}).png`
 
-
         img.onload = () => {
             this.hide()
             this.show(img)

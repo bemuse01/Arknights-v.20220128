@@ -1,5 +1,5 @@
 class OpenEl{
-    constructor({left, rightEl, openObj}){
+    constructor({leftEl, rightEl, profile, openObj, characterObj}){
         this.wrapNode = document.querySelector('#wrap')
         this.parentNode = document.querySelector('.open')
         this.node = document.querySelector('.open-element-container')
@@ -11,7 +11,8 @@ class OpenEl{
 
         this.comp = {}
 
-        // this.leftProxy = left.proxy
+        this.profileProxy = profile.proxy
+        this.leftElProxy = leftEl.proxy
         this.rightElProxy = rightEl.proxy
         this.openObjProxy = openObj.proxy
 
@@ -82,7 +83,8 @@ class OpenEl{
     // event
     onTransitionend(){
         if(this.openObjProxy.play){
-            // this.leftProxy.play = true
+            this.profileProxy.play = true
+            this.leftElProxy.play = true
             this.rightElProxy.play = true
 
             this.parentNode.style.display = 'none'

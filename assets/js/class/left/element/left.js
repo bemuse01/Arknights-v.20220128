@@ -12,6 +12,8 @@ class LeftEl{
 
         this.modules = {
             child: LeftElChildBuild,
+            info: LeftElInfoBuild,
+            voice: LeftElVoiceBuild
         }
 
         this.comp = {}

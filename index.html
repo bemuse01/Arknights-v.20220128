@@ -75,7 +75,11 @@
         <!-- character element -->
         <script src="assets/js/class/character/element/character.js"></script>
 
+        <!-- left element param -->
+        <script src="assets/js/class/left/element/param/leftParam.js"></script>
         <!-- left element build -->
+        <script src="assets/js/class/left/element/build/left.voice.build.js"></script>
+        <script src="assets/js/class/left/element/build/left.info.build.js"></script>
         <script src="assets/js/class/left/element/build/left.child.build.js"></script>
         <!-- left element -->
         <script src="assets/js/class/left/element/left.js"></script>
@@ -93,6 +97,8 @@
         <!-- right element -->
         <script src="assets/js/class/right/element/right.js"></script>
 
+        <!-- profile param -->
+        <script src="assets/js/class/profile/param/profileParam.js"></script>
         <!-- profile build -->
         <script src="assets/js/class/profile/build/profile.child.build.js"></script>
         <!-- profile -->
@@ -193,7 +199,7 @@
                 <div class="ui left" :style="getStyle('leftEl', 'child')">
                     <div class="left-box">
 
-                        <div class="left-container left-button-container">
+                        <div class="left-container left-button-container" :style="getStyle('leftEl', 'voice')">
                             <div class="left-button-box" @click="toggleCharacterList()">
                                 <div class="character-button">
                                     <img src="assets/src/ui/ui-change-character.png">
@@ -201,7 +207,7 @@
                             </div>
                         </div>
 
-                        <div class="left-container left-voice-container">
+                        <div class="left-container left-voice-container" :style="getStyle('leftEl', 'voice')">
                             <div class="voice-box">
                                 <div class="voice-child voice-title">
                                     <span>VOICE</span>
@@ -212,7 +218,7 @@
                             </div>
                         </div>
 
-                        <div class="left-container left-info-container">
+                        <div class="left-container left-info-container" :style="getStyle('leftEl', 'info')">
                             <div class="info-box">
 
                                 <div class="info-section info-news">
@@ -238,7 +244,7 @@
         
                                         <div class="data-wrap data-wrap data-content-wrap">
                                             <div class="data-title">
-                                                <span>친구</span>
+                                                <span>{{getText('leftEl', 'info').friends}}</span>
                                             </div>
                                         </div>
 
@@ -253,7 +259,7 @@
         
                                         <div class="data-wrap data-wrap data-content-wrap">
                                             <div class="data-title">
-                                                <span>파일</span>
+                                                <span>{{getText('leftEl', 'info').files}}</span>
                                             </div>
                                         </div>
 
