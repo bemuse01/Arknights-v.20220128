@@ -13,6 +13,7 @@ class Effect{
 
         // module
         this.modules = {
+            particle: EffectParticleBuild
         }
         this.group = {}
         this.comp = {}

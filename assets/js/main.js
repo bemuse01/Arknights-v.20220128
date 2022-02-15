@@ -10,8 +10,8 @@ new Vue({
         return{
             objectModules: {
                 app: App,
-                effect: Effect,
                 characterObj: CharacterObj,
+                effect: Effect,
                 openObj: OpenObj,
             },
             elementModules: {
