@@ -29,6 +29,13 @@ new Vue({
                 openEl: null,
             },
             perspective: 0,
+            rotate: 0,
+            mouse: {
+                ix: 0,
+                iy: 0,
+                vx: 0,
+                vy: 0
+            },
             character: {
                 list: false,
                 click: true
