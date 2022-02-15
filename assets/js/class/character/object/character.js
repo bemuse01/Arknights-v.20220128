@@ -161,4 +161,10 @@ class CharacterObj{
             this.comp[comp].resize(this.size)
         }
     }
+
+
+    // get
+    getComp(name){
+        return this.comp[name]
+    }
 }

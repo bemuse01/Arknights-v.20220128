@@ -24,11 +24,7 @@ class OpenEl{
         this.initProxy()
         this.create()
 
-        this.transitionendEvent = () => {
-            this.onTransitionend()
-        }
-
-        this.frameNode.addEventListener('transitionend', this.transitionendEvent)
+        this.frameNode.addEventListener('transitionend', () => this.onTransitionend())
     }
     initProxy(){
         const self = this
@@ -85,19 +81,18 @@ class OpenEl{
 
     // event
     onTransitionend(){
-        // this.leftProxy.play = true
-        this.rightElProxy.play = true
+        if(this.openObjProxy.play){
+            // this.leftProxy.play = true
+            this.rightElProxy.play = true
 
-        this.parentNode.style.display = 'none'
-        this.openObjProxy.play = false
-        this.wrapNode.style.background = `url('./assets/src/lobby_bg.png') no-repeat center center / cover`
+            this.parentNode.style.display = 'none'
+            this.openObjProxy.play = false
+            this.wrapNode.style.background = `url('./assets/src/lobby_bg.png') no-repeat center center / cover`
 
-        this.frameNode.removeEventListener('transitionend', this.transitionendEvent)
-        this.frameNode.addEventListener('transitionend', () => this.onTransitionend2())
-        this.frameNode.style.opacity = 0
-    }
-    onTransitionend2(){
-        this.frameNode.style.display = 'none'
+            this.frameNode.style.opacity = 0
+        }else{
+            this.frameNode.style.display = 'none'
+        }
     }
 
 

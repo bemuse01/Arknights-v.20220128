@@ -10,7 +10,7 @@ new Vue({
         return{
             objectModules: {
                 app: App,
-                chracterObj: CharacterObj,
+                characterObj: CharacterObj,
                 openObj: OpenObj,
             },
             elementModules: {
@@ -147,6 +147,11 @@ new Vue({
         // element event
         toggleCharacterList(){
             this.characterList = !this.characterList 
+        },
+        changeCharacter(path){
+            this.characterList = !this.characterList 
+
+            OBJECT['characterObj'].getComp('image').slide(path)
         },
 
 

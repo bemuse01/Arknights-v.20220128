@@ -143,14 +143,17 @@ class CharacterObjImageBuild{
 
 
     // slide
-    slide(){
+    slide(src){
         if(!this.canClick) return
         this.canClick = false
 
         const img = new Image()
-        const {name, count} = CHARACTER[~~(Math.random() * CHARACTER.length)]
-        const num = ~~(Math.random() * count) + 1
-        img.src = `assets/src/character/${name}/${name} (${num}).png`
+        img.src = src
+
+        // const {name, count} = CHARACTER[~~(Math.random() * CHARACTER.length)]
+        // const num = ~~(Math.random() * count) + 1
+        // img.src = `assets/src/character/${name}/${name} (${num}).png`
+
 
         img.onload = () => {
             this.hide()

@@ -2,7 +2,7 @@ class OpenLoadingBuild{
     constructor({proxy}){
         this.proxy = proxy
 
-        this.delay = 500
+        this.delay = 1000
 
         this.style = {
             bar: {

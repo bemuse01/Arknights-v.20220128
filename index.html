@@ -164,6 +164,7 @@
                                             v-for="i in getElement('characterEl', 'list')"
                                             :key="i.key"
                                             class="list-item"
+                                            @click="changeCharacter(i.path)"
                                         >
                                             <div></div>
                                             <img :src="i.path">
