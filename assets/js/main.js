@@ -28,7 +28,10 @@ new Vue({
                 openEl: null,
             },
             perspective: 0,
-            characterList: false
+            character: {
+                List: false,
+                click: true
+            }
         }
     },
     created(){
@@ -146,12 +149,15 @@ new Vue({
 
         // element event
         toggleCharacterList(){
-            this.characterList = !this.characterList 
+            this.character.list = !this.character.list
         },
         changeCharacter(path){
-            this.characterList = !this.characterList 
+            if(!this.character.click) return
+            this.character.click = false
 
-            OBJECT['characterObj'].getComp('image').slide(path)
+            this.character.list = !this.character.list 
+
+            OBJECT['characterObj'].getComp('image').slide(path, this.character)
         },
 
 

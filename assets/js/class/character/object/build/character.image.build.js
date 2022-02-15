@@ -137,15 +137,14 @@ class CharacterObjImageBuild{
             item.obj.setUniform('uTexture', null)
         }else{
             item.phase = OUT
-            this.canClick = true
+            this.character.click = true
         }
     }
 
 
     // slide
-    slide(src){
-        if(!this.canClick) return
-        this.canClick = false
+    slide(src, character){
+        this.character = character
 
         const img = new Image()
         img.src = src
