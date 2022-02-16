@@ -46,6 +46,11 @@ div.news-visualizer{
     width: 100%;
     height: 93%;
     background: #424242aa;
+    display: flex;
+}
+div.news-visualizer canvas{
+    width: 100%;
+    height: 100%;
 }
 div.news-num{
     width: 100%;
