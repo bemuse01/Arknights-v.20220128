@@ -1,7 +1,44 @@
 class RightElOpBuild{
     constructor(){
+        // kr
+        this.krStyle = {
+            squad: {fontFamily: 'BusanBada'},
+            operator: {fontFamily: 'BusanBada'},
+            operatorDetail: {fontFamily: 'NotoSansKrBold'}
+        }
+        this.krText = {
+            squad: '편성',
+            operator: '오퍼레이터',
+            operatorDetail: '캐릭터 관리'
+        }
+
+        // en
+        this.enStyle = {
+            squad: {fontFamily: 'RobotoBlack', transform: 'scaleX(0.7)', transformOrigin: 'left'},
+            operator: {fontFamily: 'RobotoBlack', transform: 'scaleX(0.7)', transformOrigin: 'left'},
+            operatorDetail: {fontFamily: 'OpenSansMedium', transform: 'scaleX(0.7)', transformOrigin: 'left'}
+        }
+        this.enText = {
+            squad: 'Squads',
+            operator: 'Operator',
+            operatorDetail: 'Management'
+        }
+
+        this.lang = {
+            kr: {
+                style: this.krStyle,
+                text: this.krText
+            },
+            en: {
+                style: this.enStyle,
+                text: this.enText
+            }
+        }
+
         this.style = {
-            container: {fontFamily: 'BusanBada', opacity: 0},
+            container: {opacity: 0},
+            squad: {fontFamily: 'BusanBada'},
+            operator: {fontFamily: 'BusanBada'},
             operatorDetail: {fontFamily: 'NotoSansKrBold'}
         }
 
@@ -10,6 +47,8 @@ class RightElOpBuild{
             operator: '오퍼레이터',
             operatorDetail: '캐릭터 관리'
         }
+
+        this.init()
     }
 
     
@@ -17,7 +56,12 @@ class RightElOpBuild{
     open(){
         this.createTween()
     }
-
+    
+    
+    // init
+    init(){
+    }
+    
 
     // tween
     createTween(){
@@ -35,5 +79,19 @@ class RightElOpBuild{
     }
     onUpdateTween({opacity}){
         this.style.container.opacity = opacity
+    }
+
+
+    // set language
+    setLanguage(lang){
+        for(const prop in this.lang[lang].style){
+            const style = this.lang[lang].style
+            this.style[prop] = style[prop]
+        }
+
+        for(const prop in this.lang[lang].text){
+            const text = this.lang[lang].text
+            this.text[prop] = text[prop]
+        }
     }
 }

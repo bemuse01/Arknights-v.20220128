@@ -104,7 +104,8 @@ div.combat-title{
     color: #333;
     width: 25%;
     height: 100%;
-    overflow: hidden;
+    word-break: keep-all;
+    /* overflow: hidden; */
 }
 div.combat-title-child{
     flex: 1;
@@ -113,6 +114,7 @@ div.combat-title-child{
 div.combat-title-big{
     flex: 3;
     font-size: 90px;
+    transform-origin: left;
 }
 div.combat-title-tag{
     font-size: 28px;

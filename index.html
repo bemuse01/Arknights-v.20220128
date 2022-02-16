@@ -114,6 +114,7 @@
         <!-- menu param -->
         <script src="assets/js/class/menu/param/menuParam.js"></script>
         <!-- menu build -->
+        <script src="assets/js/class/menu/build/menu.language.js"></script>
         <script src="assets/js/class/menu/build/menu.play.js"></script>
         <script src="assets/js/class/menu/build/menu.child.js"></script>
         <!-- menu -->
@@ -216,7 +217,7 @@
                     </div>
                     <div class="profile-child profile-id">
                         <span class="name">Doctor</span>
-                        <span class="uid">ID: 95654142</span>
+                        <span class="uid">ID: {{id}}</span>
                     </div>
                 </div>
 
@@ -242,7 +243,7 @@
                             </div>
                         </div>
 
-                        <div class="left-container left-info-container" :style="getStyle('leftEl', 'info')">
+                        <div class="left-container left-info-container" :style="getStyle('leftEl', 'info').container">
                             <div class="info-box">
 
                                 <div class="info-section info-news">
@@ -267,7 +268,7 @@
                                         </div>
         
                                         <div class="data-wrap data-wrap data-content-wrap">
-                                            <div class="data-title">
+                                            <div class="data-title" :style="getStyle('leftEl', 'info').public">
                                                 <span>{{getText('leftEl', 'info').friends}}</span>
                                             </div>
                                         </div>
@@ -282,7 +283,7 @@
                                         </div>
         
                                         <div class="data-wrap data-wrap data-content-wrap">
-                                            <div class="data-title">
+                                            <div class="data-title" :style="getStyle('leftEl', 'info').public">
                                                 <span>{{getText('leftEl', 'info').files}}</span>
                                             </div>
                                         </div>
@@ -344,7 +345,7 @@
                                             <span class="combat-sanity-child combat-sanity-current">{{getText('rightEl', 'combat').crtSanity}}</span>
                                             <span 
                                                 class="combat-sanity-child combat-sanity-max"
-                                                :style="getStyle('rightEl', 'combat').sanityFont"
+                                                :style="getStyle('rightEl', 'combat').sanity"
                                             >{{getText('rightEl', 'combat').sanity}}<font style="font-family: OpenSansMedium">/{{getText('rightEl', 'combat').maxSanity}}</font>
                                             </span>
                                         </div>
@@ -352,15 +353,15 @@
                                     <div class="combat-child combat-title">
                                         <div 
                                             class="combat-title-child combat-title-big"
-                                            :style="getStyle('rightEl', 'combat').combatBigFont"
+                                            :style="getStyle('rightEl', 'combat').combatBig"
                                         ><span>{{getText('rightEl', 'combat').combatBig}}</span></div>
                                         <div 
                                             class="combat-title-child combat-title-tag"
-                                            :style="getStyle('rightEl', 'combat').combatTagFont"
+                                            :style="getStyle('rightEl', 'combat').combatTag"
                                         ><div><span>{{getText('rightEl', 'combat').combatTag}}</span></div></div>
                                         <div 
                                             class="combat-title-child combat-title-small"
-                                            :style="getStyle('rightEl', 'combat').combatSmallFont"
+                                            :style="getStyle('rightEl', 'combat').combatSmall"
                                         ><span>{{getText('rightEl', 'combat').combatSmall}}</span></div>
                                     </div>
                                     <div class="combat-child combat-event">
@@ -382,7 +383,7 @@
                                     </div>
 
                                     <div class="op-wrap squad-wrap squad-content-wrap">
-                                        <div class="op-title squad-title">
+                                        <div class="op-title squad-title" :style="getStyle('rightEl', 'op').squad">
                                             <span>{{getText('rightEl', 'op').squad}}</span>
                                         </div>
                                     </div>
@@ -397,7 +398,7 @@
                                     </div>
 
                                     <div class="op-wrap operator-wrap squad-wrap operator-content-wrap">
-                                        <div class="op-title operator-text operator-title">
+                                        <div class="op-title operator-text operator-title" :style="getStyle('rightEl', 'op').operator">
                                             <span>{{getText('rightEl', 'op').operator}}</span>
                                         </div>
                                         <div class="operator-text operator-detail" :style="getStyle('rightEl', 'op').operatorDetail">
@@ -415,7 +416,7 @@
                         <div class="right-container right-store-container" :style="getStyle('rightEl', 'store').container">
                             <div class="store-box">
 
-                                <div class="store-section store-shop opacity-transition" :style="getStyle('rightEl', 'store').shopSection">
+                                <div class="store-section store-shop opacity-transition">
 
                                     <div class="store-wrap shop-wrap shop-img-wrap">
                                         <div class="ui-common-bg store-img shop-common"><img src="assets/src/ui/ui_common_blue.png"></div>
@@ -423,7 +424,7 @@
                                     </div>
 
                                     <div class="store-wrap shop-wrap shop-content-wrap">
-                                        <div class="store-title shop-title">
+                                        <div class="store-title shop-title" :style="getStyle('rightEl', 'store').public">
                                             <span>{{getText('rightEl', 'store').shop}}</span>
                                         </div>
                                     </div>
@@ -432,13 +433,14 @@
 
                                 </div>
 
-                                <div class="store-section store-recruit" :Style="getStyle('rightEl', 'store').shopSection">
+                                <div class="store-section store-recruit">
                                     <div class="recruit-box">
 
                                         <div class="recruit-child recruit-title">
                                             <div class="recruit-title-wrap">
                                                 <div class="recruit-title-icon"><img src="assets/src/ui/ui_recruitment_title_icon.png"></div>
-                                                <div class="recruit-title-text" ><span>{{getText('rightEl', 'store').recruitTitle}}</span>
+                                                <div class="recruit-title-text" :style="getStyle('rightEl', 'store').title">
+                                                    <span>{{getText('rightEl', 'store').recruitTitle}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -453,7 +455,7 @@
                                                     </div>
 
                                                     <div class="store-wrap recruit-wrap public-content-wrap">
-                                                        <div class="article-title public-title">
+                                                        <div class="article-title public-title" :style="getStyle('rightEl', 'store').public">
                                                             <span>{{getText('rightEl', 'store').recruitPublic}}</span>
                                                         </div>
                                                         <div class="article-shadow public-shadow"></div>
@@ -470,7 +472,7 @@
                                                     </div>
 
                                                     <div class="store-wrap recruit-wrap headhunt-content-wrap">
-                                                        <div class="article-title headhunt-title">
+                                                        <div class="article-title headhunt-title" :style="getStyle('rightEl', 'store').public">
                                                             <span>{{getText('rightEl', 'store').recruitHeadhunt}}</span>
                                                         </div>
                                                         <div class="article-shadow headhunt-shadow"></div>
@@ -490,7 +492,7 @@
                         <div class="right-container right-facility-container" :style="getStyle('rightEl', 'facility').container">
                             <div class="facility-box">
                                 
-                                <div class="facility-section facility-mission opacity-transition" :style="getStyle('rightEl', 'facility').missionSection">
+                                <div class="facility-section facility-mission opacity-transition">
 
                                     <div class="facility-wrap mission-wrap mission-img-wrap">
                                         <div class="ui-common-bg facility-img mission-common"><img src="assets/src/ui/ui_common.png"></div>
@@ -498,7 +500,7 @@
                                     </div>
 
                                     <div class="facility-wrap mission-wrap mission-content-wrap">
-                                        <div class="facility-title mission-title">
+                                        <div class="facility-title mission-title" :style="getStyle('rightEl', 'facility').public">
                                             <span>{{getText('rightEl', 'facility').mission}}</span>
                                         </div>
                                         <div class="mission-line"></div>
@@ -506,7 +508,7 @@
                                     
                                 </div>
 
-                                <div class="facility-section facility-unit" :style="getStyle('rightEl', 'facility').unitSection">
+                                <div class="facility-section facility-unit">
                                     
                                     <div class="unit-child unit-base opacity-transition">
 
@@ -517,7 +519,7 @@
                                         </div>
 
                                         <div class="facility-wrap base-wrap base-content-wrap">
-                                            <div class="facility-title base-title">
+                                            <div class="facility-title base-title" :style="getStyle('rightEl', 'facility').public">
                                                 <span>{{getText('rightEl', 'facility').base}}</span>
                                             </div>
                                         </div>
@@ -532,7 +534,7 @@
                                         </div>
 
                                         <div class="facility-wrap depot-wrap depot-content-wrap">
-                                            <div class="facility-title depot-title">
+                                            <div class="facility-title depot-title" :style="getStyle('rightEl', 'facility').depot">
                                                 <span>{{getText('rightEl', 'facility').depot}}</span>
                                             </div>
                                         </div>
@@ -559,7 +561,17 @@
                                 <input type="range" min="0" max="100" step="1" v-model="volume">
                             </div>
                         </div>
-                        <div class="menu-child"></div>
+                        <div class="menu-child menu-language">
+                            <img src="assets/src/ui/ui_language_icon.png" @click="toggleLanguageBar()">
+                            <div class="language-bar" v-show="isLanguageVisible">
+                                <div
+                                    v-for="i in getElement('menu', 'language')"
+                                    :key="i.key"
+                                    @click="changeLanguage(i.lang)"
+                                ><span>{{i.text}}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 

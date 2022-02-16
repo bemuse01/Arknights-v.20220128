@@ -12,7 +12,8 @@ class Menu{
 
         this.modules = {
             child: MenuChildBuild,
-            play: MenuPlayBuild
+            play: MenuPlayBuild,
+            language: MenuLanguageBuild
         }
 
         this.comp = {}

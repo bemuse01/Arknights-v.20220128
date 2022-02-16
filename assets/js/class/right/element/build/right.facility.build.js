@@ -1,7 +1,42 @@
 class RightElFacilityBuild{
     constructor(){
+        // kr
+        this.krStyle = {
+            public: {fontFamily: 'BusanBada', width: 'initial'},
+            depot: {fontFamily: 'BusanBada'}
+        }
+        this.krText = {
+            mission: '임무',
+            base: '기반시설',
+            depot: '창고'
+        }
+
+        // en
+        this.enStyle = {
+            public: {fontFamily: 'RobotoBlack', transform: 'scaleX(0.7)', transformOrigin: 'left', width: '84%'},
+            depot: {fontFamily: 'RobotoBlack', transform: 'scaleX(0.7)'}
+        }
+        this.enText = {
+            mission: 'Mission',
+            base: 'Base',
+            depot: 'Depot'
+        }
+
+        this.lang = {
+            kr: {
+                style: this.krStyle,
+                text: this.krText
+            },
+            en: {
+                style: this.enStyle,
+                text: this.enText
+            }
+        }
+
         this.style = {
-            container: {fontFamily: 'BusanBada', opacity: 0},
+            container: {opacity: 0},
+            public: {fontFamily: 'BusanBada'},
+            depot: {fontFamily: 'BusanBada'}
         }
 
         this.text = {
@@ -9,12 +44,19 @@ class RightElFacilityBuild{
             base: '기반시설',
             depot: '창고'
         }
+
+        this.init()
     }
 
 
     // open
     open(){
         this.createTween()
+    }
+
+
+    // init
+    init(){
     }
 
 
@@ -34,5 +76,19 @@ class RightElFacilityBuild{
     }
     onUpdateTween({opacity}){
         this.style.container.opacity = opacity
+    }
+
+
+    // set language
+    setLanguage(lang){
+        for(const prop in this.lang[lang].style){
+            const style = this.lang[lang].style
+            this.style[prop] = style[prop]
+        }
+
+        for(const prop in this.lang[lang].text){
+            const text = this.lang[lang].text
+            this.text[prop] = text[prop]
+        }
     }
 }

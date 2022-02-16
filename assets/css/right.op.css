@@ -70,6 +70,7 @@ div.operator-content-wrap{
     height: 80%;
     gap: 5%;
     font-size: 66px;
+    align-items: flex-start;
 }
 div.operator-content-wrap > div{
     flex: 1;

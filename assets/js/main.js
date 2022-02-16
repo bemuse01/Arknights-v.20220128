@@ -46,7 +46,9 @@ new Vue({
             nowPlaying: false,
             mouse:{
                 move: false
-            }
+            },
+            id: ~~(Math.random() * 89999999 + 10000000),
+            isLanguageVisible: false
         }
     },
     created(){
@@ -188,6 +190,13 @@ new Vue({
         },
         toggleVolumeBar(){
             this.isVolumeVisible = !this.isVolumeVisible
+        },
+        toggleLanguageBar(){
+            this.isLanguageVisible = !this.isLanguageVisible
+        },
+        changeLanguage(lang){
+            this.elements['leftEl'].setLanguage(lang)
+            this.elements['rightEl'].setLanguage(lang)
         },
 
 

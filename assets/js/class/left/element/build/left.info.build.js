@@ -1,8 +1,37 @@
 class LeftElInfoBuild{
     constructor(){
+        // kr
+        this.krStyle = {
+            public: {fontFamily: 'BusanBada'}
+        }
+        this.krText = {
+            friends: '친구',
+            files: '파일'
+        }
+
+        // en
+        this.enStyle = {
+            public: {fontFamily: 'RobotoBlack', transform: 'scaleX(0.7)', transformOrigin: 'right'}
+        }
+        this.enText = {
+            friends: 'Friends',
+            files: 'Archives'
+        }
+
+        this.lang = {
+            kr: {
+                style: this.krStyle,
+                text: this.krText
+            },
+            en: {
+                style: this.enStyle,
+                text: this.enText
+            }
+        }
+
         this.style = {
-            fontFamily: 'BusanBada',
-            opacity: 0
+            container: {opacity: 0},
+            public: {fontFamily: 'BusanBada'}
         }
 
         this.text = {
@@ -47,6 +76,20 @@ class LeftElInfoBuild{
     init(){
         if(window.wallpaperAudioListener){
             window.wallpaperRegisterAudioListener((audioArray) => this.wallpaperAudioListener(audioArray))
+        }
+    }
+
+
+    // set language
+    setLanguage(lang){
+        for(const prop in this.lang[lang].style){
+            const style = this.lang[lang].style
+            this.style[prop] = style[prop]
+        }
+
+        for(const prop in this.lang[lang].text){
+            const text = this.lang[lang].text
+            this.text[prop] = text[prop]
         }
     }
 
@@ -122,7 +165,7 @@ class LeftElInfoBuild{
         .start()
     }
     onUpdateTween({opacity}){
-        this.style.opacity = opacity
+        this.style.container.opacity = opacity
     }
 
 

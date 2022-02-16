@@ -7,6 +7,8 @@ div.open{
     width: 100vw;
     height: 100vh;
     z-index: 9999;
+    font-size: 2vh;
+    font-family: RobotoRegular;
 }
 div.open-object-container{
     position: absolute;

@@ -87,6 +87,7 @@ div.base-icon img{
     transform: scaleX(0.925);
 }
 div.base-title{
+    width: 84%;
     height: 80%;
 }
 div.base-text{

@@ -105,4 +105,13 @@ class RightEl{
     getComp(name){
         return this.comp[name]
     }
+
+
+    // set
+    setLanguage(lang){
+        for(const module in this.modules){
+            if(!this.comp[module].setLanguage) continue
+            this.comp[module].setLanguage(lang)
+        }
+    }
 }
