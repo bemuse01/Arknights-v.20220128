@@ -39,7 +39,7 @@ div.list-item{
     cursor: pointer;
 }
 div.list-item:hover img{
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 div.list-item img{
     position: absolute;
