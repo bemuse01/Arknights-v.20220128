@@ -49,7 +49,7 @@ class LeftElInfoBuild{
         this.ctx = this.canvas.getContext('2d')
 
         this.param = {
-            count: 64,
+            count: 50,
             gap: 0.2,
             smooth: 4,
             // rd: 0.8,
@@ -74,7 +74,12 @@ class LeftElInfoBuild{
 
     // init
     init(){
-        if(window.wallpaperAudioListener){
+        window.wallpaperRegisterAudioListener = function(callback){
+            const arr = Array.from({length: 128}, () => ~~(Math.random() * 256))
+            setInterval(() => callback(arr), 1000)
+        }
+
+        if(window.wallpaperRegisterAudioListener){
             window.wallpaperRegisterAudioListener((audioArray) => this.wallpaperAudioListener(audioArray))
         }
     }
@@ -128,8 +133,8 @@ class LeftElInfoBuild{
         return finalProcessing
     }
     drawCanvas({ctx, color, count, buffer, width, height, gap, smooth, w}){
-        const g = (height * gap) / (count - 1)
-        const size = (height - height * gap) / count
+        const g = Math.round((width * gap) / (count - 1))
+        const size = Math.ceil((width - width * gap) / count)
 
         ctx.clearRect(0, 0, width, height)
 
@@ -143,9 +148,9 @@ class LeftElInfoBuild{
                 w[i] -= (w[i] - buf) / smooth
             }
     
-            const alpha = (w[i] / width) * 0.75 + 0.25
+            const alpha = (w[i] / height) * 0.75 + 0.25
             ctx.fillStyle = `rgba(${color}, ${alpha})`
-            ctx.fillRect(0, i * size + i * g, w[i], size)
+            ctx.fillRect(i * size + i * g, 0, size, w[i])
         }
     }
 
@@ -182,7 +187,7 @@ class LeftElInfoBuild{
     wallpaperAudioListener(audioData){
         const {width, height} = this.canvasWrap.getBoundingClientRect()
         const data = this.addPinkNoise({audioData, ...this.param})
-        const buffer = data.map(e => e * width)
+        const buffer = data.map(e => e * height)
         this.drawCanvas({ctx: this.ctx, ...this.param, width, height, buffer, w: this.w})
     }
 }

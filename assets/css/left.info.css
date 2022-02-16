@@ -51,6 +51,7 @@ div.news-visualizer{
 div.news-visualizer canvas{
     width: 100%;
     height: 100%;
+    transform: scaleY(-1);
 }
 div.news-num{
     width: 100%;
