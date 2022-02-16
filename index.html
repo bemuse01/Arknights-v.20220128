@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
         <meta charset="utf-8">
 
+
         <!-- style -->
         <link href="assets/css/main.css" rel="stylesheet" type="text/css">
 
@@ -315,6 +316,7 @@
                         <div class="right-container right-money-container" :style="getStyle('rightEl', 'money')">
                             <div class="money-box">
                                 <div class="money-wrap">
+                                    <div class="money-child money-bg"></div>
                                     <div
                                         v-for="i in getComp('rightEl', 'money').el"
                                         :key="i.key"

@@ -20,7 +20,7 @@ div.combat-wrap{
 }
 div.combat-bg-wrap{
     background: white;
-    transform: scaleX(1.2);
+    transform: scaleX(1.5);
     transform-origin: left;
 }
 
