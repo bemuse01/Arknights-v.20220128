@@ -74,10 +74,10 @@ class LeftElInfoBuild{
 
     // init
     init(){
-        window.wallpaperRegisterAudioListener = function(callback){
-            const arr = Array.from({length: 128}, () => ~~(Math.random() * 256))
-            setInterval(() => callback(arr), 1000)
-        }
+        // window.wallpaperRegisterAudioListener = function(callback){
+        //     const arr = Array.from({length: 128}, () => ~~(Math.random() * 256))
+        //     setInterval(() => callback(arr), 1000)
+        // }
 
         if(window.wallpaperRegisterAudioListener){
             window.wallpaperRegisterAudioListener((audioArray) => this.wallpaperAudioListener(audioArray))
