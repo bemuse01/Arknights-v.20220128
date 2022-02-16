@@ -49,7 +49,7 @@ class LeftElInfoBuild{
         this.ctx = this.canvas.getContext('2d')
 
         this.param = {
-            count: 50,
+            count: 64,
             gap: 0.2,
             smooth: 4,
             // rd: 0.8,
@@ -148,7 +148,7 @@ class LeftElInfoBuild{
                 w[i] -= (w[i] - buf) / smooth
             }
     
-            const alpha = (w[i] / height) * 0.75 + 0.25
+            const alpha = (w[i] / height) * 0.5 + 0.5
             ctx.fillStyle = `rgba(${color}, ${alpha})`
             ctx.fillRect(i * size + i * g, 0, size, w[i])
         }
