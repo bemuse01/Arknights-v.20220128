@@ -110,9 +110,20 @@
         <script src="assets/js/class/effect/build/effect.particle.build.js"></script>
         <!-- effect -->
         <script src="assets/js/class/effect/effect.js"></script>
+
+        <!-- menu param -->
+        <script src="assets/js/class/menu/param/menuParam.js"></script>
+        <!-- menu build -->
+        <script src="assets/js/class/menu/build/menu.play.js"></script>
+        <script src="assets/js/class/menu/build/menu.child.js"></script>
+        <!-- menu -->
+        <script src="assets/js/class/menu/menu.js"></script>
     </head>
     <body>
         <div id="wrap" v-cloak>
+            <div id="background" :style="setBackgroundStyle">
+                <div></div>
+            </div>
 
             <div id="object">
                 <canvas id="canvas"></canvas>
@@ -210,7 +221,7 @@
                 </div>
 
                 <div class="ui left" :style="getStyle('leftEl', 'child')">
-                    <div class="left-box">
+                    <div class="left-box" :style="setLeftRightStyle">
 
                         <div class="left-container left-button-container" :style="getStyle('leftEl', 'voice')">
                             <div class="left-button-box" @click="toggleCharacterList()">
@@ -287,262 +298,260 @@
                 </div>
 
                 <div class="ui right" :style="getStyle('rightEl', 'child')">
+                    <div class="right-box" :style="setLeftRightStyle">
 
-                    <!-- <div class="right-section right-section-1">
-
-                    </div> -->
-
-                    <div class="right-container right-date-container" :style="getStyle('rightEl', 'date')">
-                        <div class="date-box">
-                            <div class="date-child date-line date-line-left"></div>
-                            <div class="date-child date-text">
-                                <span>{{getComp('rightEl', 'date').text}}</span>
-                            </div>
-                            <div class="date-child date-line date-line-right"></div>
-                        </div>
-                    </div>
-
-                    <div class="right-container right-money-container" :style="getStyle('rightEl', 'money')">
-                        <div class="money-box">
-                            <div class="money-wrap">
-                                <div
-                                    v-for="i in getComp('rightEl', 'money').el"
-                                    :key="i.key"
-                                    :class="`money-child money-amount ${i.className}`"
-                                >
-                                    <img :src="i.src">
-                                    <span>{{i.text}}</span>
+                        <div class="right-container right-date-container" :style="getStyle('rightEl', 'date')">
+                            <div class="date-box">
+                                <div class="date-child date-line date-line-left"></div>
+                                <div class="date-child date-text">
+                                    <span>{{getComp('rightEl', 'date').text}}</span>
                                 </div>
-                                <div class="money-child money-line"></div>
+                                <div class="date-child date-line date-line-right"></div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="right-container right-combat-container" :style="getStyle('rightEl', 'combat').container">
-                        <div class="combat-box opacity-transition">
 
-                            <div class="combat-wrap combat-img-wrap">
-                                <div class="ui-common-bg combat-img combat-common"><img src="assets/src/ui/ui_common.png"></div>
-                                <div class="ui-common-icon combat-img combat-icon"><img src="assets/src/ui/ui_combat_icon_2.png"></div>
-                                <div class="combat-img combat-line"></div>
-                            </div>
-
-                            <div class="combat-wrap combat-content-wrap">
-                                <div class="combat-child combat-sanity">
-                                    <div class="combat-sanity-box">
-                                        <img class="combat-sanity-child combat-sanity-bg" src="assets/src/ui/ui_sanity_2.png">
-                                        <span class="combat-sanity-child combat-sanity-current">{{getText('rightEl', 'combat').crtSanity}}</span>
-                                        <span 
-                                            class="combat-sanity-child combat-sanity-max"
-                                            :style="getStyle('rightEl', 'combat').sanityFont"
-                                        >{{getText('rightEl', 'combat').sanity}}<font style="font-family: OpenSansMedium">/{{getText('rightEl', 'combat').maxSanity}}</font>
-                                        </span>
+                        <div class="right-container right-money-container" :style="getStyle('rightEl', 'money')">
+                            <div class="money-box">
+                                <div class="money-wrap">
+                                    <div
+                                        v-for="i in getComp('rightEl', 'money').el"
+                                        :key="i.key"
+                                        :class="`money-child money-amount ${i.className}`"
+                                    >
+                                        <img :src="i.src">
+                                        <span>{{i.text}}</span>
                                     </div>
-                                </div>
-                                <div class="combat-child combat-title">
-                                    <div 
-                                        class="combat-title-child combat-title-big"
-                                        :style="getStyle('rightEl', 'combat').combatBigFont"
-                                    ><span>{{getText('rightEl', 'combat').combatBig}}</span></div>
-                                    <div 
-                                        class="combat-title-child combat-title-tag"
-                                        :style="getStyle('rightEl', 'combat').combatTagFont"
-                                    ><div><span>{{getText('rightEl', 'combat').combatTag}}</span></div></div>
-                                    <div 
-                                        class="combat-title-child combat-title-small"
-                                        :style="getStyle('rightEl', 'combat').combatSmallFont"
-                                    ><span>{{getText('rightEl', 'combat').combatSmall}}</span></div>
-                                </div>
-                                <div class="combat-child combat-event">
-
+                                    <div class="money-child money-line"></div>
                                 </div>
                             </div>
-
                         </div>
-                    </div>
+                        
+                        <div class="right-container right-combat-container" :style="getStyle('rightEl', 'combat').container">
+                            <div class="combat-box opacity-transition">
 
-                    <div class="right-container right-op-container" :style="getStyle('rightEl', 'op').container">
-                        <div class="op-box">
+                                <div class="combat-wrap combat-bg-wrap"></div>
 
-                            <div class="op-section op-squad opacity-transition">
-
-                                <div class="op-wrap squad-wrap squad-img-wrap">
-                                    <div class="ui-common-bg op-img squad-common"><img src="assets/src/ui/ui_common.png"></div>
-                                    <div class="ui-common-icon op-img op-icon squad-icon"><img src="assets/src/ui/ui_squads_icon_2.png"></div>
+                                <div class="combat-wrap combat-img-wrap">
+                                    <div class="ui-common-bg combat-img combat-common"><img src="assets/src/ui/ui_common.png"></div>
+                                    <div class="ui-common-icon combat-img combat-icon"><img src="assets/src/ui/ui_combat_icon_2.png"></div>
+                                    <div class="combat-img combat-line"></div>
                                 </div>
 
-                                <div class="op-wrap squad-wrap squad-content-wrap">
-                                    <div class="op-title squad-title">
-                                        <span>{{getText('rightEl', 'op').squad}}</span>
+                                <div class="combat-wrap combat-content-wrap">
+                                    <div class="combat-child combat-sanity">
+                                        <div class="combat-sanity-box">
+                                            <img class="combat-sanity-child combat-sanity-bg" src="assets/src/ui/ui_sanity_2.png">
+                                            <span class="combat-sanity-child combat-sanity-current">{{getText('rightEl', 'combat').crtSanity}}</span>
+                                            <span 
+                                                class="combat-sanity-child combat-sanity-max"
+                                                :style="getStyle('rightEl', 'combat').sanityFont"
+                                            >{{getText('rightEl', 'combat').sanity}}<font style="font-family: OpenSansMedium">/{{getText('rightEl', 'combat').maxSanity}}</font>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="combat-child combat-title">
+                                        <div 
+                                            class="combat-title-child combat-title-big"
+                                            :style="getStyle('rightEl', 'combat').combatBigFont"
+                                        ><span>{{getText('rightEl', 'combat').combatBig}}</span></div>
+                                        <div 
+                                            class="combat-title-child combat-title-tag"
+                                            :style="getStyle('rightEl', 'combat').combatTagFont"
+                                        ><div><span>{{getText('rightEl', 'combat').combatTag}}</span></div></div>
+                                        <div 
+                                            class="combat-title-child combat-title-small"
+                                            :style="getStyle('rightEl', 'combat').combatSmallFont"
+                                        ><span>{{getText('rightEl', 'combat').combatSmall}}</span></div>
+                                    </div>
+                                    <div class="combat-child combat-event">
+
                                     </div>
                                 </div>
 
                             </div>
-
-                            <div class="op-section op-operator opacity-transition" :style="getStyle('rightEl', 'op').squadSection">
-
-                                <div class="op-wrap operator-wrap operator-img-wrap">
-                                    <div class="ui-common-bg op-img operator-common"><img src="assets/src/ui/ui_common.png"></div>
-                                    <div class="ui-common-icon op-img op-icon operator-icon"><img src="assets/src/ui/ui_operator_icon_2.png"></div>
-                                </div>
-
-                                <div class="op-wrap operator-wrap squad-wrap operator-content-wrap">
-                                    <div class="op-title operator-text operator-title">
-                                        <span>{{getText('rightEl', 'op').operator}}</span>
-                                    </div>
-                                    <div class="operator-text operator-detail" :style="getStyle('rightEl', 'op').operatorDetail">
-                                        <span>{{getText('rightEl', 'op').operatorDetail}}</span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="op-section op-empty" :style="getStyle('rightEl', 'op').emptySection"></div>
-
                         </div>
-                    </div>
 
-                    <div class="right-container right-store-container" :style="getStyle('rightEl', 'store').container">
-                        <div class="store-box">
+                        <div class="right-container right-op-container" :style="getStyle('rightEl', 'op').container">
+                            <div class="op-box">
 
-                            <div class="store-section store-shop opacity-transition" :style="getStyle('rightEl', 'store').shopSection">
+                                <div class="op-section op-squad opacity-transition">
 
-                                <div class="store-wrap shop-wrap shop-img-wrap">
-                                    <div class="ui-common-bg store-img shop-common"><img src="assets/src/ui/ui_common_blue.png"></div>
-                                    <div class="ui-common-icon store-img store-icon shop-icon"><img src="assets/src/ui/ui_store_icon_2.png"></div>
-                                </div>
-
-                                <div class="store-wrap shop-wrap shop-content-wrap">
-                                    <div class="store-title shop-title">
-                                        <span>{{getText('rightEl', 'store').shop}}</span>
+                                    <div class="op-wrap squad-wrap squad-img-wrap">
+                                        <div class="ui-common-bg op-img squad-common"><img src="assets/src/ui/ui_common.png"></div>
+                                        <div class="ui-common-icon op-img op-icon squad-icon"><img src="assets/src/ui/ui_squads_icon_2.png"></div>
                                     </div>
-                                </div>
 
-                                <div class="store-wrap shop-wrap shop-over-wrap"></div>
-
-                            </div>
-
-                            <div class="store-section store-recruit" :Style="getStyle('rightEl', 'store').shopSection">
-                                <div class="recruit-box">
-
-                                    <div class="recruit-child recruit-title">
-                                        <div class="recruit-title-wrap">
-                                            <div class="recruit-title-icon"><img src="assets/src/ui/ui_recruitment_title_icon.png"></div>
-                                            <div class="recruit-title-text" ><span>{{getText('rightEl', 'store').recruitTitle}}</span>
-                                            </div>
+                                    <div class="op-wrap squad-wrap squad-content-wrap">
+                                        <div class="op-title squad-title">
+                                            <span>{{getText('rightEl', 'op').squad}}</span>
                                         </div>
                                     </div>
 
-                                    <div class="recruit-child recruit-article">
-                                        <div class="recruit-article-wrap recruit-public-wrap opacity-transition">
-                                            <div class="article-box public-box">
+                                </div>
 
-                                                <div class="store-wrap recruit-wrap public-img-wrap">
-                                                    <div class="ui-common-bg recruit-common"><img src="assets/src/ui/ui_common_blue.png"></div>
-                                                    <div class="ui-common-icon store-icon recruit-icon"><img src="assets/src/ui/ui_recruitment_icon.png"></div>
+                                <div class="op-section op-operator opacity-transition" :style="getStyle('rightEl', 'op').squadSection">
+
+                                    <div class="op-wrap operator-wrap operator-img-wrap">
+                                        <div class="ui-common-bg op-img operator-common"><img src="assets/src/ui/ui_common.png"></div>
+                                        <div class="ui-common-icon op-img op-icon operator-icon"><img src="assets/src/ui/ui_operator_icon_2.png"></div>
+                                    </div>
+
+                                    <div class="op-wrap operator-wrap squad-wrap operator-content-wrap">
+                                        <div class="op-title operator-text operator-title">
+                                            <span>{{getText('rightEl', 'op').operator}}</span>
+                                        </div>
+                                        <div class="operator-text operator-detail" :style="getStyle('rightEl', 'op').operatorDetail">
+                                            <span>{{getText('rightEl', 'op').operatorDetail}}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="op-section op-empty" :style="getStyle('rightEl', 'op').emptySection"></div>
+
+                            </div>
+                        </div>
+
+                        <div class="right-container right-store-container" :style="getStyle('rightEl', 'store').container">
+                            <div class="store-box">
+
+                                <div class="store-section store-shop opacity-transition" :style="getStyle('rightEl', 'store').shopSection">
+
+                                    <div class="store-wrap shop-wrap shop-img-wrap">
+                                        <div class="ui-common-bg store-img shop-common"><img src="assets/src/ui/ui_common_blue.png"></div>
+                                        <div class="ui-common-icon store-img store-icon shop-icon"><img src="assets/src/ui/ui_store_icon_2.png"></div>
+                                    </div>
+
+                                    <div class="store-wrap shop-wrap shop-content-wrap">
+                                        <div class="store-title shop-title">
+                                            <span>{{getText('rightEl', 'store').shop}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="store-wrap shop-wrap shop-over-wrap"></div>
+
+                                </div>
+
+                                <div class="store-section store-recruit" :Style="getStyle('rightEl', 'store').shopSection">
+                                    <div class="recruit-box">
+
+                                        <div class="recruit-child recruit-title">
+                                            <div class="recruit-title-wrap">
+                                                <div class="recruit-title-icon"><img src="assets/src/ui/ui_recruitment_title_icon.png"></div>
+                                                <div class="recruit-title-text" ><span>{{getText('rightEl', 'store').recruitTitle}}</span>
                                                 </div>
+                                            </div>
+                                        </div>
 
-                                                <div class="store-wrap recruit-wrap public-content-wrap">
-                                                    <div class="article-title public-title">
-                                                        <span>{{getText('rightEl', 'store').recruitPublic}}</span>
+                                        <div class="recruit-child recruit-article">
+                                            <div class="recruit-article-wrap recruit-public-wrap opacity-transition">
+                                                <div class="article-box public-box">
+
+                                                    <div class="store-wrap recruit-wrap public-img-wrap">
+                                                        <div class="ui-common-bg recruit-common"><img src="assets/src/ui/ui_common_blue.png"></div>
+                                                        <div class="ui-common-icon store-icon recruit-icon"><img src="assets/src/ui/ui_recruitment_icon.png"></div>
                                                     </div>
-                                                    <div class="article-shadow public-shadow"></div>
-                                                </div>
 
-                                            </div>
-                                        </div>
-                                        <div class="recruit-article-wrap recruit-headhunt-wrap opacity-transition">
-                                            <div class="article-box headhunt-box">
-
-                                                <div class="store-wrap recruit-wrap headhunt-img-wrap">
-                                                    <div class="ui-common-bg recruit-common"><img src="assets/src/ui/ui_common_blue.png"></div>
-                                                    <div class="ui-common-icon store-icon recruit-icon headhunt-icon"><img src="assets/src/ui/ui_headhunt_icon.png"></div>
-                                                </div>
-
-                                                <div class="store-wrap recruit-wrap headhunt-content-wrap">
-                                                    <div class="article-title headhunt-title">
-                                                        <span>{{getText('rightEl', 'store').recruitHeadhunt}}</span>
+                                                    <div class="store-wrap recruit-wrap public-content-wrap">
+                                                        <div class="article-title public-title">
+                                                            <span>{{getText('rightEl', 'store').recruitPublic}}</span>
+                                                        </div>
+                                                        <div class="article-shadow public-shadow"></div>
                                                     </div>
-                                                    <div class="article-shadow headhunt-shadow"></div>
-                                                    <div class="headhunt-shadow2"></div>
-                                                </div>
 
+                                                </div>
+                                            </div>
+                                            <div class="recruit-article-wrap recruit-headhunt-wrap opacity-transition">
+                                                <div class="article-box headhunt-box">
+
+                                                    <div class="store-wrap recruit-wrap headhunt-img-wrap">
+                                                        <div class="ui-common-bg recruit-common"><img src="assets/src/ui/ui_common_blue.png"></div>
+                                                        <div class="ui-common-icon store-icon recruit-icon headhunt-icon"><img src="assets/src/ui/ui_headhunt_icon.png"></div>
+                                                    </div>
+
+                                                    <div class="store-wrap recruit-wrap headhunt-content-wrap">
+                                                        <div class="article-title headhunt-title">
+                                                            <span>{{getText('rightEl', 'store').recruitHeadhunt}}</span>
+                                                        </div>
+                                                        <div class="article-shadow headhunt-shadow"></div>
+                                                        <div class="headhunt-shadow2"></div>
+                                                    </div>
+
+                                                </div>
                                             </div>
                                         </div>
+
                                     </div>
-
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="right-container right-facility-container" :style="getStyle('rightEl', 'facility').container">
-                        <div class="facility-box">
-                            
-                            <div class="facility-section facility-mission opacity-transition" :style="getStyle('rightEl', 'facility').missionSection">
-
-                                <div class="facility-wrap mission-wrap mission-img-wrap">
-                                    <div class="ui-common-bg facility-img mission-common"><img src="assets/src/ui/ui_common.png"></div>
-                                    <div class="ui-common-icon facility-img facility-icon mission-icon"><img src="assets/src/ui/ui_mission_icon_2.png"></div>
-                                </div>
-
-                                <div class="facility-wrap mission-wrap mission-content-wrap">
-                                    <div class="facility-title mission-title">
-                                        <span>{{getText('rightEl', 'facility').mission}}</span>
-                                    </div>
-                                    <div class="mission-line"></div>
-                                </div>
+                        <div class="right-container right-facility-container" :style="getStyle('rightEl', 'facility').container">
+                            <div class="facility-box">
                                 
-                            </div>
+                                <div class="facility-section facility-mission opacity-transition" :style="getStyle('rightEl', 'facility').missionSection">
 
-                            <div class="facility-section facility-unit" :style="getStyle('rightEl', 'facility').unitSection">
-                                
-                                <div class="unit-child unit-base opacity-transition">
-
-                                    <div class="facility-wrap base-wrap base-img-wrap">
-                                        <div class="ui-common-bg facility-img base-common"><img src="assets/src/ui/ui_common.png"></div>
-                                        <div class="ui-common-icon facility-img facility-icon base-icon"><img src="assets/src/ui/ui_base_icon_2.png"></div>
-                                        <div class="facility-img base-text"><img src="assets/src/ui/ui_base_text_2.png"></div>
+                                    <div class="facility-wrap mission-wrap mission-img-wrap">
+                                        <div class="ui-common-bg facility-img mission-common"><img src="assets/src/ui/ui_common.png"></div>
+                                        <div class="ui-common-icon facility-img facility-icon mission-icon"><img src="assets/src/ui/ui_mission_icon_2.png"></div>
                                     </div>
 
-                                    <div class="facility-wrap base-wrap base-content-wrap">
-                                        <div class="facility-title base-title">
-                                            <span>{{getText('rightEl', 'facility').base}}</span>
+                                    <div class="facility-wrap mission-wrap mission-content-wrap">
+                                        <div class="facility-title mission-title">
+                                            <span>{{getText('rightEl', 'facility').mission}}</span>
                                         </div>
+                                        <div class="mission-line"></div>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="facility-section facility-unit" :style="getStyle('rightEl', 'facility').unitSection">
+                                    
+                                    <div class="unit-child unit-base opacity-transition">
+
+                                        <div class="facility-wrap base-wrap base-img-wrap">
+                                            <div class="ui-common-bg facility-img base-common"><img src="assets/src/ui/ui_common.png"></div>
+                                            <div class="ui-common-icon facility-img facility-icon base-icon"><img src="assets/src/ui/ui_base_icon_2.png"></div>
+                                            <div class="facility-img base-text"><img src="assets/src/ui/ui_base_text_2.png"></div>
+                                        </div>
+
+                                        <div class="facility-wrap base-wrap base-content-wrap">
+                                            <div class="facility-title base-title">
+                                                <span>{{getText('rightEl', 'facility').base}}</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="unit-child unit-depot opacity-transition">
+
+                                        <div class="facility-wrap depot-wrap depot-img-wrap">
+                                            <div class="ui-common-bg facility-img depot-common"><img src="assets/src/ui/ui_common_gray.png"></div>
+                                            <div class="ui-common-icon facility-img facility-icon depot-icon"><img src="assets/src/ui/ui_depot_icon_2.png"></div>
+                                        </div>
+
+                                        <div class="facility-wrap depot-wrap depot-content-wrap">
+                                            <div class="facility-title depot-title">
+                                                <span>{{getText('rightEl', 'facility').depot}}</span>
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                 </div>
 
-                                <div class="unit-child unit-depot opacity-transition">
-
-                                    <div class="facility-wrap depot-wrap depot-img-wrap">
-                                        <div class="ui-common-bg facility-img depot-common"><img src="assets/src/ui/ui_common_gray.png"></div>
-                                        <div class="ui-common-icon facility-img facility-icon depot-icon"><img src="assets/src/ui/ui_depot_icon_2.png"></div>
-                                    </div>
-
-                                    <div class="facility-wrap depot-wrap depot-content-wrap">
-                                        <div class="facility-title depot-title">
-                                            <span>{{getText('rightEl', 'facility').depot}}</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-
                             </div>
-
                         </div>
+
                     </div>
-
-                    <!-- <div class="right-container right-empty-container"></div> -->
-
                 </div>
 
                 <div class="ui menu">
                     <div class="menu-container menu-shadow-container"></div>
-                    <div class="menu-container menu-icon-container">
-                        <div class="menu-child menu-play">
-                            <img src="assets/src/ui/ui_play_icon.png">
+                    <div class="menu-container menu-icon-container" :style="getStyle('menu', 'child')">
+                        <div class="menu-child menu-play" @click="togglePlay()">
+                            <img :src="setPlayIcon">
                         </div>
                         <div class="menu-child menu-volume">
                             <img src="assets/src/ui/ui_volume_icon.png" @click="toggleVolumeBar()">

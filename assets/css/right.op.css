@@ -31,6 +31,8 @@ div.op-section{
 div.op-empty{
     background: rgba(0, 0, 0, 0.7);
     flex: 0.2;
+    transform: scaleX(1.5);
+    transform-origin: left;
 }
 div.op-wrap{
     position: absolute;

@@ -8,7 +8,6 @@ div.right-combat-container{
 div.combat-box{
     position: relative;
     width: 91%;
-    background: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,6 +17,11 @@ div.combat-wrap{
     position: absolute;
     width: 100%;
     height: 100%;
+}
+div.combat-bg-wrap{
+    background: white;
+    transform: scaleX(1.2);
+    transform-origin: left;
 }
 
 

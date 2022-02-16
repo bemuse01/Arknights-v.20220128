@@ -1,6 +1,6 @@
 class OpenEl{
-    constructor({leftEl, rightEl, profile, openObj, characterObj, effect}){
-        this.wrapNode = document.querySelector('#wrap')
+    constructor({leftEl, rightEl, profile, openObj, characterObj, effect, menu, mouse}){
+        this.wrapNode = document.querySelector('#background div')
         this.parentNode = document.querySelector('.open')
         this.node = document.querySelector('.open-element-container')
         this.frameNode = document.querySelector('#frame')
@@ -11,12 +11,14 @@ class OpenEl{
 
         this.comp = {}
 
+        this.menuProxy = menu.proxy
         this.profileProxy = profile.proxy
         this.leftElProxy = leftEl.proxy
         this.rightElProxy = rightEl.proxy
         this.characterObjProxy = characterObj.proxy
         this.effectProxy = effect.proxy
         this.openObjProxy = openObj.proxy
+        this.mouse = mouse
 
         this.init()
     }
@@ -85,6 +87,7 @@ class OpenEl{
     // event
     onTransitionend(){
         if(this.openObjProxy.play){
+            this.menuProxy.play = true
             this.profileProxy.play = true
             this.leftElProxy.play = true
             this.characterObjProxy.play = true
@@ -96,6 +99,8 @@ class OpenEl{
             this.wrapNode.style.background = `url('./assets/src/lobby_bg.png') no-repeat center center / cover`
 
             this.frameNode.style.opacity = 0
+
+            this.mouse.move = true
         }else{
             this.frameNode.style.display = 'none'
         }

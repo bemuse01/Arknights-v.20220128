@@ -15,6 +15,7 @@ new Vue({
                 openObj: OpenObj,
             },
             elementModules: {
+                menu: Menu,
                 profile: Profile,
                 leftEl: LeftEl,
                 rightEl: RightEl,
@@ -22,6 +23,7 @@ new Vue({
                 openEl: OpenEl,
             },
             elements: {
+                menu: null,
                 profile: null,
                 leftEl: null,
                 rightEl: null,
@@ -29,8 +31,8 @@ new Vue({
                 openEl: null,
             },
             perspective: 0,
-            rotate: 0,
-            friction: 0.15,
+            translate: {x: 0, y: 0},
+            friction: 0.075,
             ix: 0,
             iy: 0,
             vx: 0,
@@ -40,7 +42,11 @@ new Vue({
                 click: true
             },
             volume: 60,
-            isVolumeVisible: false
+            isVolumeVisible: false,
+            nowPlaying: false,
+            mouse:{
+                move: false
+            }
         }
     },
     created(){
@@ -53,12 +59,20 @@ new Vue({
     },
     watch: {
         getVolume(){
+            this.getComp2('menu', 'play').setVolume(this.volume)
             // console.log(this.volume)
         }
     },
     computed: {
         setElementNodeStyle(){
             return {perspective: this.perspective + 'px'}
+        },
+        setLeftRightStyle(){
+            return {transform: `translate(${this.translate.x}px, ${this.translate.y}px)`}
+        },
+        setBackgroundStyle(){
+            if(!this.mouse.move) return {}
+            return {transform: `translate(${-50 - this.translate.x * 0.1}%, ${-50 + this.translate.y * 0.4}%)`}
         },
         getElement(){
             return (name, child) => {
@@ -86,15 +100,10 @@ new Vue({
         },
         getVolume(){
             return this.volume
+        },
+        setPlayIcon(){
+            return this.nowPlaying ? 'assets/src/ui/ui_stop_icon.png' : 'assets/src/ui/ui_play_icon.png'
         }
-        // currentTime(){
-        //     if(!this.elements['left']) return '00:00:00'
-        //     return this.getComp('left', 'clock').getCurrentTime()
-        // },
-        // currentDate(){
-        //     if(!this.elements['right']) return '0000.00.00.Sat'
-        //     return this.getComp('right', 'date').getCurrentDate()
-        // },
     },
     methods: {
         init(){
@@ -139,7 +148,7 @@ new Vue({
             for(const module in this.elementModules){
                 const instance = this.elementModules[module]
 
-                this.elements[module] = new instance({...OBJECT, ...this.elements})
+                this.elements[module] = new instance({...OBJECT, ...this.elements, mouse: this.mouse})
             }
         },
         resizeElement(){
@@ -192,9 +201,8 @@ new Vue({
             const {clientX, clientY} = e
             this.ix = clientX
             this.iy = clientY
-            // console.log(this.ix, this.iy)
         },
-        setRotate(){
+        setTranslate(){
             const wrap = document.querySelector('#wrap')
             if(!wrap) return
 
@@ -203,11 +211,17 @@ new Vue({
             this.vx += (this.ix - this.vx) * this.friction
             this.vy += (this.iy - this.vy) * this.friction
             
-            const x = (this.vx / width) * 6 - 3
-            const y = -(this.vy / height) * 6 + 3
-            const dist = new THREE.Vector2(0, 0).distanceTo(new THREE.Vector2(x, 0))
+            const x = (this.vx / width) * 20 - 10
+            const y = -(this.vy / height) * 10 + 5
 
-            this.rotate = dist
+            this.translate.x = -x
+            this.translate.y = y
+        },
+        togglePlay(){
+            this.nowPlaying = !this.nowPlaying
+            
+            if(this.nowPlaying) this.getComp2('menu', 'play').play()
+            else this.getComp2('menu', 'play').pause()
         },
 
 
@@ -219,7 +233,7 @@ new Vue({
         animate(){
             this.render()
             this.animateElement()
-            // this.setRotate()
+            this.setTranslate()
             requestAnimationFrame(this.animate)
             // requestIdleCallback(this.animate)
         }
