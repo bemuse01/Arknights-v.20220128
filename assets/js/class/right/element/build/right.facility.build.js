@@ -2,7 +2,8 @@ class RightElFacilityBuild{
     constructor(){
         // kr
         this.krStyle = {
-            public: {fontFamily: 'BusanBada', width: 'initial'},
+            mission: {fontFamily: 'BusanBada'},
+            base: {fontFamily: 'BusanBada', width: 'initial'},
             depot: {fontFamily: 'BusanBada'}
         }
         this.krText = {
@@ -13,7 +14,8 @@ class RightElFacilityBuild{
 
         // en
         this.enStyle = {
-            public: {fontFamily: 'RobotoBlack', transform: 'scaleX(0.7)', transformOrigin: 'left', width: '84%'},
+            mission: {fontFamily: 'RobotoBlack', transform: 'scaleX(0.7)', transformOrigin: 'left'},
+            base: {fontFamily: 'RobotoBlack', transform: 'scaleX(0.7)', transformOrigin: 'left', width: '84%'},
             depot: {fontFamily: 'RobotoBlack', transform: 'scaleX(0.7)'}
         }
         this.enText = {
