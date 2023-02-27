@@ -4,6 +4,7 @@ class OpenEl{
         this.parentNode = document.querySelector('.open')
         this.node = document.querySelector('.open-element-container')
         this.frameNode = document.querySelector('#frame')
+        this.coverNode = document.querySelector('#cover')
 
         this.modules = {
             loading: OpenLoadingBuild
@@ -25,25 +26,35 @@ class OpenEl{
 
 
     // init
-    init(){
+    async init(){
         this.initProxy()
         this.create()
 
         this.frameNode.addEventListener('transitionend', () => this.onTransitionend())
+
+        await this.onResourcesLoaded()
     }
     initProxy(){
         const self = this
         
         const proxyObj = {
+            resources: false,
             loading: false
         }
 
         this.proxy = new Proxy(proxyObj, {
+            onLoaded(obj){
+                return obj['resources'] === true
+            },
             isAllTrue(obj){
                 return Object.keys(obj).filter(key => key !== 'element').every(key => obj[key] === true)
             },
             set(obj, prop, value){
                 obj[prop] = value
+
+                if(this.onLoaded(obj)){
+                    self.comp['loading'].open()
+                }
 
                 // when open's comps all true, close open and show map
                 if(this.isAllTrue(obj)){
@@ -104,6 +115,22 @@ class OpenEl{
         }else{
             this.frameNode.style.display = 'none'
         }
+    }
+    async onResourcesLoaded(){
+        await Promise.all(resources.map(({path}) => this.loadImg(path)))
+        this.proxy.resources = true
+        this.coverNode.style.display = 'none'
+    }
+
+
+    // load
+    loadImg(path){
+        return new Promise((resolve, reject) => {
+            const img = new Image()
+            img.src = path
+
+            img.onload = () => resolve(img)
+        })
     }
 
 

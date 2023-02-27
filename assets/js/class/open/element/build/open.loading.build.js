@@ -18,12 +18,11 @@ class OpenLoadingBuild{
 
         this.text = 0
 
-        this.init()
     }
 
 
-    // init
-    init(){
+    // open
+    open(){
         this.createTween()
     }
 

@@ -114,6 +114,14 @@ div#frame{
     height: 100vh;
     transition: opacity 0.5s 0.5s;
 }
+div#cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: black;
+    width: 100vw;
+    height: 100vh;
+}
 
 
 
